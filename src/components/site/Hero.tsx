@@ -160,10 +160,7 @@ export function Hero() {
           </div>
         </div>
 
-        </div>
 
-        {/* Hidden h1 styling to apply font sizing to first SplitHeading line via global selector is awkward;
-            instead, ensure the first SplitHeading uses the same style. We override via className below. */}
 
         <Fade delay={1.4} className="mt-8 max-w-[560px]">
           <p
