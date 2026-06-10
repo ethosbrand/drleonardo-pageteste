@@ -431,8 +431,8 @@ export function Resultados() {
   return (
     <section
       id="resultados"
-      className="relative w-full" style-clip
-      style={{ paddingTop: 160, paddingBottom: 160 }}
+      className="relative w-full"
+      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
     >
       <div className="mx-auto w-full max-w-[1240px] px-6">
         {/* Cabeçalho à esquerda, sem sobreposição */}

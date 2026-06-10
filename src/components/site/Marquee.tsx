@@ -62,8 +62,9 @@ function Row() {
 export function Marquee() {
   return (
     <div
-      className="relative w-full" style-clip
+      className="relative w-full"
       style={{
+        overflowX: "clip",
         borderTop: "1px solid rgba(255,255,255,0.06)",
         borderBottom: "1px solid rgba(255,255,255,0.06)",
         WebkitMaskImage:
