@@ -434,46 +434,40 @@ export function Resultados() {
       style={{ paddingTop: 160, paddingBottom: 160 }}
     >
       <div className="mx-auto w-full max-w-[1240px] px-6">
-        {/* Cabeçalho à esquerda, parcialmente sobreposto ao comparador */}
-        <div className="relative">
-          <div
-            className="relative z-20 max-w-[640px]"
-            style={{ marginBottom: -80 }}
+        {/* Cabeçalho à esquerda, sem sobreposição */}
+        <div className="max-w-[640px]">
+          <Eyebrow>RESULTADOS</Eyebrow>
+          <h2
+            className="mt-6 font-display font-light"
+            style={{
+              fontSize: "clamp(36px, 4.5vw, 56px)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.015em",
+              textAlign: "left",
+            }}
           >
-            <Eyebrow>RESULTADOS</Eyebrow>
-            <h2
-              className="mt-6 font-display font-light"
-              style={{
-                fontSize: "clamp(36px, 4.5vw, 56px)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.015em",
-                textAlign: "left",
-              }}
-            >
-              <SplitHeading as="span" text="Resultados que respeitam quem você é." />
-            </h2>
-            <p
-              className="mt-6 font-sans"
-              style={{
-                maxWidth: 480,
-                color: "#A39C8E",
-                fontSize: 16,
-                lineHeight: 1.65,
-              }}
-            >
-              O melhor elogio para uma faceta é parecer dente. Arraste e compare.
-            </p>
-          </div>
-
-          {/* Comparador deslocado à direita, atrás do título */}
-          <div className="relative z-10 mt-0 flex justify-end">
-            <div className="w-full lg:w-[78%]">
-              <Comparator />
-            </div>
-          </div>
+            <SplitHeading as="span" text="Resultados que respeitam quem você é." />
+          </h2>
+          <p
+            className="mt-6 font-sans"
+            style={{
+              maxWidth: 480,
+              color: "#A39C8E",
+              fontSize: 16,
+              lineHeight: 1.65,
+            }}
+          >
+            O melhor elogio para uma faceta é parecer dente. Arraste e compare.
+          </p>
         </div>
 
-        <div className="mt-28 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Comparador centralizado */}
+        <div style={{ marginTop: 64 }}>
+          <Comparator />
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" style={{ marginTop: 48 }}>
+
           {CASES.map((c, i) => (
             <TiltCard key={c.id} c={c} index={i} />
           ))}
