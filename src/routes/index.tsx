@@ -9,6 +9,9 @@ import { Metodo } from "@/components/site/Metodo";
 import { Resultados } from "@/components/site/Resultados";
 import { Experiencia } from "@/components/site/Experiencia";
 import { Depoimentos } from "@/components/site/Depoimentos";
+import { Faq } from "@/components/site/Faq";
+import { CtaFinal } from "@/components/site/CtaFinal";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,6 +49,9 @@ function HomePage() {
       <Resultados />
       <Experiencia />
       <Depoimentos />
+      <Faq />
+      <CtaFinal />
+      <Footer />
     </main>
   );
 }
