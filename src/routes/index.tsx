@@ -7,6 +7,7 @@ import { Marquee } from "@/components/site/Marquee";
 import { Manifesto } from "@/components/site/Manifesto";
 import { Metodo } from "@/components/site/Metodo";
 import { Resultados } from "@/components/site/Resultados";
+import { Experiencia } from "@/components/site/Experiencia";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -42,6 +43,7 @@ function HomePage() {
       <Manifesto />
       <Metodo />
       <Resultados />
+      <Experiencia />
     </main>
   );
 }
