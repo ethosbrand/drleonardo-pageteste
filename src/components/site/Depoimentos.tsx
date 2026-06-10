@@ -210,7 +210,7 @@ export function Depoimentos() {
                       background: active
                         ? "linear-gradient(90deg, #F6E7C1 0%, #D9B45B 50%, #8A6A1F 100%)"
                         : "rgba(242,238,230,0.25)",
-                      borderRadius: 2,
+                      borderRadius: 0,
                       transition:
                         "width 0.5s cubic-bezier(0.22,1,0.36,1), background 0.4s ease",
                     }}

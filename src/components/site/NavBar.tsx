@@ -111,7 +111,7 @@ export function NavBar() {
           >
             <span
               aria-hidden
-              className="absolute top-1/2 -translate-y-1/2 rounded-full"
+              className="absolute top-1/2 -translate-y-1/2"
               style={{
                 height: "32px",
                 left: 0,

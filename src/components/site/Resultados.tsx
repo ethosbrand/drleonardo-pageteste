@@ -107,7 +107,7 @@ function Comparator() {
         className="resultados-comparator relative w-full overflow-hidden select-none"
         style={{
           aspectRatio: "16 / 10",
-          borderRadius: 24,
+          borderRadius: 0,
           border: "1px solid rgba(255,255,255,0.10)",
           touchAction: "none",
         }}
@@ -142,7 +142,7 @@ function Comparator() {
             background: "rgba(11,10,8,0.6)",
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
-            borderRadius: 999,
+            borderRadius: 0,
             border: "1px solid rgba(255,255,255,0.08)",
           }}
         >
@@ -157,7 +157,7 @@ function Comparator() {
             background: "rgba(11,10,8,0.6)",
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
-            borderRadius: 999,
+            borderRadius: 0,
             border: "1px solid rgba(217,180,91,0.35)",
           }}
         >
@@ -191,7 +191,7 @@ function Comparator() {
             width: 48,
             height: 48,
             transform: "translate(-50%, -50%)",
-            borderRadius: 999,
+            borderRadius: 0,
             border: "1px solid rgba(217,180,91,0.6)",
             background: "rgba(11,10,8,0.5)",
             backdropFilter: "blur(10px)",
@@ -202,7 +202,7 @@ function Comparator() {
         >
           <span
             aria-hidden
-            className="pointer-events-none absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             style={{
               boxShadow:
                 "0 0 0 1px rgba(217,180,91,0.4), 0 0 32px 4px rgba(217,180,91,0.35)",
@@ -359,7 +359,7 @@ function TiltCard({
           className="relative overflow-hidden"
           style={{
             aspectRatio: "4 / 5",
-            borderRadius: 24,
+            borderRadius: 0,
             border: "1px solid rgba(255,255,255,0.08)",
             background: c.gradient,
             rotateX: rx,
@@ -392,7 +392,7 @@ function TiltCard({
           <div
             className="absolute inset-x-4 bottom-4 px-5 py-4"
             style={{
-              borderRadius: 16,
+              borderRadius: 0,
               background: "rgba(11,10,8,0.55)",
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",

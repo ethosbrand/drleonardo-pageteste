@@ -103,7 +103,7 @@ function GlassCard({ f }: { f: Feature }) {
         backdropFilter: "blur(8px)",
         WebkitBackdropFilter: "blur(8px)",
         border: "1px solid rgba(255,255,255,0.08)",
-        borderRadius: 24,
+        borderRadius: 0,
         padding: 40,
         transition:
           "border-color 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease",
