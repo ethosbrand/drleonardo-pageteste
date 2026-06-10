@@ -1,55 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { NavBar } from "@/components/maison/NavBar";
-import { Hero } from "@/components/maison/Hero";
-import { Philosophy } from "@/components/maison/Philosophy";
-import { Process } from "@/components/maison/Process";
-import { Gallery } from "@/components/maison/Gallery";
-import { Materials } from "@/components/maison/Materials";
-import { Testimonials } from "@/components/maison/Testimonials";
-import { Faq } from "@/components/maison/Faq";
-import { Contact } from "@/components/maison/Contact";
-import { Footer } from "@/components/maison/Footer";
-import { GrainOverlay } from "@/components/maison/GrainOverlay";
-import { LenisProvider } from "@/components/maison/LenisProvider";
+import { NoiseOverlay } from "@/components/fx/NoiseOverlay";
+import { SmoothScrollProvider } from "@/components/fx/SmoothScrollProvider";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dr. Leonardo Gomes · Lentes autorais em resina, São Paulo" },
-      {
-        name: "description",
-        content:
-          "Maison Leonardo Gomes. Lentes dentais autorais em resina composta, esculpidas à mão livre em sessão única. Atendimento privado em São Paulo.",
-      },
-      { property: "og:title", content: "Dr. Leonardo Gomes · Lentes autorais em resina" },
-      {
-        property: "og:description",
-        content:
-          "Trabalho clínico autoral em resina composta, sem desgaste dental. Atendimento por convite e indicação em São Paulo.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { title: "Maison Leonardo Gomes" },
+      { name: "description", content: "Lentes autorais em resina, em construção." },
     ],
-    links: [{ rel: "canonical", href: "/" }],
   }),
-  component: MaisonHome,
+  component: FoundationPage,
 });
 
-function MaisonHome() {
+function FoundationPage() {
   return (
-    <main className="relative overflow-hidden bg-[color:var(--background)] text-[color:var(--ivory)]">
-      <LenisProvider />
-      <GrainOverlay />
-      <NavBar />
-      <Hero />
-      <Philosophy />
-      <Process />
-      <Gallery />
-      <Materials />
-      <Testimonials />
-      <Faq />
-      <Contact />
-      <Footer />
+    <main
+      className="relative min-h-screen w-full"
+      style={{ backgroundColor: "#0B0A08", color: "var(--ivory)" }}
+    >
+      <SmoothScrollProvider />
+      <NoiseOverlay />
+      <div className="flex min-h-screen items-center justify-center px-6">
+        <h1
+          className="font-display italic text-[64px] leading-none tracking-[-0.02em] md:text-[120px]"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          Fundação pronta
+        </h1>
+      </div>
     </main>
   );
 }

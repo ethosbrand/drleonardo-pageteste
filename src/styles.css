@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Tokens (fonts loaded via <link> in src/routes/__root.tsx — never @import remote URLs here) */
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--ivory);
@@ -11,20 +13,20 @@
   --color-ivory: var(--ivory);
   --color-muted: var(--muted-text);
   --color-hairline: var(--hairline);
-  --color-gold-1: #F6E7C1;
-  --color-gold-2: #D9B45B;
-  --color-gold-3: #8A6A1F;
+  --color-gold-1: #f6e7c1;
+  --color-gold-2: #d9b45b;
+  --color-gold-3: #8a6a1f;
   --font-display: "Fraunces", serif;
   --font-sans: "Hanken Grotesk", system-ui, sans-serif;
 }
 
 :root {
-  --background: #0B0A08;
+  --background: #0b0a08;
   --surface: #141210;
-  --ivory: #F2EEE6;
-  --muted-text: #A39C8E;
+  --ivory: #f2eee6;
+  --muted-text: #a39c8e;
   --hairline: rgba(255, 255, 255, 0.08);
-  --gold-gradient: linear-gradient(120deg, #F6E7C1 0%, #D9B45B 45%, #8A6A1F 100%);
+  --gold-gradient: linear-gradient(120deg, #f6e7c1 0%, #d9b45b 45%, #8a6a1f 100%);
   --ease-maison: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -32,22 +34,46 @@
   * {
     border-color: var(--hairline);
   }
-  html {
-    background-color: var(--background);
+
+  html,
+  body {
+    overflow-x: hidden;
+    background-color: #0b0a08;
     color: var(--ivory);
+  }
+
+  html {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+
   body {
-    background-color: var(--background);
-    color: var(--ivory);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "ss02";
   }
+
   ::selection {
-    background: #D9B45B;
-    color: #0B0A08;
+    background: rgba(217, 180, 91, 0.25);
+    color: var(--ivory);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0a08;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(120deg, #f6e7c1 0%, #d9b45b 45%, #8a6a1f 100%);
+    border-radius: 20px;
+    border: 3px solid #0b0a08;
+  }
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #d9b45b #0b0a08;
   }
 }
 
@@ -63,24 +89,6 @@
   background: var(--gold-gradient);
 }
 
-@utility eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.35em;
-  font-size: 11px;
-  color: var(--muted-text);
-  font-family: var(--font-sans);
-  font-weight: 500;
-}
-
-@utility hairline {
-  background-color: var(--hairline);
-}
-
-@utility hairline-gold {
-  background: var(--gold-gradient);
-  opacity: 0.55;
-}
-
 @utility font-display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
@@ -88,15 +96,4 @@
 
 @utility font-sans-ui {
   font-family: var(--font-sans);
-}
-
-@utility surface-card {
-  background-color: var(--surface);
-  border: 1px solid var(--hairline);
-  border-radius: 24px;
-}
-
-@utility pill {
-  border-radius: 999px;
-  border: 1px solid var(--hairline);
 }
