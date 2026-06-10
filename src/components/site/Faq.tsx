@@ -71,8 +71,8 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="relative w-full overflow-hidden"
-      style={{ paddingTop: 160, paddingBottom: 160 }}
+      className="relative w-full"
+      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
     >
       <div className="mx-auto w-full max-w-[1240px] px-6">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-12">

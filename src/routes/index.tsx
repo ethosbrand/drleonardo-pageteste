@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AmbientBackground } from "@/components/fx/AmbientBackground";
 import { NoiseOverlay } from "@/components/fx/NoiseOverlay";
+
 import { SmoothScrollProvider } from "@/components/fx/SmoothScrollProvider";
 import { SignatureCurve } from "@/components/fx/SignatureCurve";
 import { NavBar } from "@/components/site/NavBar";
@@ -41,7 +43,9 @@ function HomePage() {
       style={{ backgroundColor: "#0B0A08", color: "var(--ivory)" }}
     >
       <SmoothScrollProvider />
+      <AmbientBackground />
       <NoiseOverlay />
+
       <NavBar />
       <Hero />
       <Marquee />

@@ -126,8 +126,8 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="top"
-      className="relative w-full overflow-hidden"
-      style={{ minHeight: "100vh" }}
+      className="relative w-full"
+      style={{ minHeight: "100vh", overflowX: "clip" }}
     >
       {/* GoldBeams concentrados atrás da foto (direita) */}
       <motion.div

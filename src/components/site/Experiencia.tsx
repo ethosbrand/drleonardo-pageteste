@@ -1,5 +1,5 @@
 import { Eyebrow } from "@/components/fx/Eyebrow";
-import { GlowOrb } from "@/components/fx/GlowOrb";
+
 import { GoldBeams } from "@/components/fx/GoldBeams";
 import { SplitHeading } from "@/components/fx/SplitHeading";
 
@@ -141,16 +141,10 @@ export function Experiencia() {
   return (
     <section
       id="precisao"
-      className="relative w-full overflow-hidden"
-      style={{ paddingTop: 160, paddingBottom: 160, background: "#0B0A08" }}
+      className="relative w-full"
+      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute"
-        style={{ top: "50%", left: "-200px", transform: "translateY(-50%)" }}
-      >
-        <GlowOrb size={800} />
-      </div>
+
       <div
         aria-hidden
         className="pointer-events-none absolute inset-y-0"

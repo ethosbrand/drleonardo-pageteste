@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Eyebrow } from "@/components/fx/Eyebrow";
-import { GlowOrb } from "@/components/fx/GlowOrb";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -116,12 +116,10 @@ export function Manifesto() {
     <section
       ref={sectionRef}
       id="medo"
-      className="relative w-full overflow-hidden"
-      style={{ paddingTop: 160, paddingBottom: 160 }}
+      className="relative w-full"
+      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
     >
-      <div className="pointer-events-none absolute -top-32 right-0 opacity-60">
-        <GlowOrb size={500} />
-      </div>
+
 
       <div className="relative mx-auto w-full max-w-[980px] px-6">
         <Eyebrow>O MAIOR MEDO</Eyebrow>

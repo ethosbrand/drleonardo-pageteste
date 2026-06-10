@@ -1,5 +1,5 @@
 import { Eyebrow } from "@/components/fx/Eyebrow";
-import { GlowOrb } from "@/components/fx/GlowOrb";
+
 import { GoldBeams } from "@/components/fx/GoldBeams";
 import { GoldText } from "@/components/fx/GoldText";
 import { MagneticButton } from "@/components/fx/MagneticButton";
@@ -11,16 +11,11 @@ export function CtaFinal() {
   return (
     <section
       id="cta"
-      className="relative flex w-full items-center justify-center overflow-hidden"
-      style={{ minHeight: "80vh", paddingTop: 120, paddingBottom: 120 }}
+      className="relative flex w-full items-center justify-center"
+      style={{ minHeight: "80vh", paddingTop: 120, paddingBottom: 120, overflowX: "clip" }}
     >
       <GoldBeams intensity={1.4} />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-      >
-        <GlowOrb size={1000} />
-      </div>
+
 
       <div className="relative mx-auto flex w-full max-w-[900px] flex-col items-center px-6 text-center">
         <Eyebrow>PRIMEIRO PASSO</Eyebrow>

@@ -98,8 +98,8 @@ export function Depoimentos() {
   return (
     <section
       id="depoimentos"
-      className="relative w-full overflow-hidden"
-      style={{ paddingTop: 160, paddingBottom: 160 }}
+      className="relative w-full"
+      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
     >
       <div
         className="relative mx-auto w-full px-6"
