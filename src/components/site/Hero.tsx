@@ -256,7 +256,7 @@ export function Hero() {
                 fontSize: "18px",
                 lineHeight: 1.7,
                 fontFamily: "var(--font-sans)",
-                maxWidth: 480,
+                maxWidth: 620,
               }}
             >
               Facetas naturais planejadas pelo Dr. Leonardo Gomes através do
@@ -264,6 +264,7 @@ export function Hero() {
               dentes de catálogo, sem aparência artificial.
             </p>
           </Fade>
+
 
           <Fade
             delay={1.7}
