@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,7 +14,7 @@ type Step = {
   kicker: string;
   title: string;
   body: string;
-  Icon: () => JSX.Element;
+  Icon: () => React.ReactElement;
 };
 
 function GoldStroke({ id }: { id: string }) {
@@ -92,7 +92,7 @@ const STEPS: Step[] = [
 
 export function Metodo() {
   const sectionRef = useRef<HTMLElement>(null);
-  const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const cardRefs = useRef<Array<HTMLElement | null>>([]);
   const progressRef = useRef<HTMLSpanElement>(null);
   const [active, setActive] = useState(0);
 
