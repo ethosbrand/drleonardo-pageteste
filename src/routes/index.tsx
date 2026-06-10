@@ -4,6 +4,7 @@ import { SmoothScrollProvider } from "@/components/fx/SmoothScrollProvider";
 import { NavBar } from "@/components/site/NavBar";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
+import { Manifesto } from "@/components/site/Manifesto";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,6 +37,7 @@ function HomePage() {
       <NavBar />
       <Hero />
       <Marquee />
+      <Manifesto />
     </main>
   );
 }
