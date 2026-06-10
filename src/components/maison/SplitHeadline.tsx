@@ -1,5 +1,5 @@
+import { createElement } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -15,21 +15,20 @@ export function SplitHeadline({
   as?: "h1" | "h2" | "h3";
 }) {
   const reduce = useReducedMotion();
-  const Tag = as as keyof JSX.IntrinsicElements;
 
   if (reduce) {
-    return (
-      <Tag className={className}>
-        {lines.map((line, li) => (
-          <span key={li} className="block">
-            {line.map((seg, si) => (
-              <span key={si} className={seg.gold ? "gold-text" : undefined}>
-                {seg.text}
-              </span>
-            ))}
-          </span>
-        ))}
-      </Tag>
+    return createElement(
+      as,
+      { className },
+      lines.map((line, li) => (
+        <span key={li} className="block">
+          {line.map((seg, si) => (
+            <span key={si} className={seg.gold ? "gold-text" : undefined}>
+              {seg.text}
+            </span>
+          ))}
+        </span>
+      )),
     );
   }
 
