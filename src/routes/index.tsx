@@ -5,6 +5,7 @@ import { NavBar } from "@/components/site/NavBar";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
 import { Manifesto } from "@/components/site/Manifesto";
+import { Metodo } from "@/components/site/Metodo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,6 +39,7 @@ function HomePage() {
       <Hero />
       <Marquee />
       <Manifesto />
+      <Metodo />
     </main>
   );
 }
