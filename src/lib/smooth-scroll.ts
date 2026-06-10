@@ -4,15 +4,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 let lenis: Lenis | null = null;
 
-export function initLenis() {
+export function initSmoothScroll() {
   if (typeof window === "undefined") return null;
   if (lenis) return lenis;
 
   gsap.registerPlugin(ScrollTrigger);
 
   lenis = new Lenis({
-    duration: 1.25,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    lerp: 0.09,
     smoothWheel: true,
   });
 
