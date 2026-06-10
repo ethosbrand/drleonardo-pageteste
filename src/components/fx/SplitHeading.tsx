@@ -1,4 +1,4 @@
-import { createElement, type CSSProperties } from "react";
+import { createElement, useEffect, useState, type CSSProperties } from "react";
 import { useInViewToggle } from "@/hooks/useInViewToggle";
 
 type Props = {
@@ -10,9 +10,9 @@ type Props = {
 };
 
 /**
- * IMPORTANT: default char state (no `data-split-char` attribute) is fully
- * visible. The "pending" state is only applied AFTER the observer is wired,
- * so if JS fails text remains readable.
+ * Default char state is fully visible. On desktop the chars animate per-letter;
+ * on mobile (max-width: 767px or hover:none) we render the text as one block
+ * with a single fade+rise to avoid hundreds of animated nodes during scroll.
  */
 export function SplitHeading({
   text,
@@ -22,8 +22,32 @@ export function SplitHeading({
   delay = 0,
 }: Props) {
   const { ref, mounted, inView } = useInViewToggle<HTMLElement>();
-  const state = !mounted ? undefined : inView ? "in" : "pending";
 
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px), (hover: none)");
+    const update = () => setMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  // MOBILE: single block fade, no per-char split.
+  if (mobile) {
+    const revealState = !mounted ? undefined : inView ? "in" : "pending";
+    return createElement(
+      as,
+      {
+        className,
+        ref: ref as React.Ref<HTMLElement>,
+        "data-reveal": revealState,
+      } as Record<string, unknown>,
+      text
+    );
+  }
+
+  // DESKTOP: per-character split animation.
+  const state = !mounted ? undefined : inView ? "in" : "pending";
   const lines = text.split("\n");
   let charIndex = 0;
 
