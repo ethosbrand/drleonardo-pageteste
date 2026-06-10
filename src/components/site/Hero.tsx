@@ -122,20 +122,24 @@ export function Hero() {
           <Eyebrow>Lentes em resina esculpidas à mão</Eyebrow>
         </Fade>
 
-        <div className="mt-10">
+        <div
+          className="mt-10"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontWeight: 300,
+            fontSize: "clamp(44px, 7vw, 96px)",
+            lineHeight: 1.05,
+            letterSpacing: "-0.02em",
+          }}
+        >
           <SplitHeading
             as="h1"
             text="O sorriso é a sua"
-            className="leading-[1.05]"
+            className="m-0"
             stagger={0.03}
             delay={0.5}
           />
-          <h1
-            aria-hidden
-            className="sr-only"
-          >
-            O sorriso é a sua assinatura.
-          </h1>
+
           {/* second line with gold italic word */}
           <div
             className="mt-1"
