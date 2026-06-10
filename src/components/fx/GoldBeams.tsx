@@ -26,6 +26,7 @@ export function GoldBeams({ intensity = 1, className }: Props) {
       className={
         "pointer-events-none absolute inset-0 overflow-hidden " + (className ?? "")
       }
+      style={{ opacity: "var(--beam-opacity)" as any }}
     >
       {offsets.map((offset, i) => (
         <div
