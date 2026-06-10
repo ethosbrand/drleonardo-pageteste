@@ -1,7 +1,6 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { createElement, useRef } from "react";
 import { GoldBeams } from "@/components/fx/GoldBeams";
-import { Eyebrow } from "@/components/fx/Eyebrow";
 import { GoldText } from "@/components/fx/GoldText";
 import { MagneticButton } from "@/components/fx/MagneticButton";
 
@@ -222,11 +221,7 @@ export function Hero() {
         style={{ minHeight: "100vh" }}
       >
         <div className="col-span-12 flex flex-col justify-center pt-[55vh] pb-24 lg:col-span-6 lg:pt-32 lg:pb-32">
-          <Fade delay={0.3}>
-            <Eyebrow>MÉTODO NAP · NATURALIDADE, ANATOMIA E PRESERVAÇÃO</Eyebrow>
-          </Fade>
-
-          <Fade delay={0.5} className="mt-10">
+          <Fade delay={0.5}>
             <h1
               className="m-0"
               style={{
@@ -235,6 +230,7 @@ export function Hero() {
                 fontSize: "clamp(40px, 5vw, 84px)",
                 lineHeight: 1.05,
                 letterSpacing: "-0.02em",
+                marginTop: 0,
               }}
             >
               <span className="block">Um sorriso novo,</span>
@@ -303,23 +299,6 @@ export function Hero() {
               </span>
               <Arrow />
             </a>
-          </Fade>
-
-          <Fade delay={2} className="mt-10">
-            <span
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: "11px",
-                letterSpacing: "0.35em",
-                textTransform: "uppercase",
-                color: "var(--muted-text)",
-                fontWeight: 500,
-              }}
-            >
-              Atendimento individual
-              <span style={{ color: "#D9B45B", margin: "0 12px" }}>·</span>
-              Coronel Fabriciano, MG
-            </span>
           </Fade>
         </div>
       </div>
