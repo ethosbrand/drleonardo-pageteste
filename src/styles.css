@@ -263,3 +263,15 @@ p, h1, h2, h3, h4 {
     display: none !important;
   }
 }
+
+/* Hero CTAs: tighten on narrow desktop so both labels stay on one line */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-ctas .magnetic-btn {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    font-size: 12px !important;
+  }
+  .hero-ctas a[href="#metodo"] {
+    font-size: 12px !important;
+  }
+}
