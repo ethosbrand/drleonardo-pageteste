@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { NoiseOverlay } from "@/components/fx/NoiseOverlay";
 import { SmoothScrollProvider } from "@/components/fx/SmoothScrollProvider";
+import { SignatureCurve } from "@/components/fx/SignatureCurve";
 import { NavBar } from "@/components/site/NavBar";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
@@ -45,6 +46,7 @@ function HomePage() {
       <Hero />
       <Marquee />
       <Manifesto />
+      <SignatureCurve />
       <Metodo />
       <Resultados />
       <Experiencia />

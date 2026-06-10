@@ -434,33 +434,43 @@ export function Resultados() {
       style={{ paddingTop: 160, paddingBottom: 160 }}
     >
       <div className="mx-auto w-full max-w-[1240px] px-6">
-        <div className="flex flex-col items-center text-center">
-          <Eyebrow>RESULTADOS</Eyebrow>
-          <h2
-            className="mt-8 font-display font-light"
-            style={{
-              fontSize: "clamp(36px, 4.5vw, 56px)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.015em",
-            }}
+        {/* Cabeçalho à esquerda, parcialmente sobreposto ao comparador */}
+        <div className="relative">
+          <div
+            className="relative z-20 max-w-[640px]"
+            style={{ marginBottom: -80 }}
           >
-            <SplitHeading as="span" text="Veja a diferença que ninguém percebe." />
-          </h2>
-          <p
-            className="mt-6 font-sans"
-            style={{
-              maxWidth: 520,
-              color: "#A39C8E",
-              fontSize: 16,
-              lineHeight: 1.65,
-            }}
-          >
-            O melhor elogio para uma lente é parecer dente. Arraste e compare.
-          </p>
-        </div>
+            <Eyebrow>RESULTADOS</Eyebrow>
+            <h2
+              className="mt-6 font-display font-light"
+              style={{
+                fontSize: "clamp(36px, 4.5vw, 56px)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.015em",
+                textAlign: "left",
+              }}
+            >
+              <SplitHeading as="span" text="Veja a diferença que ninguém percebe." />
+            </h2>
+            <p
+              className="mt-6 font-sans"
+              style={{
+                maxWidth: 480,
+                color: "#A39C8E",
+                fontSize: 16,
+                lineHeight: 1.65,
+              }}
+            >
+              O melhor elogio para uma lente é parecer dente. Arraste e compare.
+            </p>
+          </div>
 
-        <div className="mt-20">
-          <Comparator />
+          {/* Comparador deslocado à direita, atrás do título */}
+          <div className="relative z-10 mt-0 flex justify-end">
+            <div className="w-full lg:w-[78%]">
+              <Comparator />
+            </div>
+          </div>
         </div>
 
         <div className="mt-28 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

@@ -17,22 +17,11 @@ type Step = {
   Icon: () => React.ReactElement;
 };
 
-function GoldStroke({ id }: { id: string }) {
-  return (
-    <defs>
-      <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#F6E7C1" />
-        <stop offset="45%" stopColor="#D9B45B" />
-        <stop offset="100%" stopColor="#8A6A1F" />
-      </linearGradient>
-    </defs>
-  );
-}
+const ICON_STROKE = "rgba(242,238,230,0.7)";
 
 function IconStudy() {
   return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="url(#g-study)" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
-      <GoldStroke id="g-study" />
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke={ICON_STROKE} strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
       <path d="M14 6c5 0 9 4 9 10 0 3-1 6-3 8-1 1-1 2-1 3v5c0 1-1 2-2 2h-4c-1 0-2-1-2-2v-3c0-1 0-2-1-3-3-2-5-5-5-9 0-6 4-11 9-11Z" />
       <circle cx="27" cy="22" r="6" />
       <path d="M31.5 26.5 36 31" />
@@ -42,8 +31,7 @@ function IconStudy() {
 
 function IconSculpt() {
   return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="url(#g-sculpt)" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
-      <GoldStroke id="g-sculpt" />
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke={ICON_STROKE} strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
       <path d="M5 32c6-2 11-5 15-9" />
       <path d="M4 35c8-1 16-5 22-11" />
       <path d="m22 16 8-8 4 4-8 8-5 1Z" />
@@ -54,8 +42,7 @@ function IconSculpt() {
 
 function IconDiamond() {
   return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="url(#g-diamond)" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
-      <GoldStroke id="g-diamond" />
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke={ICON_STROKE} strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
       <path d="M8 15h24L20 35 8 15Z" />
       <path d="M8 15l4-8h16l4 8" />
       <path d="M12 7l3 8M28 7l-3 8M14 15l6 20M26 15l-6 20M8 15h24" />
@@ -248,11 +235,10 @@ export function Metodo() {
                           fontSize: 14,
                           letterSpacing: "0.18em",
                           fontWeight: 400,
+                          color: "rgba(242,238,230,0.7)",
                         }}
                       >
-                        <GoldText>
-                          {s.num} · {s.kicker}
-                        </GoldText>
+                        {s.num} · {s.kicker}
                       </div>
                       <h3
                         className="mt-4 font-display font-light"

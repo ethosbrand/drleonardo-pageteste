@@ -34,23 +34,16 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 function QuoteMark() {
   return (
     <svg
-      width="120"
-      height="120"
+      width="220"
+      height="220"
       viewBox="0 0 120 120"
       fill="none"
-      stroke="url(#dep-quote)"
+      stroke="rgba(242,238,230,0.7)"
       strokeWidth={1}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
     >
-      <defs>
-        <linearGradient id="dep-quote" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#F6E7C1" />
-          <stop offset="50%" stopColor="#D9B45B" />
-          <stop offset="100%" stopColor="#8A6A1F" />
-        </linearGradient>
-      </defs>
       <path d="M28 78c0-22 10-38 28-46-8 8-12 18-12 28h8c6 0 10 4 10 10v8c0 6-4 10-10 10h-14c-6 0-10-4-10-10Z" />
       <path d="M70 78c0-22 10-38 28-46-8 8-12 18-12 28h8c6 0 10 4 10 10v8c0 6-4 10-10 10H80c-6 0-10-4-10-10Z" />
     </svg>
@@ -110,33 +103,22 @@ export function Depoimentos() {
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <div className="flex flex-col items-center text-center">
-          <div className="opacity-50">
-            <QuoteMark />
-          </div>
+        {/* Aspa gigante posicionada fora da margem esquerda (parcialmente cortada) */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute"
+          style={{
+            left: "-110px",
+            top: 40,
+            opacity: 0.4,
+          }}
+        >
+          <QuoteMark />
+        </div>
 
+        <div className="flex flex-col items-start text-left">
           <div className="relative mt-4 w-full" style={{ minHeight: 260 }}>
-            {/* Arrows */}
-            <button
-              type="button"
-              aria-label="Depoimento anterior"
-              onClick={prev}
-              className="dep-arrow absolute left-0 top-1/2 -translate-y-1/2 p-2"
-              style={{ color: "var(--ivory)" }}
-            >
-              <Arrow dir="left" />
-            </button>
-            <button
-              type="button"
-              aria-label="Próximo depoimento"
-              onClick={next}
-              className="dep-arrow dep-arrow-right absolute right-0 top-1/2 -translate-y-1/2 p-2"
-              style={{ color: "var(--ivory)" }}
-            >
-              <Arrow dir="right" />
-            </button>
-
-            <div className="mx-12 sm:mx-16">
+            <div className="pr-16 sm:pr-20">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={i}
@@ -154,11 +136,12 @@ export function Depoimentos() {
                       lineHeight: 1.4,
                       letterSpacing: "-0.005em",
                       color: "var(--ivory)",
+                      textAlign: "left",
                     }}
                   >
                     {s.quote}
                   </p>
-                  <div className="mt-10 flex flex-col items-center gap-3">
+                  <div className="mt-10 flex flex-col items-start gap-3">
                     <span
                       className="font-sans"
                       style={{
@@ -186,29 +169,51 @@ export function Depoimentos() {
             </div>
           </div>
 
-          {/* Indicators */}
-          <div className="mt-12 flex items-center gap-3">
-            {SLIDES.map((_, idx) => {
-              const active = idx === i;
-              return (
-                <button
-                  key={idx}
-                  type="button"
-                  aria-label={`Ir para depoimento ${idx + 1}`}
-                  onClick={() => setI(idx)}
-                  style={{
-                    height: 2,
-                    width: active ? 40 : 24,
-                    background: active
-                      ? "linear-gradient(90deg, #F6E7C1 0%, #D9B45B 50%, #8A6A1F 100%)"
-                      : "rgba(242,238,230,0.25)",
-                    borderRadius: 2,
-                    transition:
-                      "width 0.5s cubic-bezier(0.22,1,0.36,1), background 0.4s ease",
-                  }}
-                />
-              );
-            })}
+          {/* Controles: setas + indicadores na mesma linha, alinhados à esquerda */}
+          <div className="mt-12 flex w-full items-center gap-6">
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                aria-label="Depoimento anterior"
+                onClick={prev}
+                className="dep-arrow p-2"
+                style={{ color: "var(--ivory)" }}
+              >
+                <Arrow dir="left" />
+              </button>
+              <button
+                type="button"
+                aria-label="Próximo depoimento"
+                onClick={next}
+                className="dep-arrow dep-arrow-right p-2"
+                style={{ color: "var(--ivory)" }}
+              >
+                <Arrow dir="right" />
+              </button>
+            </div>
+            <div className="flex items-center gap-3">
+              {SLIDES.map((_, idx) => {
+                const active = idx === i;
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    aria-label={`Ir para depoimento ${idx + 1}`}
+                    onClick={() => setI(idx)}
+                    style={{
+                      height: 2,
+                      width: active ? 40 : 24,
+                      background: active
+                        ? "linear-gradient(90deg, #F6E7C1 0%, #D9B45B 50%, #8A6A1F 100%)"
+                        : "rgba(242,238,230,0.25)",
+                      borderRadius: 2,
+                      transition:
+                        "width 0.5s cubic-bezier(0.22,1,0.36,1), background 0.4s ease",
+                    }}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
