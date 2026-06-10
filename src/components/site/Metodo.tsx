@@ -235,11 +235,10 @@ export function Metodo() {
                           fontSize: 14,
                           letterSpacing: "0.18em",
                           fontWeight: 400,
+                          color: "rgba(242,238,230,0.7)",
                         }}
                       >
-                        <GoldText>
-                          {s.num} · {s.kicker}
-                        </GoldText>
+                        {s.num} · {s.kicker}
                       </div>
                       <h3
                         className="mt-4 font-display font-light"
