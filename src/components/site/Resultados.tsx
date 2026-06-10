@@ -92,7 +92,7 @@ function Comparator() {
   }, []);
 
   return (
-    <div className="relative w-full" style={{ maxWidth: 880, margin: "0 auto" }}>
+    <div className="relative w-full">
       <span
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
@@ -104,7 +104,7 @@ function Comparator() {
       />
       <div
         ref={wrapRef}
-        className="relative w-full overflow-hidden select-none"
+        className="resultados-comparator relative w-full overflow-hidden select-none"
         style={{
           aspectRatio: "16 / 10",
           borderRadius: 24,
@@ -116,6 +116,7 @@ function Comparator() {
           updateFromClientX(e.clientX);
         }}
       >
+
         {/* DEPOIS (full background) */}
         <div className="absolute inset-0">
           {/* <img src="/cases/depois.jpg" alt="Sorriso após as lentes" className="h-full w-full object-cover" /> */}
@@ -449,9 +450,9 @@ export function Resultados() {
             <SplitHeading as="span" text="Resultados que respeitam quem você é." />
           </h2>
           <p
-            className="mt-6 font-sans"
+            className="resultados-lede mt-6 font-sans"
             style={{
-              maxWidth: 480,
+              maxWidth: 720,
               color: "#A39C8E",
               fontSize: 16,
               lineHeight: 1.65,
@@ -459,6 +460,7 @@ export function Resultados() {
           >
             O melhor elogio para uma faceta é parecer dente. Arraste e compare.
           </p>
+
         </div>
 
         {/* Comparador centralizado */}

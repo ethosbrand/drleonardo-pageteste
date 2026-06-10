@@ -3,8 +3,8 @@ import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-moti
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
-  magneticStrength?: number; // max px of attraction
-  proximity?: number; // px around button where magnetism activates
+  magneticStrength?: number;
+  proximity?: number;
 };
 
 export function MagneticButton({
@@ -27,7 +27,6 @@ export function MagneticButton({
 
   function handleMove(e: React.MouseEvent<HTMLButtonElement>) {
     const el = ref.current;
-    // Disable magnetism on touch / hover-less devices and reduced motion.
     const noHover =
       typeof window !== "undefined" &&
       window.matchMedia("(hover: none)").matches;
@@ -44,7 +43,6 @@ export function MagneticButton({
         x.set((dx / range) * magneticStrength * pull * 2);
         y.set((dy / range) * magneticStrength * pull * 2);
       }
-      // glow follow
       const localX = e.clientX - rect.left;
       el.style.setProperty("--glow-x", `${localX}px`);
     }
@@ -67,6 +65,8 @@ export function MagneticButton({
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
+      whileHover={reduce ? undefined : { scale: 1.04, filter: "brightness(1.06)" }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       style={{
         x: sx,
         y: sy,
@@ -77,14 +77,18 @@ export function MagneticButton({
         borderRadius: 999,
         position: "relative",
         overflow: "hidden",
+        flexShrink: 0,
         ...style,
       }}
       className={
-        "relative inline-flex items-center justify-center gap-3 px-8 py-4 text-[13px] tracking-[0.18em] uppercase " +
+        "magnetic-btn relative inline-flex items-center justify-center gap-3 px-8 py-4 text-[13px] tracking-[0.18em] uppercase " +
         (className ?? "")
       }
       {...(rest as any)}
     >
+      {/* Shimmer auto loop */}
+      <span aria-hidden className="magnetic-btn__shimmer pointer-events-none absolute" />
+      {/* Mouse glow follow */}
       <span
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -95,7 +99,9 @@ export function MagneticButton({
           transition: "background 0.4s var(--ease-maison)",
         }}
       />
-      <span className="relative z-10">{children}</span>
+      <span className="relative z-10" style={{ whiteSpace: "nowrap" }}>
+        {children}
+      </span>
     </motion.button>
   );
 }
