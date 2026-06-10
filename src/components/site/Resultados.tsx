@@ -184,7 +184,7 @@ function Comparator() {
             e.stopPropagation();
             draggingRef.current = true;
           }}
-          className="group absolute top-1/2 flex items-center justify-center"
+          className="cmp-handle group absolute top-1/2 flex items-center justify-center"
           style={{
             left: `${pos}%`,
             width: 48,
@@ -214,7 +214,7 @@ function Comparator() {
         </button>
       </div>
       <style>{`
-        .group:hover { transform: translate(-50%, -50%) scale(1.08) !important; }
+        .cmp-handle:hover { transform: translate(-50%, -50%) scale(1.08) !important; }
       `}</style>
     </div>
   );
