@@ -47,8 +47,7 @@ export function SplitHeading({
                     className="inline-block"
                     initial={{ y: "110%" }}
                     whileInView={{ y: "0%" }}
-                    exit={{ y: "110%" }}
-                    viewport={{ margin: "-15% 0px -15% 0px", once: false }}
+                    viewport={{ amount: 0.2, margin: "0px 0px -5% 0px", once: false }}
                     transition={{
                       duration: 0.9,
                       ease: EASE,
