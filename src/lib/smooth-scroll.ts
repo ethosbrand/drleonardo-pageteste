@@ -8,6 +8,13 @@ export function initSmoothScroll() {
   if (typeof window === "undefined") return null;
   if (lenis) return lenis;
 
+  // Respect reduced motion: skip Lenis entirely so scroll feels native.
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) {
+    gsap.registerPlugin(ScrollTrigger);
+    return null;
+  }
+
   gsap.registerPlugin(ScrollTrigger);
 
   lenis = new Lenis({

@@ -100,8 +100,10 @@ export function Metodo() {
     const section = sectionRef.current;
     if (!section) return;
 
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const ctx = gsap.context(() => {
-      if (progressRef.current) {
+      if (progressRef.current && !reduce) {
         gsap.fromTo(
           progressRef.current,
           { scaleY: 0 },
@@ -117,6 +119,8 @@ export function Metodo() {
             },
           }
         );
+      } else if (progressRef.current && reduce) {
+        progressRef.current.style.transform = "scaleY(1)";
       }
 
       const triggers: ScrollTrigger[] = [];
