@@ -275,3 +275,174 @@ p, h1, h2, h3, h4 {
     font-size: 12px !important;
   }
 }
+
+/* ===============================================================
+   MOBILE PASS — all overrides scoped to <768px (or hover:none).
+   Desktop unchanged. Goal: 60fps scroll, zero horizontal overflow,
+   typography legible at 360-414px.
+   =============================================================== */
+
+@media (max-width: 767px) {
+  /* ITEM 0 — kill horizontal overflow at the root */
+  html, body {
+    overflow-x: clip;
+  }
+
+  /* Kill ALL whiteSpace:nowrap inlined on text in mobile, EXCEPT inside
+     button labels (those keep nowrap via the .magnetic-btn span rule below). */
+  h1 span[style*="nowrap"],
+  h2 span[style*="nowrap"],
+  p[style*="nowrap"],
+  .resultados-lede {
+    white-space: normal !important;
+  }
+
+  /* ITEM 1 — typography */
+  /* Hero H1: allow wrap, smaller clamp */
+  section#top h1 {
+    font-size: clamp(34px, 9.5vw, 44px) !important;
+    line-height: 1.08 !important;
+  }
+  section#top h1 span { white-space: normal !important; }
+
+  /* Section titles */
+  #metodo h2, #resultados h2, #precisao h2, #faq h2, #cta h2 {
+    font-size: clamp(28px, 8vw, 36px) !important;
+    line-height: 1.12 !important;
+  }
+
+  /* Manifesto paragraph */
+  #medo p {
+    font-size: clamp(22px, 6.5vw, 28px) !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Eyebrows — tighter tracking, smaller */
+  #medo .inline-flex span,
+  #metodo .inline-flex span,
+  #resultados .inline-flex span,
+  #precisao .inline-flex span,
+  #depoimentos .inline-flex span,
+  #faq .inline-flex span,
+  #cta .inline-flex span {
+    letter-spacing: 0.28em !important;
+  }
+
+  /* Paragraphs */
+  section p { max-width: 100% !important; }
+
+  /* ITEM 2 — buttons on mobile */
+  .magnetic-btn {
+    width: 100%;
+    max-width: 360px;
+    padding: 20px 24px !important;
+    font-size: 12px !important;
+    min-height: 48px;
+  }
+  /* Keep label on one line; shrink at very narrow widths */
+  .magnetic-btn > span:last-child { white-space: nowrap; }
+  @media (max-width: 360px) {
+    .magnetic-btn { font-size: 11px !important; letter-spacing: 0.14em !important; }
+  }
+
+  /* Hero CTAs: stack vertical with proper gap, button full width, ghost link below */
+  .hero-ctas {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+    flex-wrap: nowrap !important;
+  }
+  .hero-ctas a[href="#metodo"] {
+    align-self: flex-start;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* ITEM 3 — performance & motion */
+  /* Per-char split disabled on mobile (SplitHeading also bypasses; this is belt-and-suspenders) */
+  [data-split-char] {
+    transform: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+  }
+
+  /* ITEM 4 — section-specific layout */
+
+  /* Hero: tighten top padding on short viewports */
+  section#top > div.relative.z-10 > div {
+    padding-top: 55vh;
+  }
+
+  /* O Método cards: smaller padding, smaller icons */
+  .metodo-card { padding: 28px !important; border-radius: 20px !important; }
+  .metodo-card svg { width: 32px !important; height: 32px !important; }
+  .metodo-card h3 { font-size: 22px !important; }
+
+  /* Precisão cards */
+  .exp-card { padding: 28px !important; border-radius: 20px !important; }
+  .exp-card svg { width: 32px !important; height: 32px !important; }
+  .exp-card h3 { font-size: 20px !important; }
+
+  /* Resultados comparator: bigger touch handle */
+  .resultados-comparator { aspect-ratio: 16 / 10 !important; }
+  .cmp-handle {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  /* Depoimentos quote mark — bring inside viewport, smaller */
+  #depoimentos > div > div[aria-hidden] {
+    left: 0 !important;
+    top: 20px !important;
+    opacity: 0.25 !important;
+  }
+  #depoimentos > div > div[aria-hidden] svg {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  /* Quote text */
+  #depoimentos p.font-display {
+    font-size: clamp(20px, 5.5vw, 24px) !important;
+  }
+  /* Arrow buttons + indicators: bigger touch area */
+  .dep-arrow {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* FAQ: bigger tap target */
+  #faq button[aria-expanded] {
+    min-height: 56px;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  #faq button[aria-expanded] span.font-display {
+    font-size: 17px !important;
+  }
+
+  /* Marquee */
+  .marquee-track {
+    animation-duration: 55s !important;
+  }
+  .marquee-track span {
+    font-size: 10px !important;
+  }
+  .marquee-track > div > div { gap: 24px !important; }
+
+  /* CTA Final button centered */
+  #cta .magnetic-btn { margin-left: auto; margin-right: auto; }
+}
+
+/* Short-viewport hero: reduce top vacuum */
+@media (max-width: 767px) and (max-height: 700px) {
+  section#top .pt-\[55vh\] { padding-top: 48vh !important; }
+}
+
+/* Touch-friendly comparator handle even on tablets */
+@media (hover: none) {
+  .cmp-handle { width: 56px !important; height: 56px !important; }
+}
