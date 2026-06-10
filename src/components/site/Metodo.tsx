@@ -110,20 +110,20 @@ export function Metodo() {
         progressRef.current.style.transform = "scaleY(1)";
       }
 
-      const triggers: ScrollTrigger[] = [];
-      cardRefs.current.forEach((card, i) => {
-        if (!card) return;
-        const t = ScrollTrigger.create({
-          trigger: card,
-          start: "top center",
-          end: "bottom center",
-          onToggle: (self) => {
-            if (self.isActive) setActive(i);
-          },
+      const onScroll = () => {
+        const threshold = window.innerHeight * 0.6;
+        let next = 0;
+        cardRefs.current.forEach((card, i) => {
+          if (!card) return;
+          const top = card.getBoundingClientRect().top;
+          if (top < threshold) next = i;
         });
-        triggers.push(t);
-      });
-      return () => triggers.forEach((t) => t.kill());
+        setActive((prev) => (prev === next ? prev : next));
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+      return () => window.removeEventListener("scroll", onScroll);
+
     }, section);
 
     return () => ctx.revert();
