@@ -82,7 +82,7 @@ export function MagneticButton({
         color: "#0B0A08",
         fontFamily: "var(--font-sans)",
         fontWeight: 600,
-        borderRadius: 999,
+        borderRadius: 0,
         position: "relative",
         overflow: "hidden",
         flexShrink: 0,

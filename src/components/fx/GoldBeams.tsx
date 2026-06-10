@@ -38,7 +38,7 @@ export function GoldBeams({ intensity = 1, className }: Props) {
             marginTop: "-400px",
             background:
               "linear-gradient(to top, transparent 5%, rgba(246,231,193,0.9) 90%)",
-            borderRadius: "100px",
+            borderRadius: "0",
             filter: `blur(${blur}px)`,
             opacity: 0.16 * intensity,
             transform: "rotate(-15deg) translateZ(0)",

@@ -218,7 +218,7 @@ export function Metodo() {
                     style={{
                       background: "#141210",
                       border: "1px solid rgba(255,255,255,0.08)",
-                      borderRadius: 24,
+                      borderRadius: 0,
                       padding: 48,
                       transition: "border-color 0.5s ease, box-shadow 0.5s ease",
                     }}
