@@ -42,7 +42,7 @@ function ScrollIndicator() {
     <div className="relative h-12 w-px overflow-hidden" aria-hidden>
       <span
         className="absolute inset-0"
-        style={{ background: "rgba(255,255,255,0.08)" }}
+        style={{ background: "rgba(var(--text-rgb),0.08)" }}
       />
       {!reduce && (
         <motion.span
