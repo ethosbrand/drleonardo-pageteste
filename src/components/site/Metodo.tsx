@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Eyebrow } from "@/components/fx/Eyebrow";
 import { GoldText } from "@/components/fx/GoldText";
 import { Reveal } from "@/components/fx/Reveal";
-import { SplitHeading } from "@/components/fx/SplitHeading";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
