@@ -71,7 +71,7 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="relative w-full overflow-hidden"
+      className="relative w-full" style-clip
       style={{ paddingTop: 160, paddingBottom: 160 }}
     >
       <div className="mx-auto w-full max-w-[1240px] px-6">

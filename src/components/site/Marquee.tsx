@@ -62,7 +62,7 @@ function Row() {
 export function Marquee() {
   return (
     <div
-      className="relative w-full overflow-hidden"
+      className="relative w-full" style-clip
       style={{
         borderTop: "1px solid rgba(255,255,255,0.06)",
         borderBottom: "1px solid rgba(255,255,255,0.06)",
