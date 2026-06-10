@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 
 type Props = { intensity?: number; className?: string };
 
-const OFFSETS = [-800, -400, 200, 700];
+const OFFSETS_DESKTOP = [-800, -400, 200, 700];
+const OFFSETS_MOBILE = [-200, 200];
 
 export function GoldBeams({ intensity = 1, className }: Props) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 768px)");
+    const mq = window.matchMedia("(max-width: 767px)");
     const update = () => setIsMobile(mq.matches);
     update();
     mq.addEventListener("change", update);
@@ -17,6 +18,7 @@ export function GoldBeams({ intensity = 1, className }: Props) {
 
   const width = isMobile ? 100 : 150;
   const blur = isMobile ? 15 : 60;
+  const offsets = isMobile ? OFFSETS_MOBILE : OFFSETS_DESKTOP;
 
   return (
     <div
@@ -25,7 +27,7 @@ export function GoldBeams({ intensity = 1, className }: Props) {
         "pointer-events-none absolute inset-0 overflow-hidden " + (className ?? "")
       }
     >
-      {OFFSETS.map((offset, i) => (
+      {offsets.map((offset, i) => (
         <div
           key={i}
           className="absolute top-1/2 left-1/2"
@@ -39,7 +41,8 @@ export function GoldBeams({ intensity = 1, className }: Props) {
             borderRadius: "100px",
             filter: `blur(${blur}px)`,
             opacity: 0.16 * intensity,
-            transform: "rotate(-15deg)",
+            transform: "rotate(-15deg) translateZ(0)",
+            willChange: "transform",
           }}
         />
       ))}
