@@ -174,14 +174,13 @@ export function Hero() {
               filter: "grayscale(20%) contrast(1.05) brightness(0.85)",
             }}
           />
-          {/* Máscara da esquerda: do #0B0A08 sólido a transparente nos 35% iniciais
-              — em mobile, vira fade-down forte na metade inferior. */}
+          {/* Máscaras fundem a foto ao fundo da página em ambos os temas. */}
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 hidden lg:block"
             style={{
               background:
-                "linear-gradient(90deg, #0B0A08 0%, rgba(11,10,8,0.92) 18%, rgba(11,10,8,0) 35%)",
+                "linear-gradient(90deg, rgb(var(--photo-mask-rgb)) 0%, rgba(var(--photo-mask-rgb),0.92) 18%, rgba(var(--photo-mask-rgb),0) 35%)",
             }}
           />
           <span
@@ -189,27 +188,25 @@ export function Hero() {
             className="pointer-events-none absolute inset-0 lg:hidden"
             style={{
               background:
-                "linear-gradient(180deg, rgba(11,10,8,0) 0%, rgba(11,10,8,0.55) 45%, #0B0A08 75%)",
+                "linear-gradient(180deg, rgba(var(--photo-mask-rgb),0) 0%, rgba(var(--photo-mask-rgb),0.55) 45%, rgb(var(--photo-mask-rgb)) 75%)",
             }}
           />
-          {/* Fade na base */}
           <span
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0"
             style={{
               height: "25%",
               background:
-                "linear-gradient(180deg, rgba(11,10,8,0) 0%, #0B0A08 100%)",
+                "linear-gradient(180deg, rgba(var(--photo-mask-rgb),0) 0%, rgb(var(--photo-mask-rgb)) 100%)",
             }}
           />
-          {/* Vignette leve no topo */}
           <span
             aria-hidden
             className="pointer-events-none absolute inset-x-0 top-0"
             style={{
               height: "30%",
               background:
-                "linear-gradient(180deg, rgba(11,10,8,0.55) 0%, rgba(11,10,8,0) 100%)",
+                "linear-gradient(180deg, rgba(var(--photo-mask-rgb),0.55) 0%, rgba(var(--photo-mask-rgb),0) 100%)",
             }}
           />
         </div>
