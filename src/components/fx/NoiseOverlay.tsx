@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const NOISE_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(
   `<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'>
     <filter id='n'>
@@ -9,6 +11,15 @@ const NOISE_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(
 )}`;
 
 export function NoiseOverlay() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
   return (
     <div
       aria-hidden
@@ -16,7 +27,8 @@ export function NoiseOverlay() {
       style={{
         backgroundImage: `url("${NOISE_SVG}")`,
         backgroundRepeat: "repeat",
-        opacity: 0.035,
+        backgroundSize: mobile ? "480px 480px" : "240px 240px",
+        opacity: mobile ? 0.025 : 0.035,
         mixBlendMode: "overlay",
       }}
     />

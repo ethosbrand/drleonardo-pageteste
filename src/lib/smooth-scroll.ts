@@ -8,14 +8,18 @@ export function initSmoothScroll() {
   if (typeof window === "undefined") return null;
   if (lenis) return lenis;
 
-  // Respect reduced motion: skip Lenis entirely so scroll feels native.
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Respect reduced motion + skip Lenis on touch / narrow viewports.
+  // Native scroll feels better on mobile and avoids jank from the rAF loop
+  // running on top of huge blurred orbs / scrub triggers.
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduce) {
-    gsap.registerPlugin(ScrollTrigger);
+  const noHover = window.matchMedia("(hover: none)").matches;
+  const narrow = window.matchMedia("(max-width: 1023px)").matches;
+  if (reduce || noHover || narrow) {
+    // ScrollTrigger updates automatically on native scroll — nothing else needed.
     return null;
   }
-
-  gsap.registerPlugin(ScrollTrigger);
 
   lenis = new Lenis({
     lerp: 0.09,

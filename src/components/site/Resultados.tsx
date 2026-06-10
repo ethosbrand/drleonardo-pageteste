@@ -307,7 +307,8 @@ function TiltCard({
     const el = ref.current;
     if (!el) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    const narrow = window.matchMedia("(max-width: 767px), (hover: none)").matches;
+    if (reduce || narrow) return;
     const trigger = ScrollTrigger.create({
       trigger: el,
       start: "top bottom",

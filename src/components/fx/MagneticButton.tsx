@@ -1,4 +1,4 @@
-import { useRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ButtonHTMLAttributes, type ReactNode } from "react";
 import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -19,6 +19,14 @@ export function MagneticButton({
 }: Props) {
   const ref = useRef<HTMLButtonElement>(null);
   const reduce = useReducedMotion();
+  const [noHover, setNoHover] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: none), (max-width: 767px)");
+    const update = () => setNoHover(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -63,13 +71,13 @@ export function MagneticButton({
   return (
     <motion.button
       ref={ref}
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-      whileHover={reduce ? undefined : { scale: 1.04, filter: "brightness(1.06)" }}
+      onMouseMove={noHover ? onMouseMove : handleMove}
+      onMouseLeave={noHover ? onMouseLeave : handleLeave}
+      whileHover={reduce || noHover ? undefined : { scale: 1.04, filter: "brightness(1.06)" }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       style={{
-        x: sx,
-        y: sy,
+        x: noHover ? 0 : sx,
+        y: noHover ? 0 : sy,
         background: "var(--gold-gradient)",
         color: "#0B0A08",
         fontFamily: "var(--font-sans)",
@@ -88,17 +96,19 @@ export function MagneticButton({
     >
       {/* Shimmer auto loop */}
       <span aria-hidden className="magnetic-btn__shimmer pointer-events-none absolute" />
-      {/* Mouse glow follow */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(140px circle at var(--glow-x, 50%) 50%, rgba(255,255,255,0.55), transparent 65%)",
-          mixBlendMode: "soft-light",
-          transition: "background 0.4s var(--ease-maison)",
-        }}
-      />
+      {/* Mouse glow follow — desktop only */}
+      {!noHover && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(140px circle at var(--glow-x, 50%) 50%, rgba(255,255,255,0.55), transparent 65%)",
+            mixBlendMode: "soft-light",
+            transition: "background 0.4s var(--ease-maison)",
+          }}
+        />
+      )}
       <span className="relative z-10" style={{ whiteSpace: "nowrap" }}>
         {children}
       </span>
