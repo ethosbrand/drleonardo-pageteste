@@ -450,9 +450,9 @@ export function Resultados() {
             <SplitHeading as="span" text="Resultados que respeitam quem você é." />
           </h2>
           <p
-            className="mt-6 font-sans"
+            className="resultados-lede mt-6 font-sans"
             style={{
-              maxWidth: 480,
+              maxWidth: 720,
               color: "#A39C8E",
               fontSize: 16,
               lineHeight: 1.65,
@@ -460,6 +460,7 @@ export function Resultados() {
           >
             O melhor elogio para uma faceta é parecer dente. Arraste e compare.
           </p>
+
         </div>
 
         {/* Comparador centralizado */}
