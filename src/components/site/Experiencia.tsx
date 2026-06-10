@@ -5,7 +5,7 @@ import { SplitHeading } from "@/components/fx/SplitHeading";
 
 /* --------------------------- ICONS (marfim) --------------------------- */
 
-const ICON_STROKE = "rgba(242,238,230,0.7)";
+const ICON_STROKE = "rgba(var(--text-rgb), 0.7)";
 
 const ICON_PROPS = {
   width: 36,
@@ -99,10 +99,10 @@ function GlassCard({ f }: { f: Feature }) {
     <div
       className="exp-card group relative h-full"
       style={{
-        background: "rgba(255,255,255,0.03)",
+        background: "var(--surface-faint)",
         backdropFilter: "blur(8px)",
         WebkitBackdropFilter: "blur(8px)",
-        border: "1px solid rgba(255,255,255,0.08)",
+        border: "1px solid var(--border)",
         borderRadius: 0,
         padding: 40,
         transition:
@@ -126,7 +126,7 @@ function GlassCard({ f }: { f: Feature }) {
         style={{
           fontSize: 15,
           lineHeight: 1.65,
-          color: "#A39C8E",
+          color: "var(--muted-text)",
         }}
       >
         {f.body}
@@ -171,7 +171,7 @@ export function Experiencia() {
             style={{
               fontSize: 17,
               lineHeight: 1.65,
-              color: "#A39C8E",
+              color: "var(--muted-text)",
               maxWidth: 640,
             }}
           >

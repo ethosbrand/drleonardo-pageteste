@@ -3,7 +3,7 @@ export function Footer() {
     <footer
       className="relative w-full"
       style={{
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid var(--border-soft)",
         padding: "64px 0",
       }}
     >
@@ -70,7 +70,7 @@ export function Footer() {
             fontSize: 10,
             letterSpacing: "0.35em",
             textTransform: "uppercase",
-            color: "#6E675C",
+            color: "var(--muted-text)",
           }}
         >
           <span>DR. LEONARDO GOMES · CRO-MG 00000 · RESPONSÁVEL TÉCNICO</span>
@@ -82,7 +82,7 @@ export function Footer() {
           className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
           style={{
             fontSize: 12,
-            color: "rgba(242,238,230,0.4)",
+            color: "rgba(var(--text-rgb), 0.4)",
             fontFamily: "var(--font-sans)",
           }}
         >

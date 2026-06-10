@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/fx/MagneticButton";
+import { ThemeToggle } from "@/components/fx/ThemeToggle";
 
 const LINKS = [
   { href: "#medo", label: "O Medo" },
@@ -68,10 +69,10 @@ export function NavBar() {
       <header
         className="fixed inset-x-0 top-0 z-50 transition-all duration-700"
         style={{
-          backgroundColor: scrolled ? "rgba(11,10,8,0.85)" : "transparent",
+          backgroundColor: scrolled ? "var(--glass)" : "transparent",
           backdropFilter: scrolled ? "blur(12px)" : "none",
           borderBottom: scrolled
-            ? "1px solid rgba(255,255,255,0.08)"
+            ? "1px solid var(--border)"
             : "1px solid transparent",
         }}
       >
@@ -145,7 +146,8 @@ export function NavBar() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <div className="hidden md:block">
+            <ThemeToggle className="hidden md:inline-flex" />
+            <div className="hidden md:block" style={{ marginLeft: -8 }}>
               <MagneticButton
                 onClick={() => {
                   const el = document.querySelector("#cta");
@@ -187,8 +189,11 @@ export function NavBar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: EASE }}
             className="fixed inset-0 z-30 flex flex-col items-center justify-center lg:hidden"
-            style={{ backgroundColor: "#0B0A08" }}
+            style={{ backgroundColor: "var(--bg)" }}
           >
+            <div className="absolute top-5 right-6">
+              <ThemeToggle />
+            </div>
             <nav className="flex flex-col items-center gap-8">
               {LINKS.map((l, i) => (
                 <motion.a

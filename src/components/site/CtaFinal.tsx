@@ -41,7 +41,7 @@ export function CtaFinal() {
           style={{
             fontSize: 17,
             lineHeight: 1.65,
-            color: "#A39C8E",
+            color: "var(--muted-text)",
             maxWidth: 560,
           }}
         >
@@ -65,7 +65,7 @@ export function CtaFinal() {
             fontSize: 10,
             letterSpacing: "0.35em",
             textTransform: "uppercase",
-            color: "rgba(242,238,230,0.5)",
+            color: "rgba(var(--text-rgb), 0.5)",
           }}
         >
           ESTÉTICA DENTAL · FACETAS NATURAIS · CORONEL FABRICIANO, MG

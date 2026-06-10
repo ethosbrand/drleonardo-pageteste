@@ -15,7 +15,7 @@ export function GlowOrb({ size = 700, className, style }: Props) {
         width: `${size}px`,
         height: `${size}px`,
         background:
-          "radial-gradient(circle, rgba(217,180,91,0.22), transparent 70%)",
+          "radial-gradient(circle, var(--orb-color), transparent 70%)",
         filter: "blur(80px)",
         ...style,
       }}

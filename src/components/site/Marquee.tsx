@@ -65,8 +65,8 @@ export function Marquee() {
       className="relative w-full"
       style={{
         overflowX: "clip",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid var(--border-soft)",
+        borderBottom: "1px solid var(--border-soft)",
         WebkitMaskImage:
           "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
         maskImage:

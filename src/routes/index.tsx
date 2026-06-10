@@ -40,7 +40,7 @@ function HomePage() {
   return (
     <main
       className="relative min-h-screen w-full"
-      style={{ backgroundColor: "#0B0A08", color: "var(--ivory)" }}
+      style={{ backgroundColor: "var(--bg)", color: "var(--ivory)" }}
     >
       <SmoothScrollProvider />
       <AmbientBackground />

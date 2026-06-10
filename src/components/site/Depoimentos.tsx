@@ -42,7 +42,7 @@ function QuoteMark() {
       height="220"
       viewBox="0 0 120 120"
       fill="none"
-      stroke="rgba(242,238,230,0.7)"
+      stroke="rgba(var(--text-rgb), 0.7)"
       strokeWidth={1}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -162,7 +162,7 @@ export function Depoimentos() {
                         fontSize: 10,
                         letterSpacing: "0.35em",
                         textTransform: "uppercase",
-                        color: "rgba(242,238,230,0.55)",
+                        color: "rgba(var(--text-rgb), 0.55)",
                       }}
                     >
                       {s.description}
@@ -209,7 +209,7 @@ export function Depoimentos() {
                       width: active ? 40 : 24,
                       background: active
                         ? "linear-gradient(90deg, #F6E7C1 0%, #D9B45B 50%, #8A6A1F 100%)"
-                        : "rgba(242,238,230,0.25)",
+                        : "rgba(var(--text-rgb), 0.25)",
                       borderRadius: 0,
                       transition:
                         "width 0.5s cubic-bezier(0.22,1,0.36,1), background 0.4s ease",

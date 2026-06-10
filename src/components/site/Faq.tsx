@@ -103,7 +103,7 @@ export function Faq() {
                   <Reveal key={it.q} direction="up" delay={i * 0.08}>
                     <li
                       style={{
-                        borderBottom: "1px solid rgba(255,255,255,0.08)",
+                        borderBottom: "1px solid var(--border)",
                       }}
                     >
                       <button
@@ -140,7 +140,7 @@ export function Faq() {
                               style={{
                                 fontSize: 16,
                                 lineHeight: 1.7,
-                                color: "#A39C8E",
+                                color: "var(--muted-text)",
                               }}
                             >
                               {it.a}
