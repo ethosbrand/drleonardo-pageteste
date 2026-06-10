@@ -185,3 +185,81 @@ p, h1, h2, h3, h4 {
   }
 }
 
+
+/* ---------------------------------------------------------------
+   Premium primary button (MagneticButton)
+   --------------------------------------------------------------- */
+
+.magnetic-btn {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.18),
+    0 0 20px rgba(217, 180, 91, 0.3);
+  animation: magnetic-btn-glow 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes magnetic-btn-glow {
+  from {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.18),
+      0 0 20px rgba(217, 180, 91, 0.3);
+  }
+  to {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.18),
+      0 0 36px rgba(217, 180, 91, 0.55);
+  }
+}
+
+.magnetic-btn__shimmer {
+  top: -50%;
+  left: 0;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.65) 50%,
+    transparent 65%
+  );
+  transform: translateX(-160%) skewX(-20deg);
+  animation: magnetic-btn-shimmer 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes magnetic-btn-shimmer {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+  }
+  68% {
+    transform: translateX(280%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(280%) skewX(-20deg);
+  }
+}
+
+/* Comparator: wider aspect ratio on desktop */
+@media (min-width: 1024px) {
+  .resultados-comparator {
+    aspect-ratio: 21 / 9 !important;
+  }
+  .resultados-lede {
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magnetic-btn {
+    animation: none !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -2px 6px rgba(0, 0, 0, 0.18),
+      0 0 20px rgba(217, 180, 91, 0.3) !important;
+  }
+  .magnetic-btn__shimmer {
+    display: none !important;
+  }
+}
