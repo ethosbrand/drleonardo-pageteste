@@ -34,23 +34,16 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 function QuoteMark() {
   return (
     <svg
-      width="120"
-      height="120"
+      width="220"
+      height="220"
       viewBox="0 0 120 120"
       fill="none"
-      stroke="url(#dep-quote)"
+      stroke="rgba(242,238,230,0.7)"
       strokeWidth={1}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
     >
-      <defs>
-        <linearGradient id="dep-quote" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#F6E7C1" />
-          <stop offset="50%" stopColor="#D9B45B" />
-          <stop offset="100%" stopColor="#8A6A1F" />
-        </linearGradient>
-      </defs>
       <path d="M28 78c0-22 10-38 28-46-8 8-12 18-12 28h8c6 0 10 4 10 10v8c0 6-4 10-10 10h-14c-6 0-10-4-10-10Z" />
       <path d="M70 78c0-22 10-38 28-46-8 8-12 18-12 28h8c6 0 10 4 10 10v8c0 6-4 10-10 10H80c-6 0-10-4-10-10Z" />
     </svg>
