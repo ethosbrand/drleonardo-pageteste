@@ -268,8 +268,9 @@ export function Hero() {
 
           <Fade
             delay={1.7}
-            className="mt-12 flex flex-wrap md:flex-nowrap items-center justify-start gap-6"
+            className="hero-ctas mt-12 flex flex-wrap md:flex-nowrap items-center justify-start gap-6"
           >
+
             <MagneticButton
               onClick={() =>
                 document
