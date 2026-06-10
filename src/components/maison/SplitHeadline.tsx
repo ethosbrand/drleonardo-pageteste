@@ -33,35 +33,35 @@ export function SplitHeadline({
   }
 
   let charIndex = 0;
-  return (
-    <Tag className={className}>
-      {lines.map((line, li) => (
-        <span key={li} className="block overflow-hidden">
-          <span className="inline-block">
-            {line.map((seg, si) => (
-              <span key={si} className={seg.gold ? "gold-text" : undefined}>
-                {Array.from(seg.text).map((ch, ci) => {
-                  const i = charIndex++;
-                  return (
-                    <motion.span
-                      key={`${li}-${si}-${ci}`}
-                      className="inline-block"
-                      style={{ whiteSpace: "pre" }}
-                      initial={{ y: "110%" }}
-                      whileInView={{ y: "0%" }}
-                      exit={{ y: "110%" }}
-                      viewport={{ margin: "-15% 0px -15% 0px", once: false }}
-                      transition={{ duration: 0.9, ease: EASE, delay: i * 0.03 }}
-                    >
-                      {ch}
-                    </motion.span>
-                  );
-                })}
-              </span>
-            ))}
-          </span>
+  return createElement(
+    as,
+    { className },
+    lines.map((line, li) => (
+      <span key={li} className="block overflow-hidden">
+        <span className="inline-block">
+          {line.map((seg, si) => (
+            <span key={si} className={seg.gold ? "gold-text" : undefined}>
+              {Array.from(seg.text).map((ch, ci) => {
+                const i = charIndex++;
+                return (
+                  <motion.span
+                    key={`${li}-${si}-${ci}`}
+                    className="inline-block"
+                    style={{ whiteSpace: "pre" }}
+                    initial={{ y: "110%" }}
+                    whileInView={{ y: "0%" }}
+                    exit={{ y: "110%" }}
+                    viewport={{ margin: "-15% 0px -15% 0px", once: false }}
+                    transition={{ duration: 0.9, ease: EASE, delay: i * 0.03 }}
+                  >
+                    {ch}
+                  </motion.span>
+                );
+              })}
+            </span>
+          ))}
         </span>
-      ))}
-    </Tag>
+      </span>
+    )),
   );
 }
