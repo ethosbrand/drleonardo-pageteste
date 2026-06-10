@@ -79,7 +79,7 @@ export function MagneticButton({
         x: noHover ? 0 : sx,
         y: noHover ? 0 : sy,
         background: "var(--gold-gradient)",
-        color: "#0B0A08",
+        color: "#16130E",
         fontFamily: "var(--font-sans)",
         fontWeight: 600,
         borderRadius: 0,
