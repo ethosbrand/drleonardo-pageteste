@@ -264,19 +264,19 @@ const CASES: Case[] = [
     id: "caso-1",
     meta: "Caso real · facetas naturais",
     description: "Fechamento de espaços",
-    gradient: "linear-gradient(160deg, #1E1B17 0%, #2C2620 60%, #3A2F1E 100%)",
+    gradient: "var(--ph-case-1)",
   },
   {
     id: "caso-2",
     meta: "Caso real · facetas naturais",
     description: "Correção de cor e formato",
-    gradient: "linear-gradient(160deg, #161513 0%, #221F1B 50%, #2E2820 100%)",
+    gradient: "var(--ph-case-2)",
   },
   {
     id: "caso-3",
     meta: "Caso real · facetas naturais",
     description: "Harmonização do sorriso",
-    gradient: "linear-gradient(160deg, #1A1714 0%, #2A2521 55%, #3D311F 100%)",
+    gradient: "var(--ph-case-3)",
   },
 ];
 
