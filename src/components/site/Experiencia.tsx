@@ -166,28 +166,39 @@ function CountUp({ stat }: { stat: Stat }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const run = () => {
+      if (startedRef.current) return;
+      startedRef.current = true;
+      const start = performance.now();
+      const dur = 1600;
+      const tick = (t: number) => {
+        const p = Math.min(1, (t - start) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        setN(Math.round(stat.value * eased));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
-          if (e.isIntersecting && !startedRef.current) {
-            startedRef.current = true;
-            const start = performance.now();
-            const dur = 1600;
-            const tick = (t: number) => {
-              const p = Math.min(1, (t - start) / dur);
-              // easeOutCubic
-              const eased = 1 - Math.pow(1 - p, 3);
-              setN(Math.round(stat.value * eased));
-              if (p < 1) requestAnimationFrame(tick);
-            };
-            requestAnimationFrame(tick);
+          if (e.isIntersecting) {
+            run();
             io.disconnect();
           }
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.15, rootMargin: "0px 0px -5% 0px" }
     );
     io.observe(el);
+
+    // Fallback: if already in viewport at mount, fire immediately.
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < vh && rect.bottom > 0) run();
+
     return () => io.disconnect();
   }, [stat.value]);
 
