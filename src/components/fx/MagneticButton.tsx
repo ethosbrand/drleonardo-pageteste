@@ -27,7 +27,11 @@ export function MagneticButton({
 
   function handleMove(e: React.MouseEvent<HTMLButtonElement>) {
     const el = ref.current;
-    if (el && !reduce) {
+    // Disable magnetism on touch / hover-less devices and reduced motion.
+    const noHover =
+      typeof window !== "undefined" &&
+      window.matchMedia("(hover: none)").matches;
+    if (el && !reduce && !noHover) {
       const rect = el.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;

@@ -48,17 +48,29 @@ export function Manifesto() {
     if (!paragraph || !section) return;
 
     const words = paragraph.querySelectorAll<HTMLSpanElement>("[data-word]");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Reduced motion: snap to final state, no scrub.
+    if (reduce) {
+      words.forEach((el) => {
+        const isGold = el.dataset.gold === "true";
+        el.style.color = isGold ? "transparent" : "#F2EEE6";
+        el.style.backgroundSize = isGold ? "100% 100%" : "0% 100%";
+      });
+      if (lineRef.current) lineRef.current.style.width = "240px";
+      return;
+    }
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
         words,
         { color: "rgba(242,238,230,0.14)", backgroundSize: "0% 100%" },
         {
-          color: (i, el) =>
+          color: (_i, el) =>
             (el as HTMLElement).dataset.gold === "true"
               ? "rgba(242,238,230,0)"
               : "#F2EEE6",
-          backgroundSize: (i, el) =>
+          backgroundSize: (_i, el) =>
             (el as HTMLElement).dataset.gold === "true" ? "100% 100%" : "0% 100%",
           ease: "none",
           stagger: { each: 1, from: "start" },

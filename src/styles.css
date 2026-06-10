@@ -97,3 +97,39 @@
 @utility font-sans-ui {
   font-family: var(--font-sans);
 }
+
+/* Mobile-first vertical rhythm: reduce 160px section paddings to 96px */
+@media (max-width: 767px) {
+  #manifesto,
+  #metodo,
+  #resultados,
+  #experiencia,
+  #depoimentos,
+  #faq,
+  #cta {
+    padding-top: 96px !important;
+    padding-bottom: 96px !important;
+  }
+}
+
+/* Accessibility: respect prefers-reduced-motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Prevent orphan text overflow */
+p, h1, h2, h3, h4 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+

@@ -305,6 +305,8 @@ function TiltCard({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
     const trigger = ScrollTrigger.create({
       trigger: el,
       start: "top bottom",
@@ -323,21 +325,33 @@ function TiltCard({
     return () => trigger.kill();
   }, []);
 
+  const noHover =
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: none)").matches;
+
   return (
     <Reveal direction="up" delay={index * 0.12}>
       <div
         ref={ref}
         className="group relative"
         style={{ perspective: 900 }}
-        onPointerMove={(e) => {
-          const r = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
-          mx.set((e.clientX - r.left) / r.width - 0.5);
-          my.set((e.clientY - r.top) / r.height - 0.5);
-        }}
-        onPointerLeave={() => {
-          mx.set(0);
-          my.set(0);
-        }}
+        onPointerMove={
+          noHover
+            ? undefined
+            : (e) => {
+                const r = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+                mx.set((e.clientX - r.left) / r.width - 0.5);
+                my.set((e.clientY - r.top) / r.height - 0.5);
+              }
+        }
+        onPointerLeave={
+          noHover
+            ? undefined
+            : () => {
+                mx.set(0);
+                my.set(0);
+              }
+        }
       >
         <motion.article
           className="relative overflow-hidden"
