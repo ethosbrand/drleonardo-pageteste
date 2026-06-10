@@ -96,17 +96,19 @@ export function MagneticButton({
     >
       {/* Shimmer auto loop */}
       <span aria-hidden className="magnetic-btn__shimmer pointer-events-none absolute" />
-      {/* Mouse glow follow */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(140px circle at var(--glow-x, 50%) 50%, rgba(255,255,255,0.55), transparent 65%)",
-          mixBlendMode: "soft-light",
-          transition: "background 0.4s var(--ease-maison)",
-        }}
-      />
+      {/* Mouse glow follow — desktop only */}
+      {!noHover && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(140px circle at var(--glow-x, 50%) 50%, rgba(255,255,255,0.55), transparent 65%)",
+            mixBlendMode: "soft-light",
+            transition: "background 0.4s var(--ease-maison)",
+          }}
+        />
+      )}
       <span className="relative z-10" style={{ whiteSpace: "nowrap" }}>
         {children}
       </span>
