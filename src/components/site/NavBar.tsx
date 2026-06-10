@@ -191,6 +191,9 @@ export function NavBar() {
             className="fixed inset-0 z-30 flex flex-col items-center justify-center lg:hidden"
             style={{ backgroundColor: "var(--bg)" }}
           >
+            <div className="absolute top-5 right-6">
+              <ThemeToggle />
+            </div>
             <nav className="flex flex-col items-center gap-8">
               {LINKS.map((l, i) => (
                 <motion.a
