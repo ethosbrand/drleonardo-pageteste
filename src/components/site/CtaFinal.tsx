@@ -23,7 +23,7 @@ export function CtaFinal() {
       </div>
 
       <div className="relative mx-auto flex w-full max-w-[900px] flex-col items-center px-6 text-center">
-        <Eyebrow>AGENDA DO MÊS ABERTA</Eyebrow>
+        <Eyebrow>PRIMEIRO PASSO</Eyebrow>
         <h2
           className="mt-8 font-display font-light"
           style={{
@@ -32,11 +32,11 @@ export function CtaFinal() {
             letterSpacing: "-0.02em",
           }}
         >
-          <SplitHeading as="span" text="Seu sorriso," />{" "}
+          <SplitHeading as="span" text="Seu sorriso, planejado" />{" "}
           <em className="not-italic">
             <GoldText>
               <span style={{ fontStyle: "italic", fontWeight: 300 }}>
-                assinado à mão.
+                para você.
               </span>
             </GoldText>
           </em>
@@ -50,7 +50,9 @@ export function CtaFinal() {
             maxWidth: 560,
           }}
         >
-          As vagas de avaliação são limitadas para preservar a qualidade de cada caso. Garanta a sua.
+          Na avaliação, o Dr. Leonardo analisa seu caso, apresenta as
+          possibilidades e desenha um planejamento personalizado para o seu
+          sorriso.
         </p>
 
         <div className="mt-12">
@@ -58,7 +60,7 @@ export function CtaFinal() {
             onClick={() => window.open(WHATSAPP_URL, "_blank", "noopener,noreferrer")}
             style={{ padding: "22px 40px", fontSize: 14 }}
           >
-            Solicitar avaliação privada
+            Agendar avaliação pelo WhatsApp
           </MagneticButton>
         </div>
 
@@ -71,7 +73,7 @@ export function CtaFinal() {
             color: "rgba(242,238,230,0.5)",
           }}
         >
-          RESPOSTA EM ATÉ 24H ÚTEIS · ATENDIMENTO CONFIDENCIAL
+          ESTÉTICA DENTAL · FACETAS NATURAIS · CORONEL FABRICIANO, MG
         </span>
       </div>
     </section>

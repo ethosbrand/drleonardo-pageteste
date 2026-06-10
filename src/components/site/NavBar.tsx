@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/fx/MagneticButton";
 
 const LINKS = [
+  { href: "#medo", label: "O Medo" },
   { href: "#metodo", label: "O Método" },
   { href: "#resultados", label: "Resultados" },
-  { href: "#experiencia", label: "Experiência" },
-  { href: "#depoimentos", label: "Depoimentos" },
+  { href: "#precisao", label: "Precisão" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -49,7 +49,6 @@ export function NavBar() {
     });
   }, [hoverIndex, activeIndex, scrolled]);
 
-  // close on resize to desktop
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
     const onChange = () => mq.matches && setOpen(false);
@@ -77,13 +76,12 @@ export function NavBar() {
         }}
       >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-5 md:px-10">
-          {/* Wordmark */}
-          <a href="#top" className="flex items-baseline gap-3" aria-label="Vicente Almada">
+          <a href="#top" className="flex items-baseline gap-3" aria-label="Leonardo Gomes">
             <span
               className="text-[20px] leading-none"
               style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
             >
-              Vicente Almada
+              Leonardo Gomes
             </span>
             <span className="hidden items-baseline gap-3 sm:flex">
               <span
@@ -101,12 +99,11 @@ export function NavBar() {
                   fontWeight: 500,
                 }}
               >
-                Odontologia Autoral
+                Método NAP
               </span>
             </span>
           </a>
 
-          {/* Center links */}
           <nav
             ref={navRef}
             onMouseLeave={() => setHoverIndex(null)}
@@ -147,17 +144,16 @@ export function NavBar() {
             ))}
           </nav>
 
-          {/* Right */}
           <div className="flex items-center gap-4">
             <div className="hidden md:block">
               <MagneticButton
                 onClick={() => {
-                  const el = document.querySelector("#conversa");
+                  const el = document.querySelector("#cta");
                   el?.scrollIntoView({ behavior: "smooth" });
                 }}
                 className="!px-6 !py-3 !text-[11px]"
               >
-                Solicitar avaliação
+                Agendar avaliação
               </MagneticButton>
             </div>
             <button
@@ -222,10 +218,10 @@ export function NavBar() {
                 <MagneticButton
                   onClick={() => {
                     setOpen(false);
-                    document.querySelector("#conversa")?.scrollIntoView({ behavior: "smooth" });
+                    document.querySelector("#cta")?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Solicitar avaliação
+                  Agendar avaliação
                 </MagneticButton>
               </motion.div>
             </nav>

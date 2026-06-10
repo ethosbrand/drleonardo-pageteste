@@ -1,9 +1,10 @@
 const ITEMS = [
-  "Planejamento digital do sorriso",
-  "Resina premium importada",
-  "Escultura 100% manual",
-  "Atendimento sob agenda limitada",
-  "Acompanhamento pós-entrega",
+  "NATURALIDADE",
+  "ANATOMIA",
+  "PRESERVAÇÃO",
+  "PLANEJAMENTO INDIVIDUAL",
+  "MICROSCÓPIO ODONTOLÓGICO",
+  "MÍNIMO DESGASTE DENTAL",
 ];
 
 function Diamond() {

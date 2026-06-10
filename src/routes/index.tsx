@@ -17,17 +17,17 @@ import { Footer } from "@/components/site/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Vicente Almada · Odontologia autoral" },
+      { title: "Dr. Leonardo Gomes · Facetas Naturais | Método NAP" },
       {
         name: "description",
         content:
-          "Lentes em resina esculpidas à mão para um único rosto. Atendimento individual, agenda limitada.",
+          "Facetas naturais planejadas com o Método NAP: naturalidade, anatomia e preservação. Atendimento em Coronel Fabriciano, MG.",
       },
-      { property: "og:title", content: "Vicente Almada · Odontologia autoral" },
+      { property: "og:title", content: "Dr. Leonardo Gomes · Facetas Naturais | Método NAP" },
       {
         property: "og:description",
         content:
-          "Lentes em resina esculpidas à mão para um único rosto. Atendimento individual, agenda limitada.",
+          "Facetas naturais planejadas com o Método NAP: naturalidade, anatomia e preservação. Atendimento em Coronel Fabriciano, MG.",
       },
     ],
   }),

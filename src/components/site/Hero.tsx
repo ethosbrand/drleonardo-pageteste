@@ -223,7 +223,7 @@ export function Hero() {
       >
         <div className="col-span-12 flex flex-col justify-center pt-[55vh] pb-24 lg:col-span-6 lg:pt-32 lg:pb-32">
           <Fade delay={0.3}>
-            <Eyebrow>Lentes em resina esculpidas à mão</Eyebrow>
+            <Eyebrow>MÉTODO NAP · NATURALIDADE, ANATOMIA E PRESERVAÇÃO</Eyebrow>
           </Fade>
 
           <div
@@ -238,7 +238,7 @@ export function Hero() {
           >
             <SplitHeading
               as="h1"
-              text="O sorriso é a sua"
+              text="Um sorriso novo,"
               className="m-0"
               stagger={0.03}
               delay={0.5}
@@ -250,7 +250,7 @@ export function Hero() {
                 style={{ lineHeight: 1 }}
               >
                 {reduce ? (
-                  <span>assinatura.</span>
+                  <span>que continua sendo seu.</span>
                 ) : (
                   <motion.span
                     className="inline-block"
@@ -260,7 +260,7 @@ export function Hero() {
                   >
                     <GoldText>
                       <em style={{ fontStyle: "italic", fontWeight: 300 }}>
-                        assinatura.
+                        que continua sendo seu.
                       </em>
                     </GoldText>
                   </motion.span>
@@ -279,9 +279,9 @@ export function Hero() {
                 maxWidth: 480,
               }}
             >
-              Cada lente é desenhada para o seu rosto e esculpida fio a fio em
-              resina premium. Sem catálogo, sem sorriso de prateleira: um
-              trabalho autoral, feito uma única vez, para uma única pessoa.
+              Facetas naturais planejadas pelo Dr. Leonardo Gomes através do
+              Método NAP: harmonia, precisão e respeito à sua identidade. Sem
+              dentes de catálogo, sem aparência artificial.
             </p>
           </Fade>
 
@@ -292,11 +292,11 @@ export function Hero() {
             <MagneticButton
               onClick={() =>
                 document
-                  .querySelector("#conversa")
+                  .querySelector("#cta")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              Solicitar avaliação privada
+              Quero agendar minha avaliação
             </MagneticButton>
             <a
               href="#metodo"
@@ -309,7 +309,7 @@ export function Hero() {
               }}
             >
               <span className="relative">
-                Conhecer o método
+                Conhecer o Método NAP
                 <span
                   aria-hidden
                   className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-700 group-hover:scale-x-100"
@@ -334,9 +334,9 @@ export function Hero() {
                 fontWeight: 500,
               }}
             >
-              Agenda limitada
-              <span style={{ color: "#D9B45B", margin: "0 12px" }}>·</span>
               Atendimento individual
+              <span style={{ color: "#D9B45B", margin: "0 12px" }}>·</span>
+              Coronel Fabriciano, MG
             </span>
           </Fade>
         </div>

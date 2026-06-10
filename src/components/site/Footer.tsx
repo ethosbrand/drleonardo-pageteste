@@ -19,10 +19,10 @@ export function Footer() {
               letterSpacing: "-0.015em",
             }}
           >
-            Vicente Almada
+            Leonardo Gomes
           </span>
           <a
-            href="https://instagram.com/"
+            href="https://instagram.com/drleonardogomes_"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-ig group inline-flex items-center gap-2"
@@ -73,8 +73,8 @@ export function Footer() {
             color: "#6E675C",
           }}
         >
-          <span>DR. VICENTE ALMADA · CRO-SP 00000 · RESPONSÁVEL TÉCNICO</span>
-          <span>AV. EXEMPLO, 1000 · SALA 101 · SÃO PAULO, SP</span>
+          <span>DR. LEONARDO GOMES · CRO-MG 00000 · RESPONSÁVEL TÉCNICO</span>
+          <span>CORONEL FABRICIANO, MG</span>
         </div>
 
         {/* Linha 3 */}
@@ -86,10 +86,7 @@ export function Footer() {
             fontFamily: "var(--font-sans)",
           }}
         >
-          <span>© 2026 Vicente Almada Odontologia. Todos os direitos reservados.</span>
-          <span style={{ color: "rgba(242,238,230,0.3)" }}>
-            Site por Control Marketing
-          </span>
+          <span>© 2026 Dr. Leonardo Gomes. Todos os direitos reservados.</span>
         </div>
       </div>
 
