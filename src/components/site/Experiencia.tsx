@@ -5,25 +5,16 @@ import { GoldBeams } from "@/components/fx/GoldBeams";
 import { GoldText } from "@/components/fx/GoldText";
 import { SplitHeading } from "@/components/fx/SplitHeading";
 
-/* --------------------------- ICONS --------------------------- */
+/* --------------------------- ICONS (marfim) --------------------------- */
 
-function GoldDef({ id }: { id: string }) {
-  return (
-    <defs>
-      <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#F6E7C1" />
-        <stop offset="45%" stopColor="#D9B45B" />
-        <stop offset="100%" stopColor="#8A6A1F" />
-      </linearGradient>
-    </defs>
-  );
-}
+const ICON_STROKE = "rgba(242,238,230,0.7)";
 
 const ICON_PROPS = {
   width: 36,
   height: 36,
   viewBox: "0 0 36 36",
   fill: "none",
+  stroke: ICON_STROKE,
   strokeWidth: 1.25,
   strokeLinecap: "round" as const,
   strokeLinejoin: "round" as const,
@@ -31,8 +22,7 @@ const ICON_PROPS = {
 
 function IconChair() {
   return (
-    <svg {...ICON_PROPS} stroke="url(#g-chair)">
-      <GoldDef id="g-chair" />
+    <svg {...ICON_PROPS}>
       <path d="M9 8c0-1 1-2 2-2h14c1 0 2 1 2 2v10H9V8Z" />
       <path d="M7 18h22v4a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-4Z" />
       <path d="M11 24v6M25 24v6" />
@@ -42,8 +32,7 @@ function IconChair() {
 
 function IconHourglass() {
   return (
-    <svg {...ICON_PROPS} stroke="url(#g-hour)">
-      <GoldDef id="g-hour" />
+    <svg {...ICON_PROPS}>
       <path d="M11 4h14M11 32h14" />
       <path d="M12 4c0 6 12 8 12 14M24 4c0 6-12 8-12 14" />
       <path d="M12 32c0-6 12-8 12-14M24 32c0-6-12-8-12-14" />
@@ -53,8 +42,7 @@ function IconHourglass() {
 
 function IconBubble() {
   return (
-    <svg {...ICON_PROPS} stroke="url(#g-bubble)">
-      <GoldDef id="g-bubble" />
+    <svg {...ICON_PROPS}>
       <path d="M6 9a3 3 0 0 1 3-3h18a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-9l-6 5v-5H9a3 3 0 0 1-3-3V9Z" />
       <path d="M11 16c2-2 4-1 5 0s3 2 5 0 4-1 5 0" />
     </svg>
@@ -63,8 +51,7 @@ function IconBubble() {
 
 function IconLayers() {
   return (
-    <svg {...ICON_PROPS} stroke="url(#g-layers)">
-      <GoldDef id="g-layers" />
+    <svg {...ICON_PROPS}>
       <path d="M18 5 5 12l13 7 13-7-13-7Z" />
       <path d="M5 18l13 7 13-7" />
       <path d="M5 24l13 7 13-7" />
