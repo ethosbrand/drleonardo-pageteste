@@ -71,13 +71,13 @@ export function MagneticButton({
   return (
     <motion.button
       ref={ref}
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-      whileHover={reduce ? undefined : { scale: 1.04, filter: "brightness(1.06)" }}
+      onMouseMove={noHover ? onMouseMove : handleMove}
+      onMouseLeave={noHover ? onMouseLeave : handleLeave}
+      whileHover={reduce || noHover ? undefined : { scale: 1.04, filter: "brightness(1.06)" }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       style={{
-        x: sx,
-        y: sy,
+        x: noHover ? 0 : sx,
+        y: noHover ? 0 : sy,
         background: "var(--gold-gradient)",
         color: "#0B0A08",
         fontFamily: "var(--font-sans)",
