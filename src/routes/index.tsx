@@ -1,18 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { NoiseOverlay } from "@/components/fx/NoiseOverlay";
 import { SmoothScrollProvider } from "@/components/fx/SmoothScrollProvider";
+import { NavBar } from "@/components/site/NavBar";
+import { Hero } from "@/components/site/Hero";
+import { Marquee } from "@/components/site/Marquee";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maison Leonardo Gomes" },
-      { name: "description", content: "Lentes autorais em resina, em construção." },
+      { title: "Vicente Almada · Odontologia autoral" },
+      {
+        name: "description",
+        content:
+          "Lentes em resina esculpidas à mão para um único rosto. Atendimento individual, agenda limitada.",
+      },
+      { property: "og:title", content: "Vicente Almada · Odontologia autoral" },
+      {
+        property: "og:description",
+        content:
+          "Lentes em resina esculpidas à mão para um único rosto. Atendimento individual, agenda limitada.",
+      },
     ],
   }),
-  component: FoundationPage,
+  component: HomePage,
 });
 
-function FoundationPage() {
+function HomePage() {
   return (
     <main
       className="relative min-h-screen w-full"
@@ -20,14 +33,9 @@ function FoundationPage() {
     >
       <SmoothScrollProvider />
       <NoiseOverlay />
-      <div className="flex min-h-screen items-center justify-center px-6">
-        <h1
-          className="font-display italic text-[64px] leading-none tracking-[-0.02em] md:text-[120px]"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          Fundação pronta
-        </h1>
-      </div>
+      <NavBar />
+      <Hero />
+      <Marquee />
     </main>
   );
 }
