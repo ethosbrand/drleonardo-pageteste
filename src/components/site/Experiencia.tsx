@@ -97,7 +97,7 @@ const FEATURES: Feature[] = [
 function GlassCard({ f }: { f: Feature }) {
   return (
     <div
-      className="exp-card group relative"
+      className="exp-card group relative h-full"
       style={{
         background: "rgba(255,255,255,0.03)",
         backdropFilter: "blur(8px)",
