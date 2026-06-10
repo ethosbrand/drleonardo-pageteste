@@ -26,7 +26,7 @@ export function NavBar() {
   });
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -66,9 +66,9 @@ export function NavBar() {
   return (
     <>
       <header
-        className="fixed inset-x-0 top-0 z-40 transition-all duration-700"
+        className="fixed inset-x-0 top-0 z-50 transition-all duration-700"
         style={{
-          backgroundColor: scrolled ? "rgba(11,10,8,0.7)" : "transparent",
+          backgroundColor: scrolled ? "rgba(11,10,8,0.85)" : "transparent",
           backdropFilter: scrolled ? "blur(12px)" : "none",
           borderBottom: scrolled
             ? "1px solid rgba(255,255,255,0.08)"

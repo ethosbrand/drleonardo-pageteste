@@ -1,7 +1,5 @@
-import { createElement } from "react";
-import { motion, useReducedMotion } from "framer-motion";
-
-const EASE = [0.22, 1, 0.36, 1] as const;
+import { createElement, type CSSProperties } from "react";
+import { useInViewToggle } from "@/hooks/useInViewToggle";
 
 type Props = {
   text: string;
@@ -11,6 +9,11 @@ type Props = {
   delay?: number;
 };
 
+/**
+ * IMPORTANT: default char state (no `data-split-char` attribute) is fully
+ * visible. The "pending" state is only applied AFTER the observer is wired,
+ * so if JS fails text remains readable.
+ */
 export function SplitHeading({
   text,
   as = "h2",
@@ -18,13 +21,9 @@ export function SplitHeading({
   stagger = 0.03,
   delay = 0,
 }: Props) {
-  const reduce = useReducedMotion();
+  const { ref, mounted, inView } = useInViewToggle<HTMLElement>();
+  const state = !mounted ? undefined : inView ? "in" : "pending";
 
-  if (reduce) {
-    return createElement(as, { className }, text);
-  }
-
-  // Split by line breaks, then words, preserving spaces
   const lines = text.split("\n");
   let charIndex = 0;
 
@@ -41,21 +40,18 @@ export function SplitHeading({
             <span className="inline-block">
               {Array.from(word).map((ch, ci) => {
                 const i = charIndex++;
+                const style = {
+                  ["--char-delay" as string]: `${delay + i * stagger}s`,
+                } as CSSProperties;
                 return (
-                  <motion.span
+                  <span
                     key={`${li}-${wi}-${ci}`}
+                    data-split-char={state}
                     className="inline-block"
-                    initial={{ y: "110%" }}
-                    whileInView={{ y: "0%" }}
-                    viewport={{ amount: 0.2, margin: "0px 0px -5% 0px", once: false }}
-                    transition={{
-                      duration: 0.9,
-                      ease: EASE,
-                      delay: delay + i * stagger,
-                    }}
+                    style={style}
                   >
                     {ch}
-                  </motion.span>
+                  </span>
                 );
               })}
             </span>
@@ -66,5 +62,9 @@ export function SplitHeading({
     );
   });
 
-  return createElement(as, { className }, content);
+  return createElement(
+    as,
+    { className, ref: ref as React.Ref<HTMLElement> },
+    content
+  );
 }
