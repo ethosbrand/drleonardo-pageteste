@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/fx/MagneticButton";
+import { ThemeToggle } from "@/components/fx/ThemeToggle";
 
 const LINKS = [
   { href: "#medo", label: "O Medo" },
