@@ -4,7 +4,7 @@ import { GoldBeams } from "@/components/fx/GoldBeams";
 import { Eyebrow } from "@/components/fx/Eyebrow";
 import { GoldText } from "@/components/fx/GoldText";
 import { MagneticButton } from "@/components/fx/MagneticButton";
-import { SplitHeading } from "@/components/fx/SplitHeading";
+
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
