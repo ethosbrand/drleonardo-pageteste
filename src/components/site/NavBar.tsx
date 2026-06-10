@@ -145,7 +145,8 @@ export function NavBar() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <div className="hidden md:block">
+            <ThemeToggle className="hidden md:inline-flex" />
+            <div className="hidden md:block" style={{ marginLeft: -8 }}>
               <MagneticButton
                 onClick={() => {
                   const el = document.querySelector("#cta");
