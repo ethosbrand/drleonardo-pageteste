@@ -222,10 +222,7 @@ function Comparator() {
 }
 
 function PlaceholderPanel({ variant }: { variant: "antes" | "depois" }) {
-  const bg =
-    variant === "antes"
-      ? "linear-gradient(135deg, #2A2825 0%, #1A1916 45%, #232120 100%)"
-      : "linear-gradient(135deg, #3A2F1E 0%, #1F1A12 50%, #4A3A20 100%)";
+  const bg = variant === "antes" ? "var(--ph-antes)" : "var(--ph-depois)";
   return (
     <div
       className="relative h-full w-full"
