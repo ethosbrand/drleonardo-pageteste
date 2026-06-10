@@ -100,7 +100,7 @@ export function Manifesto() {
       style={{ paddingTop: 160, paddingBottom: 160 }}
     >
       <div className="pointer-events-none absolute -top-32 right-0 opacity-60">
-        <GlowOrb size={500} color="rgba(217,180,91,0.10)" />
+        <GlowOrb size={500} />
       </div>
 
       <div className="relative mx-auto w-full max-w-[980px] px-6">
