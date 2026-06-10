@@ -19,6 +19,14 @@ export function MagneticButton({
 }: Props) {
   const ref = useRef<HTMLButtonElement>(null);
   const reduce = useReducedMotion();
+  const [noHover, setNoHover] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: none), (max-width: 767px)");
+    const update = () => setNoHover(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
