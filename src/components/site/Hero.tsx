@@ -289,7 +289,7 @@ export function Hero() {
                 paddingBottom: "6px",
               }}
             >
-              <span className="relative">
+              <span className="relative" style={{ whiteSpace: "nowrap" }}>
                 Conhecer o Método NAP
                 <span
                   aria-hidden
