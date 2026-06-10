@@ -36,8 +36,7 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, x, y, filter: "blur(8px)" }}
       whileInView={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
-      exit={{ opacity: 0, x, y, filter: "blur(8px)" }}
-      viewport={{ margin: "-20% 0px -20% 0px", once: false }}
+      viewport={{ amount: 0.15, margin: "0px 0px -5% 0px", once: false }}
       transition={{ duration: 0.9, ease: EASE, delay }}
     >
       {children}
