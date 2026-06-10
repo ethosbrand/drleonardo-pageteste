@@ -40,7 +40,7 @@ export function GoldBeams({ intensity = 1, className }: Props) {
               "linear-gradient(to top, transparent 5%, rgba(246,231,193,0.9) 90%)",
             borderRadius: "0",
             filter: `blur(${blur}px)`,
-            opacity: 0.16 * intensity,
+            opacity: 0.16 * intensity * (typeof window !== "undefined" ? 1 : 1),
             transform: "rotate(-15deg) translateZ(0)",
             willChange: "transform",
           }}
