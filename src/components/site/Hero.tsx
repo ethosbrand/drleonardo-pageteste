@@ -1,7 +1,6 @@
-import { motion, useReducedMotion } from "framer-motion";
-import { createElement } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { createElement, useRef } from "react";
 import { GoldBeams } from "@/components/fx/GoldBeams";
-import { GlowOrb } from "@/components/fx/GlowOrb";
 import { Eyebrow } from "@/components/fx/Eyebrow";
 import { GoldText } from "@/components/fx/GoldText";
 import { MagneticButton } from "@/components/fx/MagneticButton";
@@ -87,147 +86,264 @@ function Fade({
   );
 }
 
+// PHOTO_EXPERT — substituir este placeholder pela foto vertical real do doutor.
+// Use uma imagem retrato (proporção 3:4 ou 9:16), iluminação direcional vinda da
+// esquerda do enquadramento (rosto olhando levemente para a esquerda da câmera).
+const PHOTO_EXPERT_SRC =
+  "data:image/svg+xml;utf8," +
+  encodeURIComponent(`
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1400' preserveAspectRatio='xMidYMid slice'>
+      <defs>
+        <radialGradient id='r' cx='40%' cy='32%' r='75%'>
+          <stop offset='0%' stop-color='#3a342b'/>
+          <stop offset='45%' stop-color='#1c1a16'/>
+          <stop offset='100%' stop-color='#0b0a08'/>
+        </radialGradient>
+        <linearGradient id='l' x1='0' y1='0' x2='1' y2='1'>
+          <stop offset='0%' stop-color='#2a251d'/>
+          <stop offset='100%' stop-color='#0b0a08'/>
+        </linearGradient>
+      </defs>
+      <rect width='900' height='1400' fill='url(#l)'/>
+      <ellipse cx='430' cy='520' rx='520' ry='620' fill='url(#r)'/>
+      <ellipse cx='430' cy='450' rx='160' ry='200' fill='#4a4035' opacity='0.55'/>
+      <rect x='270' y='620' width='360' height='780' fill='#241f19' opacity='0.85'/>
+    </svg>
+  `);
+
 export function Hero() {
   const reduce = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const photoY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const photoOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.7, 0]);
 
   return (
     <section
+      ref={sectionRef}
       id="top"
-      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-6 pt-32 pb-20 md:px-10"
+      className="relative w-full overflow-hidden"
+      style={{ minHeight: "100vh" }}
     >
-      {/* Background */}
+      {/* GoldBeams concentrados atrás da foto (direita) */}
       <motion.div
-        className="absolute inset-0"
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0"
+        style={{ right: 0, width: "55%" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2.4, ease: EASE }}
       >
-        <GoldBeams intensity={1} />
+        <GoldBeams intensity={0.9} />
       </motion.div>
+
+      {/* FOTO DO EXPERT — camada de fundo absoluta na direita (desktop) /
+          metade superior (mobile). Parallax sutil + fade ao sair. */}
       <motion.div
-        className="absolute inset-0 flex items-center justify-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2, ease: EASE, delay: 0.2 }}
+        aria-hidden
+        className="pointer-events-none absolute inset-0 lg:left-[41.6667%]"
+        style={{
+          y: reduce ? 0 : photoY,
+          opacity: reduce ? 1 : photoOpacity,
+        }}
       >
-        <GlowOrb
-          size={900}
-          style={{ marginTop: "-120px" }}
-        />
+        <div className="relative h-full w-full">
+          {/* Rim light dourado vertical na borda esquerda da foto */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute top-0 bottom-0"
+            style={{
+              left: "-2px",
+              width: 60,
+              background:
+                "linear-gradient(90deg, rgba(217,180,91,0.55) 0%, rgba(217,180,91,0) 100%)",
+              filter: "blur(40px)",
+              opacity: 0.25,
+            }}
+          />
+          {/* PHOTO_EXPERT */}
+          <img
+            src={PHOTO_EXPERT_SRC}
+            alt=""
+            className="h-full w-full"
+            style={{
+              objectFit: "cover",
+              filter: "grayscale(20%) contrast(1.05) brightness(0.85)",
+            }}
+          />
+          {/* Máscara da esquerda: do #0B0A08 sólido a transparente nos 35% iniciais
+              — em mobile, vira fade-down forte na metade inferior. */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 hidden lg:block"
+            style={{
+              background:
+                "linear-gradient(90deg, #0B0A08 0%, rgba(11,10,8,0.92) 18%, rgba(11,10,8,0) 35%)",
+            }}
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 lg:hidden"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(11,10,8,0) 0%, rgba(11,10,8,0.55) 45%, #0B0A08 75%)",
+            }}
+          />
+          {/* Fade na base */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0"
+            style={{
+              height: "25%",
+              background:
+                "linear-gradient(180deg, rgba(11,10,8,0) 0%, #0B0A08 100%)",
+            }}
+          />
+          {/* Vignette leve no topo */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0"
+            style={{
+              height: "30%",
+              background:
+                "linear-gradient(180deg, rgba(11,10,8,0.55) 0%, rgba(11,10,8,0) 100%)",
+            }}
+          />
+        </div>
       </motion.div>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1100px] flex-col items-center text-center">
-        <Fade delay={0.3}>
-          <Eyebrow>Lentes em resina esculpidas à mão</Eyebrow>
-        </Fade>
+      {/* GRID DE CONTEÚDO */}
+      <div
+        className="relative z-10 mx-auto grid w-full max-w-[1280px] grid-cols-12 px-6 md:px-10"
+        style={{ minHeight: "100vh" }}
+      >
+        <div className="col-span-12 flex flex-col justify-center pt-[55vh] pb-24 lg:col-span-6 lg:pt-32 lg:pb-32">
+          <Fade delay={0.3}>
+            <Eyebrow>Lentes em resina esculpidas à mão</Eyebrow>
+          </Fade>
 
-        <div
-          className="mt-10"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 300,
-            fontSize: "clamp(44px, 7vw, 96px)",
-            lineHeight: 1.05,
-            letterSpacing: "-0.02em",
-          }}
-        >
-          <SplitHeading
-            as="h1"
-            text="O sorriso é a sua"
-            className="m-0"
-            stagger={0.03}
-            delay={0.5}
-          />
-
-          <div className="mt-1">
-            <span className="inline-block overflow-hidden align-bottom" style={{ lineHeight: 1 }}>
-              {reduce ? (
-                <span>assinatura.</span>
-              ) : (
-                <motion.span
-                  className="inline-block"
-                  initial={{ y: "110%" }}
-                  animate={{ y: "0%" }}
-                  transition={{ duration: 1, ease: EASE, delay: 1.05 }}
-                >
-                  <GoldText>
-                    <em style={{ fontStyle: "italic", fontWeight: 300 }}>assinatura.</em>
-                  </GoldText>
-                </motion.span>
-              )}
-            </span>
-          </div>
-        </div>
-
-
-
-        <Fade delay={1.4} className="mt-8 max-w-[560px]">
-          <p
+          <div
+            className="mt-10 text-left"
             style={{
-              color: "var(--muted-text)",
-              fontSize: "18px",
-              lineHeight: 1.7,
-              fontFamily: "var(--font-sans)",
+              fontFamily: "var(--font-display)",
+              fontWeight: 300,
+              fontSize: "clamp(48px, 6.5vw, 104px)",
+              lineHeight: 1.02,
+              letterSpacing: "-0.02em",
             }}
           >
-            Cada lente é desenhada para o seu rosto e esculpida fio a fio em resina premium.
-            Sem catálogo, sem sorriso de prateleira: um trabalho autoral, feito uma única vez,
-            para uma única pessoa.
-          </p>
-        </Fade>
+            <SplitHeading
+              as="h1"
+              text="O sorriso é a sua"
+              className="m-0"
+              stagger={0.03}
+              delay={0.5}
+            />
 
-        <Fade delay={1.7} className="mt-12 flex flex-wrap items-center justify-center gap-6">
-          <MagneticButton
-            onClick={() => document.querySelector("#conversa")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            Solicitar avaliação privada
-          </MagneticButton>
-          <a
-            href="#metodo"
-            className="group relative inline-flex items-center gap-3 text-[13px] tracking-[0.18em] uppercase"
-            style={{
-              color: "var(--ivory)",
-              fontFamily: "var(--font-sans)",
-              fontWeight: 500,
-              paddingBottom: "6px",
-            }}
-          >
-            <span className="relative">
-              Conhecer o método
+            <div className="mt-1">
               <span
-                aria-hidden
-                className="absolute left-0 -bottom-1 h-px w-full origin-left scale-x-0 transition-transform duration-700 group-hover:scale-x-100"
-                style={{
-                  background: "var(--gold-gradient)",
-                  transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)",
-                }}
-              />
-            </span>
-            <Arrow />
-          </a>
-        </Fade>
+                className="inline-block overflow-hidden align-bottom"
+                style={{ lineHeight: 1 }}
+              >
+                {reduce ? (
+                  <span>assinatura.</span>
+                ) : (
+                  <motion.span
+                    className="inline-block"
+                    initial={{ y: "110%" }}
+                    animate={{ y: "0%" }}
+                    transition={{ duration: 1, ease: EASE, delay: 1.05 }}
+                  >
+                    <GoldText>
+                      <em style={{ fontStyle: "italic", fontWeight: 300 }}>
+                        assinatura.
+                      </em>
+                    </GoldText>
+                  </motion.span>
+                )}
+              </span>
+            </div>
+          </div>
 
-        <Fade delay={2} className="mt-10">
-          <span
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: "11px",
-              letterSpacing: "0.35em",
-              textTransform: "uppercase",
-              color: "var(--muted-text)",
-              fontWeight: 500,
-            }}
+          <Fade delay={1.4} className="mt-8" >
+            <p
+              style={{
+                color: "var(--muted-text)",
+                fontSize: "18px",
+                lineHeight: 1.7,
+                fontFamily: "var(--font-sans)",
+                maxWidth: 480,
+              }}
+            >
+              Cada lente é desenhada para o seu rosto e esculpida fio a fio em
+              resina premium. Sem catálogo, sem sorriso de prateleira: um
+              trabalho autoral, feito uma única vez, para uma única pessoa.
+            </p>
+          </Fade>
+
+          <Fade
+            delay={1.7}
+            className="mt-12 flex flex-wrap items-center justify-start gap-6"
           >
-            Agenda limitada
-            <span style={{ color: "#D9B45B", margin: "0 12px" }}>·</span>
-            Atendimento individual
-          </span>
-        </Fade>
+            <MagneticButton
+              onClick={() =>
+                document
+                  .querySelector("#conversa")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Solicitar avaliação privada
+            </MagneticButton>
+            <a
+              href="#metodo"
+              className="group relative inline-flex items-center gap-3 text-[13px] uppercase tracking-[0.18em]"
+              style={{
+                color: "var(--ivory)",
+                fontFamily: "var(--font-sans)",
+                fontWeight: 500,
+                paddingBottom: "6px",
+              }}
+            >
+              <span className="relative">
+                Conhecer o método
+                <span
+                  aria-hidden
+                  className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-700 group-hover:scale-x-100"
+                  style={{
+                    background: "var(--gold-gradient)",
+                    transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)",
+                  }}
+                />
+              </span>
+              <Arrow />
+            </a>
+          </Fade>
+
+          <Fade delay={2} className="mt-10">
+            <span
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: "11px",
+                letterSpacing: "0.35em",
+                textTransform: "uppercase",
+                color: "var(--muted-text)",
+                fontWeight: 500,
+              }}
+            >
+              Agenda limitada
+              <span style={{ color: "#D9B45B", margin: "0 12px" }}>·</span>
+              Atendimento individual
+            </span>
+          </Fade>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+      {/* Scroll indicator — alinhado à esquerda, junto à margem do conteúdo */}
+      <div className="absolute bottom-10 left-6 md:left-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
