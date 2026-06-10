@@ -140,17 +140,7 @@ export function Hero() {
             delay={0.5}
           />
 
-          {/* second line with gold italic word */}
-          <div
-            className="mt-1"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 300,
-              fontSize: "clamp(44px, 7vw, 96px)",
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-            }}
-          >
+          <div className="mt-1">
             <span className="inline-block overflow-hidden align-bottom" style={{ lineHeight: 1 }}>
               {reduce ? (
                 <span>assinatura.</span>
@@ -168,6 +158,8 @@ export function Hero() {
               )}
             </span>
           </div>
+        </div>
+
         </div>
 
         {/* Hidden h1 styling to apply font sizing to first SplitHeading line via global selector is awkward;
