@@ -62,7 +62,15 @@ export function Manifesto() {
     }
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          end: "center 40%",
+          scrub: 0.5,
+        },
+      });
+      tl.fromTo(
         words,
         { color: "rgba(242,238,230,0.14)", backgroundSize: "0% 100%" },
         {
@@ -73,15 +81,15 @@ export function Manifesto() {
           backgroundSize: (_i, el) =>
             (el as HTMLElement).dataset.gold === "true" ? "100% 100%" : "0% 100%",
           ease: "none",
+          duration: 1,
           stagger: { each: 1, from: "start" },
-          scrollTrigger: {
-            trigger: section,
-            start: "top 75%",
-            end: "bottom 55%",
-            scrub: 0.6,
-          },
         }
       );
+      // Tail padding so the last word finishes by ~85% of scroll progress,
+      // leaving ~15% of slack before the trigger's end position.
+      const animEnd = (words.length - 1) * 1 + 1;
+      tl.to({}, { duration: animEnd * (0.15 / 0.85) });
+
 
       if (lineRef.current) {
         gsap.fromTo(

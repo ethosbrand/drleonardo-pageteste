@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Eyebrow } from "@/components/fx/Eyebrow";
 import { GoldText } from "@/components/fx/GoldText";
 import { Reveal } from "@/components/fx/Reveal";
-import { SplitHeading } from "@/components/fx/SplitHeading";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -110,20 +110,20 @@ export function Metodo() {
         progressRef.current.style.transform = "scaleY(1)";
       }
 
-      const triggers: ScrollTrigger[] = [];
-      cardRefs.current.forEach((card, i) => {
-        if (!card) return;
-        const t = ScrollTrigger.create({
-          trigger: card,
-          start: "top center",
-          end: "bottom center",
-          onToggle: (self) => {
-            if (self.isActive) setActive(i);
-          },
+      const onScroll = () => {
+        const threshold = window.innerHeight * 0.6;
+        let next = 0;
+        cardRefs.current.forEach((card, i) => {
+          if (!card) return;
+          const top = card.getBoundingClientRect().top;
+          if (top < threshold) next = i;
         });
-        triggers.push(t);
-      });
-      return () => triggers.forEach((t) => t.kill());
+        setActive((prev) => (prev === next ? prev : next));
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+      return () => window.removeEventListener("scroll", onScroll);
+
     }, section);
 
     return () => ctx.revert();
@@ -133,34 +133,38 @@ export function Metodo() {
     <section
       ref={sectionRef}
       id="metodo"
-      className="relative w-full overflow-hidden"
-      style={{ paddingTop: 160, paddingBottom: 160 }}
+      className="relative w-full"
+      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
     >
       <div className="mx-auto w-full max-w-[1240px] px-6">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-12">
           {/* LEFT */}
-          <div className="lg:col-span-5">
+          <div className="self-start lg:col-span-5">
             <div className="lg:sticky lg:top-[120px]">
               <Eyebrow>O MÉTODO</Eyebrow>
               <div className="mt-8">
                 <h2
                   className="font-display font-light"
                   style={{
-                    fontSize: "clamp(36px, 4.5vw, 56px)",
+                    fontSize: "clamp(32px, 3.4vw, 50px)",
                     lineHeight: 1.08,
                     letterSpacing: "-0.015em",
                   }}
                 >
-                  <SplitHeading as="span" text="Três letras, um sorriso " />
-                  <em className="not-italic">
-                    <GoldText>
-                      <span style={{ fontStyle: "italic", fontWeight: 300 }}>
-                        com a sua cara.
-                      </span>
-                    </GoldText>
-                  </em>
+                  <span className="block">Três letras,</span>
+                  <span className="block">
+                    um sorriso{" "}
+                    <em className="not-italic">
+                      <GoldText>
+                        <span style={{ fontStyle: "italic", fontWeight: 300 }}>
+                          com a sua cara.
+                        </span>
+                      </GoldText>
+                    </em>
+                  </span>
                 </h2>
               </div>
+
 
               <div className="mt-12 hidden lg:block" style={{ height: 120 }}>
                 <div className="relative h-full">

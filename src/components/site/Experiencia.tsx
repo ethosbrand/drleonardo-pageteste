@@ -187,24 +187,22 @@ export function Experiencia() {
           </p>
         </div>
 
-        {/* Bento assimétrico */}
-        <div
-          className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-12"
-          style={{ gridAutoRows: "minmax(0, 1fr)" }}
-        >
-          <div className="md:col-span-5 md:row-span-2 md:min-h-[480px]">
+        {/* Bento 7/5 · 5/7 */}
+        <div className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-12">
+          <div className="md:col-span-7">
             <GlassCard f={FEATURES[0]} />
           </div>
-          <div className="md:col-span-7 md:min-h-[260px]">
+          <div className="md:col-span-5">
             <GlassCard f={FEATURES[1]} />
           </div>
-          <div className="md:col-span-4 md:min-h-[210px]">
+          <div className="md:col-span-5">
             <GlassCard f={FEATURES[2]} />
           </div>
-          <div className="md:col-span-3 md:min-h-[210px]">
+          <div className="md:col-span-7">
             <GlassCard f={FEATURES[3]} />
           </div>
         </div>
+
       </div>
 
       <style>{`
