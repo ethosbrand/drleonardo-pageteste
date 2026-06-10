@@ -1,8 +1,6 @@
-import { useEffect, useRef, useState } from "react";
 import { Eyebrow } from "@/components/fx/Eyebrow";
 import { GlowOrb } from "@/components/fx/GlowOrb";
 import { GoldBeams } from "@/components/fx/GoldBeams";
-import { GoldText } from "@/components/fx/GoldText";
 import { SplitHeading } from "@/components/fx/SplitHeading";
 
 /* --------------------------- ICONS (marfim) --------------------------- */
@@ -20,41 +18,43 @@ const ICON_PROPS = {
   strokeLinejoin: "round" as const,
 };
 
-function IconChair() {
+function IconMicroscope() {
   return (
     <svg {...ICON_PROPS}>
-      <path d="M9 8c0-1 1-2 2-2h14c1 0 2 1 2 2v10H9V8Z" />
-      <path d="M7 18h22v4a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-4Z" />
-      <path d="M11 24v6M25 24v6" />
+      <path d="M14 6h6l1 3-2 1-4 0-2-1 1-3Z" />
+      <path d="M16 10v9" />
+      <path d="M13 19h10" />
+      <path d="M12 22c0 4 4 6 8 6h8" />
+      <circle cx="22" cy="14" r="3" />
     </svg>
   );
 }
 
-function IconHourglass() {
+function IconPlan() {
   return (
     <svg {...ICON_PROPS}>
-      <path d="M11 4h14M11 32h14" />
-      <path d="M12 4c0 6 12 8 12 14M24 4c0 6-12 8-12 14" />
-      <path d="M12 32c0-6 12-8 12-14M24 32c0-6-12-8-12-14" />
+      <rect x="6" y="6" width="24" height="24" rx="2" />
+      <path d="M6 12h24" />
+      <path d="M12 18h8M12 23h12" />
     </svg>
   );
 }
 
-function IconBubble() {
+function IconMinimal() {
   return (
     <svg {...ICON_PROPS}>
-      <path d="M6 9a3 3 0 0 1 3-3h18a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3h-9l-6 5v-5H9a3 3 0 0 1-3-3V9Z" />
-      <path d="M11 16c2-2 4-1 5 0s3 2 5 0 4-1 5 0" />
+      <circle cx="18" cy="18" r="12" />
+      <path d="M12 18h12" />
     </svg>
   );
 }
 
-function IconLayers() {
+function IconFinish() {
   return (
     <svg {...ICON_PROPS}>
-      <path d="M18 5 5 12l13 7 13-7-13-7Z" />
-      <path d="M5 18l13 7 13-7" />
-      <path d="M5 24l13 7 13-7" />
+      <path d="M8 26c2-8 6-14 12-18" />
+      <path d="M14 28c4-6 8-10 14-12" />
+      <path d="M22 8l2 2M26 12l2 2" />
     </svg>
   );
 }
@@ -69,28 +69,28 @@ type Feature = {
 
 const FEATURES: Feature[] = [
   {
-    Icon: IconChair,
-    title: "Sala privativa",
+    Icon: IconMicroscope,
+    title: "Microscópio odontológico",
     body:
-      "Ambiente individual, sem fluxo de pacientes cruzando o seu horário. A sala é preparada para você antes de cada sessão.",
+      "Visualização ampliada da estrutura dental durante o procedimento, para mais precisão e acabamento.",
   },
   {
-    Icon: IconHourglass,
-    title: "Agenda limitada",
+    Icon: IconPlan,
+    title: "Planejamento individual",
     body:
-      "Poucos casos por mês, de propósito. Escultura à mão exige tempo, e tempo não se divide bem.",
+      "Cada caso é estudado isoladamente: rosto, lábios, gengiva, expectativa. Nada é repetido de um paciente para outro.",
   },
   {
-    Icon: IconBubble,
-    title: "Linha direta",
+    Icon: IconMinimal,
+    title: "Mínimo desgaste",
     body:
-      "Acompanhamento direto com o doutor no pós-entrega, sem intermediários e sem protocolo de call center.",
+      "A preservação da estrutura dental orienta todas as decisões. Intervenção só onde é realmente necessária.",
   },
   {
-    Icon: IconLayers,
-    title: "Materiais de elite",
+    Icon: IconFinish,
+    title: "Acabamento e controle",
     body:
-      "Resinas e instrumentais importados, escolhidos caso a caso. O material certo para o efeito óptico que o seu sorriso pede.",
+      "Textura, brilho e anatomia refinados com controle técnico ampliado, do início à revisão final.",
   },
 ];
 
@@ -135,98 +135,12 @@ function GlassCard({ f }: { f: Feature }) {
   );
 }
 
-/* --------------------------- COUNT UP --------------------------- */
-
-type Stat = { value: number; suffix: string; label: string };
-
-const STATS: Stat[] = [
-  { value: 12, suffix: "+", label: "anos dedicados à estética" },
-  { value: 900, suffix: "+", label: "lentes esculpidas à mão" },
-  { value: 98, suffix: "%", label: "dos pacientes indicam a amigos" },
-];
-
-function CountUp({ stat }: { stat: Stat }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const [n, setN] = useState(0);
-  const startedRef = useRef(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const run = () => {
-      if (startedRef.current) return;
-      startedRef.current = true;
-      const start = performance.now();
-      const dur = 1600;
-      const tick = (t: number) => {
-        const p = Math.min(1, (t - start) / dur);
-        const eased = 1 - Math.pow(1 - p, 3);
-        setN(Math.round(stat.value * eased));
-        if (p < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    };
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            run();
-            io.disconnect();
-          }
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -5% 0px" }
-    );
-    io.observe(el);
-
-    // Fallback: if already in viewport at mount, fire immediately.
-    const rect = el.getBoundingClientRect();
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < vh && rect.bottom > 0) run();
-
-    return () => io.disconnect();
-  }, [stat.value]);
-
-  return (
-    <div className="flex flex-col items-center text-center">
-      <span
-        ref={ref}
-        className="font-display"
-        style={{
-          fontSize: "clamp(44px, 6vw, 64px)",
-          lineHeight: 1,
-          fontWeight: 300,
-          letterSpacing: "-0.02em",
-        }}
-      >
-        <GoldText>
-          {n}
-          {stat.suffix}
-        </GoldText>
-      </span>
-      <span
-        className="mt-4"
-        style={{
-          fontSize: 11,
-          letterSpacing: "0.35em",
-          textTransform: "uppercase",
-          color: "rgba(242,238,230,0.6)",
-        }}
-      >
-        {stat.label}
-      </span>
-    </div>
-  );
-}
-
 /* --------------------------- SECTION --------------------------- */
 
 export function Experiencia() {
   return (
     <section
-      id="experiencia"
+      id="precisao"
       className="relative w-full overflow-hidden"
       style={{ paddingTop: 160, paddingBottom: 160, background: "#0B0A08" }}
     >
@@ -247,7 +161,7 @@ export function Experiencia() {
 
       <div className="relative mx-auto w-full max-w-[1240px] px-6">
         <div className="max-w-[760px]">
-          <Eyebrow>A EXPERIÊNCIA</Eyebrow>
+          <Eyebrow>PRECISÃO</Eyebrow>
           <h2
             className="mt-8 font-display font-light"
             style={{
@@ -256,7 +170,7 @@ export function Experiencia() {
               letterSpacing: "-0.015em",
             }}
           >
-            <SplitHeading as="span" text="Um consultório que respeita o seu tempo." />
+            <SplitHeading as="span" text="O detalhe que você não vê é o que torna o resultado natural." />
           </h2>
           <p
             className="mt-7 font-sans"
@@ -267,7 +181,9 @@ export function Experiencia() {
               maxWidth: 640,
             }}
           >
-            Você não divide sala de espera, não repete sua história duas vezes e não é atendido às pressas. Cada detalhe da estrutura existe para uma agenda curta, silenciosa e pontual.
+            Na estética dental, o resultado final mora nos detalhes. Por isso o
+            Dr. Leonardo trabalha com microscópio odontológico e planejamento
+            individual em cada etapa.
           </p>
         </div>
 
@@ -288,25 +204,6 @@ export function Experiencia() {
           <div className="md:col-span-3 md:min-h-[210px]">
             <GlassCard f={FEATURES[3]} />
           </div>
-        </div>
-
-        <div
-          className="mt-28 grid grid-cols-1 md:grid-cols-3"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 64 }}
-        >
-          {STATS.map((s, i) => (
-            <div
-              key={s.label}
-              className={
-                "py-6 md:py-0 " +
-                (i > 0
-                  ? "md:border-l md:border-[rgba(255,255,255,0.08)]"
-                  : "")
-              }
-            >
-              <CountUp stat={s} />
-            </div>
-          ))}
         </div>
       </div>
 

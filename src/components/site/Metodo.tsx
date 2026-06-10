@@ -52,27 +52,27 @@ function IconDiamond() {
 
 const STEPS: Step[] = [
   {
-    num: "01",
-    kicker: "Estudo",
-    title: "Análise do rosto e do sorriso",
+    num: "N",
+    kicker: "Naturalidade",
+    title: "Bonito, elegante e sem cara de procedimento",
     body:
-      "Fotografias, vídeo da sua fala e planejamento digital. Antes de tocar em qualquer dente, você visualiza o resultado e aprova cada detalhe do desenho.",
+      "O objetivo não é o dente mais branco da sala. É o sorriso que melhora sua imagem sem que ninguém saiba exatamente o que mudou.",
     Icon: IconStudy,
   },
   {
-    num: "02",
-    kicker: "Escultura",
-    title: "Resina aplicada à mão, fio a fio",
+    num: "A",
+    kicker: "Anatomia",
+    title: "Planejado para o seu rosto, não para um padrão",
     body:
-      "Sem desgaste agressivo do dente. Camadas de resina premium são esculpidas diretamente sobre o esmalte, reproduzindo translucidez, textura e anatomia naturais.",
+      "Formato dos dentes, proporção, lábios, gengiva e expressão são estudados antes de qualquer decisão. O desenho nasce da sua anatomia, não de um modelo pronto.",
     Icon: IconSculpt,
   },
   {
-    num: "03",
-    kicker: "Refinamento",
-    title: "Polimento, brilho e acompanhamento",
+    num: "P",
+    kicker: "Preservação",
+    title: "O mínimo de intervenção possível",
     body:
-      "Ajuste fino da textura e do brilho em sessão dedicada, com retornos programados. O trabalho só termina quando o sorriso parece ter nascido com você.",
+      "Sempre que o caso permite, o planejamento busca preservar a estrutura natural dos dentes, em muitos casos sem nenhum desgaste dental.",
     Icon: IconDiamond,
   },
 ];
@@ -151,11 +151,11 @@ export function Metodo() {
                     letterSpacing: "-0.015em",
                   }}
                 >
-                  <SplitHeading as="span" text="Três atos, um sorriso " />
+                  <SplitHeading as="span" text="Três letras, um sorriso " />
                   <em className="not-italic">
                     <GoldText>
                       <span style={{ fontStyle: "italic", fontWeight: 300 }}>
-                        irrepetível.
+                        com a sua cara.
                       </span>
                     </GoldText>
                   </em>

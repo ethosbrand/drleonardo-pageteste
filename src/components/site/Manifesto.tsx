@@ -7,10 +7,10 @@ import { GlowOrb } from "@/components/fx/GlowOrb";
 gsap.registerPlugin(ScrollTrigger);
 
 const TEXT =
-  "A maioria das lentes nasce de um molde genérico. As nossas nascem de um estudo do seu rosto, da sua pele, da forma como você fala e ri. O resultado não parece um procedimento. Parece que você sempre teve esse sorriso.";
+  "Quase todo mundo que pensa em facetas tem o mesmo medo: ficar artificial. Dentes brancos demais, volumosos, padronizados, iguais aos de todo mundo. O trabalho do Dr. Leonardo parte de uma ideia simples: transformar sem descaracterizar.";
 
 // Phrases that should glow in gold instead of ivory.
-const GOLD_PHRASES = ["estudo do seu rosto", "sempre teve esse sorriso"];
+const GOLD_PHRASES = ["ficar artificial", "transformar sem descaracterizar"];
 
 type Token = { text: string; gold: boolean };
 
@@ -107,7 +107,7 @@ export function Manifesto() {
   return (
     <section
       ref={sectionRef}
-      id="manifesto"
+      id="medo"
       className="relative w-full overflow-hidden"
       style={{ paddingTop: 160, paddingBottom: 160 }}
     >
@@ -116,7 +116,7 @@ export function Manifesto() {
       </div>
 
       <div className="relative mx-auto w-full max-w-[980px] px-6">
-        <Eyebrow>POR QUE AUTORAL</Eyebrow>
+        <Eyebrow>O MAIOR MEDO</Eyebrow>
 
         <p
           ref={paragraphRef}
@@ -170,7 +170,7 @@ export function Manifesto() {
               color: "rgba(242,238,230,0.55)",
             }}
           >
-            Dr. Vicente Almada · CRO-SP 00000
+            Dr. Leonardo Gomes · CRO-MG 00000
           </span>
         </div>
       </div>

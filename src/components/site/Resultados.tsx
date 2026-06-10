@@ -263,21 +263,21 @@ type Case = {
 
 const CASES: Case[] = [
   {
-    id: "Caso 014 · 10 lentes",
-    meta: "Caso 014 · 10 lentes",
-    description: "Fechamento de diastema",
+    id: "caso-1",
+    meta: "Caso real · facetas naturais",
+    description: "Fechamento de espaços",
     gradient: "linear-gradient(160deg, #1E1B17 0%, #2C2620 60%, #3A2F1E 100%)",
   },
   {
-    id: "Caso 022 · 8 lentes",
-    meta: "Caso 022 · 8 lentes",
-    description: "Clareamento + alinhamento visual",
+    id: "caso-2",
+    meta: "Caso real · facetas naturais",
+    description: "Correção de cor e formato",
     gradient: "linear-gradient(160deg, #161513 0%, #221F1B 50%, #2E2820 100%)",
   },
   {
-    id: "Caso 031 · 12 lentes",
-    meta: "Caso 031 · 12 lentes",
-    description: "Reconstrução de bordas",
+    id: "caso-3",
+    meta: "Caso real · facetas naturais",
+    description: "Harmonização do sorriso",
     gradient: "linear-gradient(160deg, #1A1714 0%, #2A2521 55%, #3D311F 100%)",
   },
 ];
@@ -450,7 +450,7 @@ export function Resultados() {
                 textAlign: "left",
               }}
             >
-              <SplitHeading as="span" text="Veja a diferença que ninguém percebe." />
+              <SplitHeading as="span" text="Resultados que respeitam quem você é." />
             </h2>
             <p
               className="mt-6 font-sans"
@@ -461,7 +461,7 @@ export function Resultados() {
                 lineHeight: 1.65,
               }}
             >
-              O melhor elogio para uma lente é parecer dente. Arraste e compare.
+              O melhor elogio para uma faceta é parecer dente. Arraste e compare.
             </p>
           </div>
 

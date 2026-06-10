@@ -8,24 +8,24 @@ type QA = { q: string; a: string };
 
 const ITEMS: QA[] = [
   {
-    q: "Lente de resina estraga o dente?",
-    a: "Não. A técnica que utilizamos é aditiva: a resina é aplicada sobre o esmalte com desgaste mínimo ou nenhum, preservando a estrutura natural do dente.",
+    q: "Vou precisar desgastar meus dentes?",
+    a: "Depende do caso. Em muitas situações é possível realizar facetas sem nenhum desgaste dental. Essa é uma das prioridades do Método NAP.",
   },
   {
-    q: "Quanto tempo dura o resultado?",
-    a: "Com o acompanhamento programado e os retornos de manutenção, o trabalho se mantém bonito por muitos anos. O brilho é renovado em sessões rápidas de polimento.",
+    q: "O resultado fica artificial?",
+    a: "O foco do método é exatamente o oposto: criar um sorriso natural, harmônico e compatível com o seu rosto. Transformar sem descaracterizar.",
   },
   {
-    q: "Vou ficar com sorriso artificial?",
-    a: "Esse é exatamente o problema que o trabalho autoral resolve. Cada lente reproduz translucidez, textura e anatomia do dente natural, desenhadas para o seu rosto.",
+    q: "Preciso fazer todos os dentes?",
+    a: "Não necessariamente. Cada planejamento é individual e considera apenas o que realmente precisa ser melhorado no seu sorriso.",
   },
   {
-    q: "Como funciona a avaliação?",
-    a: "Uma consulta privada de aproximadamente uma hora: análise do rosto e do sorriso, fotografias, discussão de expectativas e apresentação do planejamento e do investimento.",
+    q: "Quanto tempo dura?",
+    a: "A durabilidade depende do material, dos seus hábitos e das manutenções recomendadas. Tudo isso é explicado com clareza na avaliação.",
   },
   {
-    q: "Atendem quem vem de fora da cidade?",
-    a: "Sim. Casos de outras cidades são organizados em agenda concentrada, com menos visitas e sessões mais longas, planejadas antes da sua viagem.",
+    q: "Por que a avaliação é tão importante?",
+    a: "Porque é nela que o Dr. Leonardo entende o seu caso, identifica as possibilidades reais e indica o melhor caminho. Nenhuma decisão é tomada antes disso.",
   },
 ];
 

@@ -8,24 +8,28 @@ type Slide = {
   description: string;
 };
 
+// DEPOIMENTO_REAL_AQUI — substituir pelos depoimentos reais dos pacientes.
 const SLIDES: Slide[] = [
   {
+    // DEPOIMENTO_REAL_AQUI
     quote:
-      "Eu tinha pavor de ficar com cara de dente de porcelana. Ficou tão natural que minha própria mãe demorou uma semana para perceber.",
-    name: "Mariana R.",
-    description: "10 lentes em resina",
+      "Ficou exatamente como eu queria: natural. Ninguém percebeu o que mudou, só notaram que algo no meu sorriso ficou melhor.",
+    name: "Paciente · caso real",
+    description: "Facetas naturais",
   },
   {
+    // DEPOIMENTO_REAL_AQUI
     quote:
-      "O planejamento digital me convenceu. Vi o resultado antes de começar e o que foi entregue ficou idêntico ao que aprovei.",
-    name: "Eduardo T.",
-    description: "8 lentes em resina",
+      "O cuidado em cada detalhe me deixou tranquila do começo ao fim. O resultado parece que sempre foi meu.",
+    name: "Paciente · caso real",
+    description: "Facetas naturais",
   },
   {
+    // DEPOIMENTO_REAL_AQUI
     quote:
-      "Atendimento de outro nível. Sala só para mim, horário respeitado ao minuto e acompanhamento direto com o doutor depois da entrega.",
-    name: "Camila S.",
-    description: "12 lentes em resina",
+      "Atendimento atencioso e um trabalho impecável. Saí com a sensação de ter sido realmente ouvida.",
+    name: "Paciente · caso real",
+    description: "Facetas naturais",
   },
 ];
 
