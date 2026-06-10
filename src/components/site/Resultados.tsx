@@ -108,7 +108,7 @@ function Comparator() {
         style={{
           aspectRatio: "16 / 10",
           borderRadius: 0,
-          border: "1px solid rgba(255,255,255,0.10)",
+          border: "1px solid var(--border-strong)",
           touchAction: "none",
         }}
         onPointerDown={(e) => {
@@ -138,12 +138,12 @@ function Comparator() {
           style={{
             fontSize: 10,
             letterSpacing: "0.35em",
-            color: "rgba(242,238,230,0.85)",
-            background: "rgba(11,10,8,0.6)",
+            color: "rgba(var(--text-rgb), 0.85)",
+            background: "rgba(var(--bg-rgb), 0.6)",
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
             borderRadius: 0,
-            border: "1px solid rgba(255,255,255,0.08)",
+            border: "1px solid var(--border)",
           }}
         >
           ANTES
@@ -153,8 +153,8 @@ function Comparator() {
           style={{
             fontSize: 10,
             letterSpacing: "0.35em",
-            color: "rgba(242,238,230,0.85)",
-            background: "rgba(11,10,8,0.6)",
+            color: "rgba(var(--text-rgb), 0.85)",
+            background: "rgba(var(--bg-rgb), 0.6)",
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
             borderRadius: 0,
@@ -193,7 +193,7 @@ function Comparator() {
             transform: "translate(-50%, -50%)",
             borderRadius: 0,
             border: "1px solid rgba(217,180,91,0.6)",
-            background: "rgba(11,10,8,0.5)",
+            background: "rgba(var(--bg-rgb), 0.5)",
             backdropFilter: "blur(10px)",
             WebkitBackdropFilter: "blur(10px)",
             cursor: "ew-resize",
@@ -236,7 +236,7 @@ function PlaceholderPanel({ variant }: { variant: "antes" | "depois" }) {
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(closest-side at 50% 50%, rgba(255,255,255,0.06), transparent 70%)",
+            "radial-gradient(closest-side at 50% 50%, var(--border-soft), transparent 70%)",
         }}
       />
       <span
@@ -244,7 +244,7 @@ function PlaceholderPanel({ variant }: { variant: "antes" | "depois" }) {
         style={{
           fontSize: 10,
           letterSpacing: "0.35em",
-          color: "rgba(242,238,230,0.45)",
+          color: "rgba(var(--text-rgb), 0.45)",
         }}
       >
         FOTOGRAFIA DO CASO
@@ -360,7 +360,7 @@ function TiltCard({
           style={{
             aspectRatio: "4 / 5",
             borderRadius: 0,
-            border: "1px solid rgba(255,255,255,0.08)",
+            border: "1px solid var(--border)",
             background: c.gradient,
             rotateX: rx,
             rotateY: ry,
@@ -373,7 +373,7 @@ function TiltCard({
             className="pointer-events-none absolute inset-0"
             style={{
               backgroundImage:
-                "radial-gradient(closest-side at 50% 40%, rgba(255,255,255,0.05), transparent 70%)",
+                "radial-gradient(closest-side at 50% 40%, rgba(var(--text-rgb), 0.05), transparent 70%)",
             }}
           />
 
@@ -383,7 +383,7 @@ function TiltCard({
             className="pointer-events-none absolute -inset-x-1/3 -inset-y-1/4 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             style={{
               background:
-                "linear-gradient(115deg, transparent 38%, rgba(255,255,255,0.08) 50%, transparent 62%)",
+                "linear-gradient(115deg, transparent 38%, var(--border) 50%, transparent 62%)",
               left: sx,
             }}
           />
@@ -393,10 +393,10 @@ function TiltCard({
             className="absolute inset-x-4 bottom-4 px-5 py-4"
             style={{
               borderRadius: 0,
-              background: "rgba(11,10,8,0.55)",
+              background: "rgba(var(--bg-rgb), 0.55)",
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              border: "1px solid var(--border)",
             }}
           >
             <div
@@ -404,7 +404,7 @@ function TiltCard({
               style={{
                 fontSize: 13,
                 letterSpacing: "0.16em",
-                color: "rgba(242,238,230,0.92)",
+                color: "rgba(var(--text-rgb), 0.92)",
                 fontWeight: 400,
               }}
             >
@@ -414,7 +414,7 @@ function TiltCard({
               className="mt-1.5 font-sans"
               style={{
                 fontSize: 13,
-                color: "#A39C8E",
+                color: "var(--muted-text)",
               }}
             >
               {c.description}
@@ -454,7 +454,7 @@ export function Resultados() {
             className="resultados-lede mt-6 font-sans"
             style={{
               maxWidth: 720,
-              color: "#A39C8E",
+              color: "var(--muted-text)",
               fontSize: 16,
               lineHeight: 1.65,
             }}

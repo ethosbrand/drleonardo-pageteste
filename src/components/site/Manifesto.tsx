@@ -115,7 +115,7 @@ export function Manifesto() {
             className="mt-6 font-sans"
             style={{
               maxWidth: 560,
-              color: "#A39C8E",
+              color: "var(--muted-text)",
               fontSize: 17,
               lineHeight: 1.65,
             }}
@@ -131,15 +131,15 @@ export function Manifesto() {
               <article
                 className="medo-card group relative h-full overflow-hidden"
                 style={{
-                  background: "#141210",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
                   borderRadius: 0,
                   transition: "border-color 0.5s ease",
                 }}
               >
                 <div
                   className="relative w-full overflow-hidden"
-                  style={{ aspectRatio: "4 / 3", background: "#0B0A08" }}
+                  style={{ aspectRatio: "4 / 3", background: "var(--bg)" }}
                 >
                   <img
                     src={c.img}
@@ -169,7 +169,7 @@ export function Manifesto() {
                     style={{
                       fontSize: 14,
                       lineHeight: 1.6,
-                      color: "#A39C8E",
+                      color: "var(--muted-text)",
                     }}
                   >
                     {c.body}
@@ -218,7 +218,7 @@ export function Manifesto() {
             className="text-[11px] uppercase"
             style={{
               letterSpacing: "0.35em",
-              color: "rgba(242,238,230,0.55)",
+              color: "rgba(var(--text-rgb), 0.55)",
             }}
           >
             Dr. Leonardo Gomes · CRO-MG 00000

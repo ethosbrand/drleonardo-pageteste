@@ -68,10 +68,10 @@ export function NavBar() {
       <header
         className="fixed inset-x-0 top-0 z-50 transition-all duration-700"
         style={{
-          backgroundColor: scrolled ? "rgba(11,10,8,0.85)" : "transparent",
+          backgroundColor: scrolled ? "rgba(var(--bg-rgb), 0.85)" : "transparent",
           backdropFilter: scrolled ? "blur(12px)" : "none",
           borderBottom: scrolled
-            ? "1px solid rgba(255,255,255,0.08)"
+            ? "1px solid var(--border)"
             : "1px solid transparent",
         }}
       >
@@ -187,7 +187,7 @@ export function NavBar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: EASE }}
             className="fixed inset-0 z-30 flex flex-col items-center justify-center lg:hidden"
-            style={{ backgroundColor: "#0B0A08" }}
+            style={{ backgroundColor: "var(--bg)" }}
           >
             <nav className="flex flex-col items-center gap-8">
               {LINKS.map((l, i) => (

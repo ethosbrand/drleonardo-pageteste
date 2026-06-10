@@ -17,7 +17,7 @@ type Step = {
   Icon: () => React.ReactElement;
 };
 
-const ICON_STROKE = "rgba(242,238,230,0.7)";
+const ICON_STROKE = "rgba(var(--text-rgb), 0.7)";
 
 function IconStudy() {
   return (
@@ -191,7 +191,7 @@ export function Metodo() {
             <span
               aria-hidden
               className="absolute inset-0 block"
-              style={{ background: "rgba(255,255,255,0.06)" }}
+              style={{ background: "var(--border-soft)" }}
             />
             <span
               ref={progressRef}
@@ -216,8 +216,8 @@ export function Metodo() {
                     }}
                     className="metodo-card group relative overflow-hidden"
                     style={{
-                      background: "#141210",
-                      border: "1px solid rgba(255,255,255,0.08)",
+                      background: "var(--surface)",
+                      border: "1px solid var(--border)",
                       borderRadius: 0,
                       padding: 48,
                       transition: "border-color 0.5s ease, box-shadow 0.5s ease",
@@ -239,7 +239,7 @@ export function Metodo() {
                           fontSize: 14,
                           letterSpacing: "0.18em",
                           fontWeight: 400,
-                          color: "rgba(242,238,230,0.7)",
+                          color: "rgba(var(--text-rgb), 0.7)",
                         }}
                       >
                         {s.num} · {s.kicker}
@@ -260,7 +260,7 @@ export function Metodo() {
                         style={{
                           fontSize: 16,
                           lineHeight: 1.65,
-                          color: "#A39C8E",
+                          color: "var(--muted-text)",
                           maxWidth: 520,
                         }}
                       >
