@@ -28,8 +28,8 @@ export function NoiseOverlay() {
         backgroundImage: `url("${NOISE_SVG}")`,
         backgroundRepeat: "repeat",
         backgroundSize: mobile ? "480px 480px" : "240px 240px",
-        opacity: mobile ? 0.025 : 0.035,
-        mixBlendMode: "overlay",
+        opacity: "var(--noise-opacity)" as any,
+        mixBlendMode: "var(--noise-blend)" as any,
       }}
     />
   );
