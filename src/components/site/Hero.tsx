@@ -226,48 +226,28 @@ export function Hero() {
             <Eyebrow>MÉTODO NAP · NATURALIDADE, ANATOMIA E PRESERVAÇÃO</Eyebrow>
           </Fade>
 
-          <div
-            className="mt-10 text-left"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 300,
-              fontSize: "clamp(48px, 6.5vw, 104px)",
-              lineHeight: 1.02,
-              letterSpacing: "-0.02em",
-            }}
-          >
-            <SplitHeading
-              as="h1"
-              text="Um sorriso novo,"
+          <Fade delay={0.5} className="mt-10">
+            <h1
               className="m-0"
-              stagger={0.03}
-              delay={0.5}
-            />
-
-            <div className="mt-1">
-              <span
-                className="inline-block overflow-hidden align-bottom"
-                style={{ lineHeight: 1 }}
-              >
-                {reduce ? (
-                  <span>que continua sendo seu.</span>
-                ) : (
-                  <motion.span
-                    className="inline-block"
-                    initial={{ y: "110%" }}
-                    animate={{ y: "0%" }}
-                    transition={{ duration: 1, ease: EASE, delay: 1.05 }}
-                  >
-                    <GoldText>
-                      <em style={{ fontStyle: "italic", fontWeight: 300 }}>
-                        que continua sendo seu.
-                      </em>
-                    </GoldText>
-                  </motion.span>
-                )}
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 300,
+                fontSize: "clamp(40px, 5vw, 84px)",
+                lineHeight: 1.05,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              <span className="block">Um sorriso novo,</span>
+              <span className="block" style={{ whiteSpace: "nowrap" }}>
+                <GoldText>
+                  <em style={{ fontStyle: "italic", fontWeight: 300 }}>
+                    que continua sendo seu.
+                  </em>
+                </GoldText>
               </span>
-            </div>
-          </div>
+            </h1>
+          </Fade>
+
 
           <Fade delay={1.4} className="mt-8" >
             <p
