@@ -1,232 +1,185 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useRef, useState } from "react";
 import { Eyebrow } from "@/components/fx/Eyebrow";
+import { Reveal } from "@/components/fx/Reveal";
+import video1 from "@/assets/depoimento-1.mp4.asset.json";
+import video2 from "@/assets/depoimento-2.mp4.asset.json";
 
-type Slide = {
+type Item = {
+  video: string;
   quote: string;
   name: string;
   description: string;
 };
 
-// DEPOIMENTO_REAL_AQUI — substituir pelos depoimentos reais dos pacientes.
-const SLIDES: Slide[] = [
+const ITEMS: Item[] = [
   {
-    // DEPOIMENTO_REAL_AQUI
+    video: video1.url,
     quote:
       "Ficou exatamente como eu queria: natural. Ninguém percebeu o que mudou, só notaram que algo no meu sorriso ficou melhor.",
     name: "Paciente · caso real",
     description: "Facetas naturais",
   },
   {
-    // DEPOIMENTO_REAL_AQUI
+    video: video2.url,
     quote:
       "O cuidado em cada detalhe me deixou tranquila do começo ao fim. O resultado parece que sempre foi meu.",
     name: "Paciente · caso real",
     description: "Facetas naturais",
   },
-  {
-    // DEPOIMENTO_REAL_AQUI
-    quote:
-      "Atendimento atencioso e um trabalho impecável. Saí com a sensação de ter sido realmente ouvida.",
-    name: "Paciente · caso real",
-    description: "Facetas naturais",
-  },
 ];
 
-const EASE = [0.22, 1, 0.36, 1] as const;
-
-function QuoteMark() {
+function PlayIcon() {
   return (
-    <svg
-      width="220"
-      height="220"
-      viewBox="0 0 120 120"
-      fill="none"
-      stroke="rgba(var(--text-rgb), 0.7)"
-      strokeWidth={1}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M28 78c0-22 10-38 28-46-8 8-12 18-12 28h8c6 0 10 4 10 10v8c0 6-4 10-10 10h-14c-6 0-10-4-10-10Z" />
-      <path d="M70 78c0-22 10-38 28-46-8 8-12 18-12 28h8c6 0 10 4 10 10v8c0 6-4 10-10 10H80c-6 0-10-4-10-10Z" />
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M8 5.5v13l11-6.5L8 5.5Z" fill="#0B0B0B" />
     </svg>
   );
 }
 
-function Arrow({ dir }: { dir: "left" | "right" }) {
+function PauseIcon() {
   return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth={1.25}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      style={{ transform: dir === "left" ? "rotate(180deg)" : undefined }}
-    >
-      <path d="M4 12h15M13 6l6 6-6 6" />
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <rect x="7" y="5" width="3.5" height="14" fill="#0B0B0B" />
+      <rect x="13.5" y="5" width="3.5" height="14" fill="#0B0B0B" />
     </svg>
+  );
+}
+
+function VideoCard({ item, index }: { item: Item; index: number }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const toggle = () => {
+    const v = ref.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+      setPlaying(true);
+    } else {
+      v.pause();
+      setPlaying(false);
+    }
+  };
+
+  const reversed = index % 2 === 1;
+
+  return (
+    <Reveal direction="up" delay={index * 0.12}>
+      <article
+        className="grid grid-cols-1 items-center gap-10 md:gap-14 lg:grid-cols-12"
+      >
+        <div
+          className={`lg:col-span-5 ${reversed ? "lg:order-2" : ""}`}
+        >
+          <div
+            className="relative w-full overflow-hidden"
+            style={{
+              aspectRatio: "9 / 16",
+              maxWidth: 380,
+              margin: "0 auto",
+              border: "1px solid var(--border-strong)",
+              background: "#000",
+            }}
+          >
+            <video
+              ref={ref}
+              src={item.video}
+              className="h-full w-full object-cover"
+              playsInline
+              preload="metadata"
+              onEnded={() => setPlaying(false)}
+              onClick={toggle}
+            />
+            <button
+              type="button"
+              aria-label={playing ? "Pausar vídeo" : "Reproduzir vídeo"}
+              onClick={toggle}
+              className="absolute inset-0 flex items-center justify-center"
+              style={{
+                background: playing
+                  ? "transparent"
+                  : "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%)",
+                transition: "background 0.4s ease",
+              }}
+            >
+              <span
+                className="flex items-center justify-center"
+                style={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: "9999px",
+                  background:
+                    "linear-gradient(135deg, #F6E7C1 0%, #D9B45B 50%, #8A6A1F 100%)",
+                  boxShadow: "0 12px 40px rgba(217,180,91,0.35)",
+                  opacity: playing ? 0 : 1,
+                  transform: playing ? "scale(0.92)" : "scale(1)",
+                  transition: "opacity 0.35s ease, transform 0.35s ease",
+                }}
+              >
+                {playing ? <PauseIcon /> : <PlayIcon />}
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div className={`lg:col-span-7 ${reversed ? "lg:order-1" : ""}`}>
+          <p
+            className="font-display"
+            style={{
+              fontStyle: "italic",
+              fontWeight: 300,
+              fontSize: "clamp(22px, 2.4vw, 32px)",
+              lineHeight: 1.4,
+              letterSpacing: "-0.005em",
+              color: "var(--ivory)",
+            }}
+          >
+            “{item.quote}”
+          </p>
+          <div className="mt-8 flex flex-col gap-3">
+            <span
+              className="font-sans"
+              style={{
+                fontSize: 14,
+                fontWeight: 600,
+                color: "var(--ivory)",
+                letterSpacing: "0.02em",
+              }}
+            >
+              {item.name}
+            </span>
+            <span
+              style={{
+                fontSize: 10,
+                letterSpacing: "0.35em",
+                textTransform: "uppercase",
+                color: "rgba(var(--text-rgb), 0.55)",
+              }}
+            >
+              {item.description}
+            </span>
+          </div>
+        </div>
+      </article>
+    </Reveal>
   );
 }
 
 export function Depoimentos() {
-  const [i, setI] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  const next = useCallback(
-    () => setI((p) => (p + 1) % SLIDES.length),
-    []
-  );
-  const prev = useCallback(
-    () => setI((p) => (p - 1 + SLIDES.length) % SLIDES.length),
-    []
-  );
-
-  const timerRef = useRef<number | null>(null);
-  useEffect(() => {
-    if (paused) return;
-    timerRef.current = window.setTimeout(next, 6000);
-    return () => {
-      if (timerRef.current) window.clearTimeout(timerRef.current);
-    };
-  }, [i, paused, next]);
-
-  const s = SLIDES[i];
-
   return (
     <section
       id="depoimentos"
       className="relative w-full"
       style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
     >
-      <div
-        className="relative mx-auto w-full px-6"
-        style={{ maxWidth: 900 }}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-      >
-        {/* Aspa gigante posicionada fora da margem esquerda (parcialmente cortada) */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute"
-          style={{
-            left: "-110px",
-            top: 40,
-            opacity: 0.4,
-          }}
-        >
-          <QuoteMark />
-        </div>
-
-        <div className="flex flex-col items-start text-left">
-          <div className="relative mt-4 w-full" style={{ minHeight: 260 }}>
-            <div className="pr-16 sm:pr-20">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -16, filter: "blur(6px)" }}
-                  transition={{ duration: 0.7, ease: EASE }}
-                >
-                  <p
-                    className="font-display"
-                    style={{
-                      fontStyle: "italic",
-                      fontWeight: 300,
-                      fontSize: "clamp(24px, 3vw, 38px)",
-                      lineHeight: 1.4,
-                      letterSpacing: "-0.005em",
-                      color: "var(--ivory)",
-                      textAlign: "left",
-                    }}
-                  >
-                    {s.quote}
-                  </p>
-                  <div className="mt-10 flex flex-col items-start gap-3">
-                    <span
-                      className="font-sans"
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 600,
-                        color: "var(--ivory)",
-                        letterSpacing: "0.02em",
-                      }}
-                    >
-                      {s.name}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: 10,
-                        letterSpacing: "0.35em",
-                        textTransform: "uppercase",
-                        color: "rgba(var(--text-rgb), 0.55)",
-                      }}
-                    >
-                      {s.description}
-                    </span>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* Controles: setas + indicadores na mesma linha, alinhados à esquerda */}
-          <div className="mt-12 flex w-full items-center gap-6">
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                aria-label="Depoimento anterior"
-                onClick={prev}
-                className="dep-arrow p-2"
-                style={{ color: "var(--ivory)" }}
-              >
-                <Arrow dir="left" />
-              </button>
-              <button
-                type="button"
-                aria-label="Próximo depoimento"
-                onClick={next}
-                className="dep-arrow dep-arrow-right p-2"
-                style={{ color: "var(--ivory)" }}
-              >
-                <Arrow dir="right" />
-              </button>
-            </div>
-            <div className="flex items-center gap-3">
-              {SLIDES.map((_, idx) => {
-                const active = idx === i;
-                return (
-                  <button
-                    key={idx}
-                    type="button"
-                    aria-label={`Ir para depoimento ${idx + 1}`}
-                    onClick={() => setI(idx)}
-                    style={{
-                      height: 2,
-                      width: active ? 40 : 24,
-                      background: active
-                        ? "linear-gradient(90deg, #F6E7C1 0%, #D9B45B 50%, #8A6A1F 100%)"
-                        : "rgba(var(--text-rgb), 0.25)",
-                      borderRadius: 0,
-                      transition:
-                        "width 0.5s cubic-bezier(0.22,1,0.36,1), background 0.4s ease",
-                    }}
-                  />
-                );
-              })}
-            </div>
-          </div>
+      <div className="mx-auto w-full max-w-[1240px] px-6">
+        <Eyebrow>DEPOIMENTOS</Eyebrow>
+        <div className="mt-20 flex flex-col gap-24">
+          {ITEMS.map((item, i) => (
+            <VideoCard key={i} item={item} index={i} />
+          ))}
         </div>
       </div>
-
-      <style>{`
-        .dep-arrow { transition: color 0.35s ease, transform 0.35s ease; }
-        .dep-arrow:hover { color: #D9B45B; transform: translate(-3px, -50%); }
-        .dep-arrow-right:hover { transform: translate(3px, -50%); }
-      `}</style>
     </section>
   );
 }
