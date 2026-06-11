@@ -164,7 +164,7 @@ export function Experiencia() {
               letterSpacing: "-0.015em",
             }}
           >
-            <SplitHeading as="span" text="O detalhe que você não vê é o que torna o resultado natural." />
+            <SplitHeading as="span" text="Os melhores equipamentos para os melhores resultados." />
           </h2>
           <p
             className="mt-7 font-sans"
