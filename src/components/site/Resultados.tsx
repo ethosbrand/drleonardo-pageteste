@@ -371,7 +371,7 @@ function TiltCard({
             transformStyle: "preserve-3d",
           }}
         >
-          {/* <img src="/cases/{id}.jpg" alt="..." className="h-full w-full object-cover" /> */}
+          <img src={c.img} alt={c.description} className="absolute inset-0 h-full w-full object-cover" draggable={false} />
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0"
