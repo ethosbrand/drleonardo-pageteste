@@ -1,6 +1,7 @@
 import { Eyebrow } from "@/components/fx/Eyebrow";
 import { Reveal } from "@/components/fx/Reveal";
 import { SplitHeading } from "@/components/fx/SplitHeading";
+import leonardoAsset from "@/assets/leonardo.jpg.asset.json";
 
 export function Sobre() {
   return (
@@ -22,26 +23,12 @@ export function Sobre() {
                 background: "var(--surface)",
               }}
             >
-              {/* Placeholder até a foto real ser disponibilizada */}
-              <div
-                className="absolute inset-0 flex items-center justify-center"
-                style={{
-                  background:
-                    "linear-gradient(160deg, rgba(var(--text-rgb), 0.03) 0%, rgba(var(--text-rgb), 0.06) 100%)",
-                }}
-              >
-                <span
-                  className="font-sans"
-                  style={{
-                    fontSize: 12,
-                    letterSpacing: "0.35em",
-                    textTransform: "uppercase",
-                    color: "var(--muted-text)",
-                  }}
-                >
-                  Foto do Dr. Leonardo Gomes
-                </span>
-              </div>
+              <img
+                src={leonardoAsset.url}
+                alt="Dr. Leonardo Gomes"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-0"
