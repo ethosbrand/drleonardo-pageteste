@@ -101,7 +101,7 @@ export function Manifesto() {
 
 
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {CARDS.map((c, i) => (
             <Reveal key={c.title} delay={i * 0.1}>
               <article
@@ -133,23 +133,13 @@ export function Manifesto() {
                     className="font-display font-light"
                     style={{
                       fontSize: 20,
-                      lineHeight: 1.25,
+                      lineHeight: 1.3,
                       letterSpacing: "-0.005em",
                       color: "var(--ivory)",
                     }}
                   >
                     {c.title}
                   </h3>
-                  <p
-                    className="mt-3 font-sans"
-                    style={{
-                      fontSize: 14,
-                      lineHeight: 1.6,
-                      color: "var(--muted-text)",
-                    }}
-                  >
-                    {c.body}
-                  </p>
                 </div>
               </article>
             </Reveal>
@@ -168,16 +158,18 @@ export function Manifesto() {
               maxWidth: 880,
             }}
           >
-            O trabalho do Dr. Leonardo parte de uma ideia simples:{" "}
+            Eu sei, isso assusta. Mas é por isso que eu desenvolvi um{" "}
             <em className="not-italic">
               <GoldText>
                 <span style={{ fontStyle: "italic", fontWeight: 300 }}>
-                  transformar sem descaracterizar.
+                  método natural,
                 </span>
               </GoldText>
-            </em>
+            </em>{" "}
+            que ninguém vai falar que você colocou lentes de resina!
           </p>
         </Reveal>
+
 
         <div className="mt-12 flex flex-col items-start gap-5">
           <span
