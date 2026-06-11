@@ -7,6 +7,9 @@ import { Reveal } from "@/components/fx/Reveal";
 import { SplitHeading } from "@/components/fx/SplitHeading";
 import antesImg from "@/assets/chapoh-antes.png.asset.json";
 import depoisImg from "@/assets/chapoh-depois.png.asset.json";
+import caso1Img from "@/assets/caso-1.jpg.asset.json";
+import caso2Img from "@/assets/caso-2.jpg.asset.json";
+import caso3Img from "@/assets/caso-3.jpg.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -257,26 +260,30 @@ type Case = {
   meta: string;
   description: string;
   gradient: string;
+  img: string;
 };
 
 const CASES: Case[] = [
   {
     id: "caso-1",
     meta: "Caso real · facetas naturais",
-    description: "Fechamento de espaços",
+    description: "Harmonização do sorriso",
     gradient: "var(--ph-case-1)",
+    img: caso1Img.url,
   },
   {
     id: "caso-2",
     meta: "Caso real · facetas naturais",
-    description: "Correção de cor e formato",
+    description: "Fechamento de espaços",
     gradient: "var(--ph-case-2)",
+    img: caso2Img.url,
   },
   {
     id: "caso-3",
     meta: "Caso real · facetas naturais",
-    description: "Harmonização do sorriso",
+    description: "Correção de cor e formato",
     gradient: "var(--ph-case-3)",
+    img: caso3Img.url,
   },
 ];
 
@@ -364,7 +371,7 @@ function TiltCard({
             transformStyle: "preserve-3d",
           }}
         >
-          {/* <img src="/cases/{id}.jpg" alt="..." className="h-full w-full object-cover" /> */}
+          <img src={c.img} alt={c.description} className="absolute inset-0 h-full w-full object-cover" draggable={false} />
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0"
