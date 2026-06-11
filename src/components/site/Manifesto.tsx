@@ -4,9 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Eyebrow } from "@/components/fx/Eyebrow";
 import { GoldText } from "@/components/fx/GoldText";
 import { Reveal } from "@/components/fx/Reveal";
-import medo1 from "@/assets/medo-1.png.asset.json";
+import medo1 from "@/assets/dente-de-piano.png.asset.json";
 import medo2 from "@/assets/medo-2.png.asset.json";
-import medo3 from "@/assets/medo-3.png.asset.json";
+import medo3 from "@/assets/dente-tubarao.png.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
