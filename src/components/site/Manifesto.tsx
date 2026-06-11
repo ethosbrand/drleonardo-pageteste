@@ -7,7 +7,6 @@ import { Reveal } from "@/components/fx/Reveal";
 import medo1 from "@/assets/medo-1.png.asset.json";
 import medo2 from "@/assets/medo-2.png.asset.json";
 import medo3 from "@/assets/medo-3.png.asset.json";
-import medo4 from "@/assets/medo-4.png.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,33 +14,23 @@ type Card = {
   // IMG_MEDO_N — substituir por foto real ilustrando o medo.
   img: string;
   title: string;
-  body: string;
 };
 
 const CARDS: Card[] = [
   {
     // IMG_MEDO_1
     img: medo1.url,
-    title: "Branco demais",
-    body: "O dente cor de papel que entrega o procedimento de longe.",
+    title: "Dentes brancos demais",
   },
   {
     // IMG_MEDO_2
     img: medo2.url,
-    title: "Volume exagerado",
-    body: "Facetas grossas que mudam o formato dos lábios e até a fala.",
+    title: "Dentes quadrados e sem formato natural do sorriso",
   },
   {
     // IMG_MEDO_3
     img: medo3.url,
-    title: "Sorriso de catálogo",
-    body: "O mesmo desenho aplicado em rostos completamente diferentes.",
-  },
-  {
-    // IMG_MEDO_4
-    img: medo4.url,
-    title: "Identidade apagada",
-    body: "A pessoa se olha no espelho e não se reconhece mais.",
+    title: "Mal hálito e amarelamento dos dentes",
   },
 ];
 
