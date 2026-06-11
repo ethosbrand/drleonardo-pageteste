@@ -151,18 +151,30 @@ export function Metodo() {
                     letterSpacing: "-0.015em",
                   }}
                 >
-                  <span className="block">Três letras,</span>
+                  <span className="block">Conheça o</span>
                   <span className="block">
-                    um sorriso{" "}
                     <em className="not-italic">
                       <GoldText>
                         <span style={{ fontStyle: "italic", fontWeight: 300 }}>
-                          com a sua cara.
+                          Método NAP.
                         </span>
                       </GoldText>
                     </em>
                   </span>
                 </h2>
+                <p
+                  className="mt-7 font-sans"
+                  style={{
+                    fontSize: 17,
+                    lineHeight: 1.65,
+                    color: "var(--muted-text)",
+                    maxWidth: 520,
+                  }}
+                >
+                  A metodologia que eu desenvolvi para que os meus pacientes
+                  pudessem melhorar a estética do seu sorriso, sem perder o que
+                  eles têm de mais valor: a naturalidade e autenticidade.
+                </p>
               </div>
 
 
