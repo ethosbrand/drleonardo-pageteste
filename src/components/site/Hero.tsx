@@ -200,9 +200,10 @@ export function Hero() {
               }}
             >
               <span className="block" style={{ whiteSpace: "nowrap" }}>
-                Transforme seu sorriso
+                Transforme o seu
               </span>
               <span className="block" style={{ whiteSpace: "nowrap" }}>
+                sorriso{" "}
                 <GoldText>
                   <em style={{ fontStyle: "italic", fontWeight: 300 }}>
                     sem perder
