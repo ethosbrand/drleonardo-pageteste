@@ -3,6 +3,7 @@ import { createElement, useRef } from "react";
 import { GoldBeams } from "@/components/fx/GoldBeams";
 import { GoldText } from "@/components/fx/GoldText";
 import { MagneticButton } from "@/components/fx/MagneticButton";
+import fundoLeo from "@/assets/fundo-leo.png.asset.json";
 
 
 const EASE = [0.22, 1, 0.36, 1] as const;
