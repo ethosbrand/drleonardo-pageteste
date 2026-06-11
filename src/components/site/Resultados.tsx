@@ -5,6 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Eyebrow } from "@/components/fx/Eyebrow";
 import { Reveal } from "@/components/fx/Reveal";
 import { SplitHeading } from "@/components/fx/SplitHeading";
+import antesImg from "@/assets/chapoh-antes.png.asset.json";
+import depoisImg from "@/assets/chapoh-depois.png.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -119,8 +121,7 @@ function Comparator() {
 
         {/* DEPOIS (full background) */}
         <div className="absolute inset-0">
-          {/* <img src="/cases/depois.jpg" alt="Sorriso após as lentes" className="h-full w-full object-cover" /> */}
-          <PlaceholderPanel variant="depois" />
+          <img src={depoisImg.url} alt="Sorriso após o tratamento" className="h-full w-full object-cover" draggable={false} />
         </div>
 
         {/* ANTES (clipped) */}
@@ -128,8 +129,7 @@ function Comparator() {
           className="absolute inset-0"
           style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         >
-          {/* <img src="/cases/antes.jpg" alt="Sorriso antes do tratamento" className="h-full w-full object-cover" /> */}
-          <PlaceholderPanel variant="antes" />
+          <img src={antesImg.url} alt="Sorriso antes do tratamento" className="h-full w-full object-cover" draggable={false} />
         </div>
 
         {/* Labels */}
