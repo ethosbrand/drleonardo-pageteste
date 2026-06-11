@@ -85,13 +85,13 @@ export function Manifesto() {
               color: "var(--ivory)",
             }}
           >
-            <span className="block">Você quer melhorar o sorriso,</span>
+            <span className="block">Você quer melhorar o seu sorriso,</span>
             <span className="block">
-              mas tem medo de{" "}
+              mas tem medo de que{" "}
               <em className="not-italic">
                 <GoldText>
                   <span style={{ fontStyle: "italic", fontWeight: 300 }}>
-                    ficar artificial?
+                    isso aconteça:
                   </span>
                 </GoldText>
               </em>
@@ -99,20 +99,7 @@ export function Manifesto() {
           </h2>
         </Reveal>
 
-        <Reveal delay={0.1}>
-          <p
-            className="mt-6 font-sans"
-            style={{
-              maxWidth: 560,
-              color: "var(--muted-text)",
-              fontSize: 17,
-              lineHeight: 1.65,
-            }}
-          >
-            Esse é o maior receio de quem pensa em facetas. E ele existe por
-            boas razões:
-          </p>
-        </Reveal>
+
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {CARDS.map((c, i) => (
