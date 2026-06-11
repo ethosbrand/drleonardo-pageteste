@@ -230,11 +230,11 @@ export function Hero() {
                 marginTop: 0,
               }}
             >
-              <span className="block">Um sorriso novo,</span>
-              <span className="block" style={{ whiteSpace: "nowrap" }}>
+              <span className="block">Transforme seu sorriso</span>
+              <span className="block">
                 <GoldText>
                   <em style={{ fontStyle: "italic", fontWeight: 300 }}>
-                    que continua sendo seu.
+                    sem perder a naturalidade!
                   </em>
                 </GoldText>
               </span>
