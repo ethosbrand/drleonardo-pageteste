@@ -86,30 +86,9 @@ function Fade({
   );
 }
 
-// PHOTO_EXPERT — substituir este placeholder pela foto vertical real do doutor.
-// Use uma imagem retrato (proporção 3:4 ou 9:16), iluminação direcional vinda da
-// esquerda do enquadramento (rosto olhando levemente para a esquerda da câmera).
-const PHOTO_EXPERT_SRC =
-  "data:image/svg+xml;utf8," +
-  encodeURIComponent(`
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1400' preserveAspectRatio='xMidYMid slice'>
-      <defs>
-        <radialGradient id='r' cx='40%' cy='32%' r='75%'>
-          <stop offset='0%' stop-color='#3a342b'/>
-          <stop offset='45%' stop-color='#1c1a16'/>
-          <stop offset='100%' stop-color='#0b0a08'/>
-        </radialGradient>
-        <linearGradient id='l' x1='0' y1='0' x2='1' y2='1'>
-          <stop offset='0%' stop-color='#2a251d'/>
-          <stop offset='100%' stop-color='#0b0a08'/>
-        </linearGradient>
-      </defs>
-      <rect width='900' height='1400' fill='url(#l)'/>
-      <ellipse cx='430' cy='520' rx='520' ry='620' fill='url(#r)'/>
-      <ellipse cx='430' cy='450' rx='160' ry='200' fill='#4a4035' opacity='0.55'/>
-      <rect x='270' y='620' width='360' height='780' fill='#241f19' opacity='0.85'/>
-    </svg>
-  `);
+// PHOTO_EXPERT — foto real do Dr. Leonardo (landscape, sujeito à direita,
+// lado esquerdo já fundido em branco/marfim para receber o texto).
+const PHOTO_EXPERT_SRC = fundoLeo.url;
 
 export function Hero() {
   const reduce = useReducedMotion();
