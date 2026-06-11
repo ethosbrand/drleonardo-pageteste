@@ -10,6 +10,7 @@ import { Marquee } from "@/components/site/Marquee";
 import { Manifesto } from "@/components/site/Manifesto";
 import { Metodo } from "@/components/site/Metodo";
 import { Resultados } from "@/components/site/Resultados";
+import { Sobre } from "@/components/site/Sobre";
 import { Experiencia } from "@/components/site/Experiencia";
 import { Depoimentos } from "@/components/site/Depoimentos";
 import { Faq } from "@/components/site/Faq";
@@ -53,6 +54,7 @@ function HomePage() {
       <SignatureCurve />
       <Metodo />
       <Resultados />
+      <Sobre />
       <Experiencia />
       <Depoimentos />
       <Faq />
