@@ -3,6 +3,7 @@ import { createElement, useRef } from "react";
 import { GoldBeams } from "@/components/fx/GoldBeams";
 import { GoldText } from "@/components/fx/GoldText";
 import { MagneticButton } from "@/components/fx/MagneticButton";
+import fundoLeo from "@/assets/fundo-leo.png.asset.json";
 
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -85,30 +86,9 @@ function Fade({
   );
 }
 
-// PHOTO_EXPERT — substituir este placeholder pela foto vertical real do doutor.
-// Use uma imagem retrato (proporção 3:4 ou 9:16), iluminação direcional vinda da
-// esquerda do enquadramento (rosto olhando levemente para a esquerda da câmera).
-const PHOTO_EXPERT_SRC =
-  "data:image/svg+xml;utf8," +
-  encodeURIComponent(`
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 1400' preserveAspectRatio='xMidYMid slice'>
-      <defs>
-        <radialGradient id='r' cx='40%' cy='32%' r='75%'>
-          <stop offset='0%' stop-color='#3a342b'/>
-          <stop offset='45%' stop-color='#1c1a16'/>
-          <stop offset='100%' stop-color='#0b0a08'/>
-        </radialGradient>
-        <linearGradient id='l' x1='0' y1='0' x2='1' y2='1'>
-          <stop offset='0%' stop-color='#2a251d'/>
-          <stop offset='100%' stop-color='#0b0a08'/>
-        </linearGradient>
-      </defs>
-      <rect width='900' height='1400' fill='url(#l)'/>
-      <ellipse cx='430' cy='520' rx='520' ry='620' fill='url(#r)'/>
-      <ellipse cx='430' cy='450' rx='160' ry='200' fill='#4a4035' opacity='0.55'/>
-      <rect x='270' y='620' width='360' height='780' fill='#241f19' opacity='0.85'/>
-    </svg>
-  `);
+// PHOTO_EXPERT — foto real do Dr. Leonardo (landscape, sujeito à direita,
+// lado esquerdo já fundido em branco/marfim para receber o texto).
+const PHOTO_EXPERT_SRC = fundoLeo.url;
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -144,26 +124,13 @@ export function Hero() {
           metade superior (mobile). Parallax sutil + fade ao sair. */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute inset-0 lg:left-[41.6667%]"
+        className="pointer-events-none absolute inset-0"
         style={{
           y: reduce ? 0 : photoY,
           opacity: reduce ? 1 : photoOpacity,
         }}
       >
         <div className="relative h-full w-full">
-          {/* Rim light dourado vertical na borda esquerda da foto */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute top-0 bottom-0"
-            style={{
-              left: "-2px",
-              width: 60,
-              background:
-                "linear-gradient(90deg, rgba(217,180,91,0.55) 0%, rgba(217,180,91,0) 100%)",
-              filter: "blur(40px)",
-              opacity: 0.25,
-            }}
-          />
           {/* PHOTO_EXPERT */}
           <img
             src={PHOTO_EXPERT_SRC}
@@ -171,18 +138,19 @@ export function Hero() {
             className="h-full w-full"
             style={{
               objectFit: "cover",
-              filter: "grayscale(20%) contrast(1.05) brightness(0.85)",
+              objectPosition: "right center",
             }}
           />
-          {/* Máscaras fundem a foto ao fundo da página em ambos os temas. */}
+          {/* Reforço sutil do fade-left no desktop para integrar ao fundo do tema */}
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 hidden lg:block"
             style={{
               background:
-                "linear-gradient(90deg, rgb(var(--photo-mask-rgb)) 0%, rgba(var(--photo-mask-rgb),0.92) 18%, rgba(var(--photo-mask-rgb),0) 35%)",
+                "linear-gradient(90deg, rgb(var(--photo-mask-rgb)) 0%, rgba(var(--photo-mask-rgb),0.6) 12%, rgba(var(--photo-mask-rgb),0) 30%)",
             }}
           />
+          {/* Mobile: escurece a base para legibilidade do texto que cai por cima */}
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 lg:hidden"
@@ -191,6 +159,7 @@ export function Hero() {
                 "linear-gradient(180deg, rgba(var(--photo-mask-rgb),0) 0%, rgba(var(--photo-mask-rgb),0.55) 45%, rgb(var(--photo-mask-rgb)) 75%)",
             }}
           />
+
           <span
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0"
