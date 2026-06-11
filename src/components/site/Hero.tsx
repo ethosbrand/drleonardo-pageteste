@@ -124,26 +124,13 @@ export function Hero() {
           metade superior (mobile). Parallax sutil + fade ao sair. */}
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute inset-0 lg:left-[41.6667%]"
+        className="pointer-events-none absolute inset-0"
         style={{
           y: reduce ? 0 : photoY,
           opacity: reduce ? 1 : photoOpacity,
         }}
       >
         <div className="relative h-full w-full">
-          {/* Rim light dourado vertical na borda esquerda da foto */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute top-0 bottom-0"
-            style={{
-              left: "-2px",
-              width: 60,
-              background:
-                "linear-gradient(90deg, rgba(217,180,91,0.55) 0%, rgba(217,180,91,0) 100%)",
-              filter: "blur(40px)",
-              opacity: 0.25,
-            }}
-          />
           {/* PHOTO_EXPERT */}
           <img
             src={PHOTO_EXPERT_SRC}
@@ -151,18 +138,19 @@ export function Hero() {
             className="h-full w-full"
             style={{
               objectFit: "cover",
-              filter: "grayscale(20%) contrast(1.05) brightness(0.85)",
+              objectPosition: "right center",
             }}
           />
-          {/* Máscaras fundem a foto ao fundo da página em ambos os temas. */}
+          {/* Reforço sutil do fade-left no desktop para integrar ao fundo do tema */}
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 hidden lg:block"
             style={{
               background:
-                "linear-gradient(90deg, rgb(var(--photo-mask-rgb)) 0%, rgba(var(--photo-mask-rgb),0.92) 18%, rgba(var(--photo-mask-rgb),0) 35%)",
+                "linear-gradient(90deg, rgb(var(--photo-mask-rgb)) 0%, rgba(var(--photo-mask-rgb),0.6) 12%, rgba(var(--photo-mask-rgb),0) 30%)",
             }}
           />
+          {/* Mobile: escurece a base para legibilidade do texto que cai por cima */}
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 lg:hidden"
@@ -171,6 +159,7 @@ export function Hero() {
                 "linear-gradient(180deg, rgba(var(--photo-mask-rgb),0) 0%, rgba(var(--photo-mask-rgb),0.55) 45%, rgb(var(--photo-mask-rgb)) 75%)",
             }}
           />
+
           <span
             aria-hidden
             className="pointer-events-none absolute inset-x-0 bottom-0"
