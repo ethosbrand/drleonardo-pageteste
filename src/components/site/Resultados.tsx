@@ -260,26 +260,30 @@ type Case = {
   meta: string;
   description: string;
   gradient: string;
+  img: string;
 };
 
 const CASES: Case[] = [
   {
     id: "caso-1",
     meta: "Caso real · facetas naturais",
-    description: "Fechamento de espaços",
+    description: "Harmonização do sorriso",
     gradient: "var(--ph-case-1)",
+    img: caso1Img.url,
   },
   {
     id: "caso-2",
     meta: "Caso real · facetas naturais",
-    description: "Correção de cor e formato",
+    description: "Fechamento de espaços",
     gradient: "var(--ph-case-2)",
+    img: caso2Img.url,
   },
   {
     id: "caso-3",
     meta: "Caso real · facetas naturais",
-    description: "Harmonização do sorriso",
+    description: "Correção de cor e formato",
     gradient: "var(--ph-case-3)",
+    img: caso3Img.url,
   },
 ];
 
