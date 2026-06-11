@@ -193,21 +193,23 @@ export function Hero() {
               style={{
                 fontFamily: "var(--font-display)",
                 fontWeight: 300,
-                fontSize: "clamp(40px, 5vw, 84px)",
-                lineHeight: 1.05,
+                fontSize: "clamp(32px, 4vw, 64px)",
+                lineHeight: 1.1,
                 letterSpacing: "-0.02em",
                 marginTop: 0,
               }}
             >
-              <span className="block">Transforme seu sorriso</span>
-              <span className="block">
+              <span className="block" style={{ whiteSpace: "nowrap" }}>
+                Transforme seu sorriso
+              </span>
+              <span className="block" style={{ whiteSpace: "nowrap" }}>
                 <GoldText>
                   <em style={{ fontStyle: "italic", fontWeight: 300 }}>
                     sem perder
                   </em>
                 </GoldText>
               </span>
-              <span className="block">
+              <span className="block" style={{ whiteSpace: "nowrap" }}>
                 <GoldText>
                   <em style={{ fontStyle: "italic", fontWeight: 300 }}>
                     a naturalidade!
