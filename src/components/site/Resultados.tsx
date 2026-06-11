@@ -5,6 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Eyebrow } from "@/components/fx/Eyebrow";
 import { Reveal } from "@/components/fx/Reveal";
 import { SplitHeading } from "@/components/fx/SplitHeading";
+import antesImg from "@/assets/chapoh-antes.png.asset.json";
+import depoisImg from "@/assets/chapoh-depois.png.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
