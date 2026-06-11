@@ -203,7 +203,14 @@ export function Hero() {
               <span className="block">
                 <GoldText>
                   <em style={{ fontStyle: "italic", fontWeight: 300 }}>
-                    sem perder a naturalidade!
+                    sem perder
+                  </em>
+                </GoldText>
+              </span>
+              <span className="block">
+                <GoldText>
+                  <em style={{ fontStyle: "italic", fontWeight: 300 }}>
+                    a naturalidade!
                   </em>
                 </GoldText>
               </span>
