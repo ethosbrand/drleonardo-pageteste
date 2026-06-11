@@ -221,11 +221,12 @@ export function Hero() {
           <Fade delay={1.4} className="mt-8" >
             <p
               style={{
-                color: "var(--muted-text)",
-                fontSize: "18px",
-                lineHeight: 1.7,
-                fontFamily: "var(--font-sans)",
-                maxWidth: 620,
+              color: "var(--text)",
+              fontSize: "18px",
+              lineHeight: 1.7,
+              fontFamily: "var(--font-sans)",
+              maxWidth: 620,
+              opacity: 0.92,
               }}
             >
               Facetas naturais planejadas pelo Dr. Leonardo Gomes através do
