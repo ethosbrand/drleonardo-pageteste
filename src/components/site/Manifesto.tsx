@@ -20,7 +20,7 @@ const CARDS: Card[] = [
   {
     // IMG_MEDO_1
     img: medo1.url,
-    title: "Dentes brancos demais",
+    title: "Dentes brancos demais igual piano ou chiclete",
   },
   {
     // IMG_MEDO_2
@@ -30,7 +30,7 @@ const CARDS: Card[] = [
   {
     // IMG_MEDO_3
     img: medo3.url,
-    title: "Mal hálito e amarelamento dos dentes",
+    title: "Dentes desgastados igual de tubarão",
   },
 ];
 
