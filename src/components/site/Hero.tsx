@@ -203,7 +203,14 @@ export function Hero() {
               <span className="block">
                 <GoldText>
                   <em style={{ fontStyle: "italic", fontWeight: 300 }}>
-                    sem perder a naturalidade!
+                    sem perder
+                  </em>
+                </GoldText>
+              </span>
+              <span className="block">
+                <GoldText>
+                  <em style={{ fontStyle: "italic", fontWeight: 300 }}>
+                    a naturalidade!
                   </em>
                 </GoldText>
               </span>
@@ -214,11 +221,12 @@ export function Hero() {
           <Fade delay={1.4} className="mt-8" >
             <p
               style={{
-                color: "var(--muted-text)",
-                fontSize: "18px",
-                lineHeight: 1.7,
-                fontFamily: "var(--font-sans)",
-                maxWidth: 620,
+              color: "var(--text)",
+              fontSize: "18px",
+              lineHeight: 1.7,
+              fontFamily: "var(--font-sans)",
+              maxWidth: 620,
+              opacity: 0.92,
               }}
             >
               Facetas naturais planejadas pelo Dr. Leonardo Gomes através do
