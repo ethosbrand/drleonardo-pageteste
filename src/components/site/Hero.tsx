@@ -246,15 +246,10 @@ export function Hero() {
             className="hero-ctas mt-12 flex flex-wrap md:flex-nowrap items-center justify-start gap-6"
           >
 
-            <MagneticButton
-              onClick={() => {
-                import("@/components/site/BookingModal").then((m) =>
-                  m.openBookingModal(),
-                );
-              }}
-            >
+            <MagneticButton onClick={() => openBookingModal()}>
               Quero agendar minha avaliação
             </MagneticButton>
+
 
             <a
               href="#metodo"
