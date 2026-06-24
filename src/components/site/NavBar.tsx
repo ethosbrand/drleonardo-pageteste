@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/fx/MagneticButton";
 import { ThemeToggle } from "@/components/fx/ThemeToggle";
+import { openBookingModal } from "@/components/site/BookingModal";
 import leoLogo from "@/assets/leo-logo.png.asset.json";
+
 
 const LINKS = [
   { href: "#medo", label: "O Medo" },
