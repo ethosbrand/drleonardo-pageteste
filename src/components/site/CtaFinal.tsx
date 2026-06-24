@@ -4,8 +4,8 @@ import { GoldBeams } from "@/components/fx/GoldBeams";
 import { GoldText } from "@/components/fx/GoldText";
 import { MagneticButton } from "@/components/fx/MagneticButton";
 import { SplitHeading } from "@/components/fx/SplitHeading";
+import { openBookingModal } from "@/components/site/BookingModal";
 
-const WHATSAPP_URL = "https://wa.me/5500000000000";
 
 export function CtaFinal() {
   return (
