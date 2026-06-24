@@ -169,8 +169,8 @@ export function Depoimentos() {
   return (
     <section
       id="depoimentos"
-      className="relative w-full"
-      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
+      className="relative w-full py-24 md:py-40"
+      style={{ overflowX: "clip" }}
     >
       <div className="mx-auto w-full max-w-[1240px] px-6">
         <Eyebrow>DEPOIMENTOS</Eyebrow>
