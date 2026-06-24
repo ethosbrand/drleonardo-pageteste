@@ -11,8 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { BookingModal } from "../components/site/BookingModal";
-
 
 function NotFoundComponent() {
   return (
@@ -79,18 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Odontologia Avançada is a premium digital experience for bespoke resin dental veneers." },
+      { title: "Dr Leonardo Gomes" },
+      { name: "description", content: "Odontologia Avançada" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Odontologia Avançada is a premium digital experience for bespoke resin dental veneers." },
+      { property: "og:title", content: "Dr Leonardo Gomes" },
+      { property: "og:description", content: "Odontologia Avançada" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Odontologia Avançada is a premium digital experience for bespoke resin dental veneers." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d6728323-855a-4076-99cc-40e08de9e328/id-preview-0f4c496f--152575f0-d6b5-40c4-94fa-ebb5cddc8851.lovable.app-1781121192221.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d6728323-855a-4076-99cc-40e08de9e328/id-preview-0f4c496f--152575f0-d6b5-40c4-94fa-ebb5cddc8851.lovable.app-1781121192221.png" },
+      { name: "twitter:title", content: "Dr Leonardo Gomes" },
+      { name: "twitter:description", content: "Odontologia Avançada" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/28a4fb6f-a6a6-454c-bc5b-3ed9b71a7fa4" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/28a4fb6f-a6a6-454c-bc5b-3ed9b71a7fa4" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -132,8 +130,6 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
-      <BookingModal />
     </QueryClientProvider>
   );
 }
-
