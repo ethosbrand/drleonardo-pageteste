@@ -2,7 +2,7 @@ import { Eyebrow } from "@/components/fx/Eyebrow";
 
 import { GoldBeams } from "@/components/fx/GoldBeams";
 import { SplitHeading } from "@/components/fx/SplitHeading";
-import equipamentoImg from "@/assets/dentista-equipamento.jpg.asset.json";
+import equipamentoImg from "@/assets/dentista-equipamento.jpg";
 
 /* --------------------------- ICONS (marfim) --------------------------- */
 
