@@ -399,40 +399,38 @@ function TiltCard({
               left: sx,
             }}
           />
+        </motion.article>
 
-          {/* Glass meta bar */}
+        {/* Meta caption below the image */}
+        <div
+          className="mt-4"
+          style={{
+            borderRadius: 0,
+            borderTop: "1px solid var(--border)",
+            paddingTop: 12,
+          }}
+        >
           <div
-            className="absolute inset-x-4 bottom-4 px-5 py-4"
+            className="font-display"
             style={{
-              borderRadius: 0,
-              background: "rgba(var(--bg-rgb), 0.55)",
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
-              border: "1px solid var(--border)",
+              fontSize: 13,
+              letterSpacing: "0.16em",
+              color: "rgba(var(--text-rgb), 0.92)",
+              fontWeight: 400,
             }}
           >
-            <div
-              className="font-display"
-              style={{
-                fontSize: 13,
-                letterSpacing: "0.16em",
-                color: "rgba(var(--text-rgb), 0.92)",
-                fontWeight: 400,
-              }}
-            >
-              {c.meta}
-            </div>
-            <div
-              className="mt-1.5 font-sans"
-              style={{
-                fontSize: 13,
-                color: "var(--muted-text)",
-              }}
-            >
-              {c.description}
-            </div>
+            {c.meta}
           </div>
-        </motion.article>
+          <div
+            className="mt-1.5 font-sans"
+            style={{
+              fontSize: 13,
+              color: "var(--muted-text)",
+            }}
+          >
+            {c.description}
+          </div>
+        </div>
       </div>
     </Reveal>
   );
