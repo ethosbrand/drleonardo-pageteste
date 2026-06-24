@@ -61,7 +61,7 @@ export function Localizacao() {
                         letterSpacing: "-0.01em",
                       }}
                     >
-                      Aura Dental Atelier
+                      Odontologia Avançada
                     </span>
                     Rua Brasil, 234
                     <br />
