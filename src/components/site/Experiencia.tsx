@@ -142,8 +142,8 @@ export function Experiencia() {
   return (
     <section
       id="precisao"
-      className="relative w-full"
-      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
+      className="relative w-full py-24 md:py-40"
+      style={{ overflowX: "clip" }}
     >
 
       <div
@@ -185,16 +185,33 @@ export function Experiencia() {
               </p>
             </div>
 
+            {/* Imagem mobile: aparece entre o texto e os cards, com máscara na metade inferior */}
+            <div className="lg:hidden">
+              <img
+                src={equipamentoImg}
+                alt="Dr. Leonardo Gomes utilizando microscópio odontológico"
+                className="w-full object-cover"
+                style={{
+                  borderRadius: 0,
+                  WebkitMaskImage:
+                    "linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%)",
+                  maskImage:
+                    "linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%)",
+                }}
+                loading="lazy"
+              />
+            </div>
+
             {/* Cards aninhados na coluna esquerda */}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="-mt-24 grid grid-cols-1 gap-6 md:grid-cols-2 lg:mt-0">
               {FEATURES.map((f, i) => (
                 <GlassCard key={i} f={f} />
               ))}
             </div>
           </div>
 
-          {/* coluna direita: imagem preenchendo toda a altura */}
-          <div className="lg:col-span-5">
+          {/* coluna direita: imagem preenchendo toda a altura (somente desktop) */}
+          <div className="hidden lg:col-span-5 lg:block">
             <img
               src={equipamentoImg}
               alt="Dr. Leonardo Gomes utilizando microscópio odontológico"
