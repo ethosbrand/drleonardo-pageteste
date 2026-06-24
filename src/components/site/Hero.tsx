@@ -245,14 +245,15 @@ export function Hero() {
           >
 
             <MagneticButton
-              onClick={() =>
-                document
-                  .querySelector("#cta")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+              onClick={() => {
+                import("@/components/site/BookingModal").then((m) =>
+                  m.openBookingModal(),
+                );
+              }}
             >
               Quero agendar minha avaliação
             </MagneticButton>
+
             <a
               href="#metodo"
               className="group relative inline-flex items-center gap-3 text-[13px] uppercase tracking-[0.18em]"
