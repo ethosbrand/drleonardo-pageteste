@@ -82,6 +82,7 @@ export function Metodo() {
   const cardRefs = useRef<Array<HTMLElement | null>>([]);
   const progressRef = useRef<HTMLSpanElement>(null);
   const [active, setActive] = useState(0);
+  const letterContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -178,21 +179,28 @@ export function Metodo() {
               </div>
 
 
-              <div className="mt-12 hidden lg:block" style={{ height: 120 }}>
-                <div className="relative h-full">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={STEPS[active].num}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute inset-0 font-display"
-                      style={{ fontSize: 96, lineHeight: 1, fontWeight: 300 }}
+              <div className="mt-14 hidden lg:block">
+                <div
+                  ref={letterContainerRef}
+                  className="flex flex-col items-start gap-2"
+                >
+                  {STEPS.map((s, i) => (
+                    <span
+                      key={s.num}
+                      className="font-display transition-all duration-500"
+                      style={{
+                        fontSize: 72,
+                        lineHeight: 1,
+                        fontWeight: 300,
+                        color:
+                          i === active
+                            ? "#D9B45B"
+                            : "rgba(var(--text-rgb), 0.35)",
+                      }}
                     >
-                      <GoldText>{STEPS[active].num}</GoldText>
-                    </motion.div>
-                  </AnimatePresence>
+                      {s.num}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
