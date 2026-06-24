@@ -5,8 +5,7 @@ import { SplitHeading } from "@/components/fx/SplitHeading";
 const MAP_EMBED_URL =
   "https://maps.google.com/maps?q=Rua+Brasil+234,+Santa+Cruz,+Coronel+Fabriciano,+MG,+35170253&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
-const MAP_LINK_URL =
-  "https://www.google.com/maps/search/?api=1&query=Rua+Brasil+234,+Santa+Cruz,+Coronel+Fabriciano,+MG,+35170253";
+const MAP_LINK_URL = "https://maps.app.goo.gl/jLtDFBeVwqzXzsxr8";
 
 export function Localizacao() {
   return (
@@ -76,27 +75,17 @@ export function Localizacao() {
                   href={MAP_LINK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 font-sans"
+                  className="group inline-flex items-center font-sans underline underline-offset-4"
                   style={{
                     fontSize: 13,
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
                     color: "var(--muted-text)",
                     fontWeight: 500,
+                    textDecorationColor: "#d9b45b",
                   }}
                 >
-                  <span
-                    className="inline-block"
-                    style={{
-                      width: 32,
-                      height: 1,
-                      background: "var(--gold-gradient)",
-                      transition: "width 0.4s cubic-bezier(0.22,1,0.36,1)",
-                    }}
-                  />
-                  <span
-                    className="transition-colors duration-300 group-hover:text-[#D9B45B]"
-                  >
+                  <span className="transition-colors duration-300 group-hover:text-[#D9B45B]">
                     Abrir no Google Maps
                   </span>
                 </a>
