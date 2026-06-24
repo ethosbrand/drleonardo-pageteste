@@ -75,27 +75,17 @@ export function Localizacao() {
                   href={MAP_LINK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 font-sans"
+                  className="group inline-flex items-center font-sans underline underline-offset-4"
                   style={{
                     fontSize: 13,
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
                     color: "var(--muted-text)",
                     fontWeight: 500,
+                    textDecorationColor: "var(--gold)",
                   }}
                 >
-                  <span
-                    className="inline-block"
-                    style={{
-                      width: 32,
-                      height: 1,
-                      background: "var(--gold-gradient)",
-                      transition: "width 0.4s cubic-bezier(0.22,1,0.36,1)",
-                    }}
-                  />
-                  <span
-                    className="transition-colors duration-300 group-hover:text-[#D9B45B]"
-                  >
+                  <span className="transition-colors duration-300 group-hover:text-[#D9B45B]">
                     Abrir no Google Maps
                   </span>
                 </a>
