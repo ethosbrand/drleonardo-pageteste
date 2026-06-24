@@ -151,12 +151,10 @@ export function NavBar() {
             <ThemeToggle className="hidden md:inline-flex" />
             <div className="hidden md:block" style={{ marginLeft: -8 }}>
               <MagneticButton
-                onClick={() => {
-                  const el = document.querySelector("#cta");
-                  el?.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={() => openBookingModal()}
                 className="!px-6 !py-3 !text-[11px]"
               >
+
                 Agendar avaliação
               </MagneticButton>
             </div>
