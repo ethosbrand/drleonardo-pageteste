@@ -112,18 +112,29 @@ export function Metodo() {
       }
 
       const onScroll = () => {
-        const threshold = window.innerHeight * 0.6;
+        const viewportCenter = window.innerHeight / 2;
         let next = 0;
+        let bestDist = Infinity;
         cardRefs.current.forEach((card, i) => {
           if (!card) return;
-          const top = card.getBoundingClientRect().top;
-          if (top < threshold) next = i;
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.top + rect.height / 2;
+          const dist = Math.abs(cardCenter - viewportCenter);
+          if (dist < bestDist) {
+            bestDist = dist;
+            next = i;
+          }
         });
         setActive((prev) => (prev === next ? prev : next));
       };
       window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
       onScroll();
-      return () => window.removeEventListener("scroll", onScroll);
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("resize", onScroll);
+      };
+
 
     }, section);
 
