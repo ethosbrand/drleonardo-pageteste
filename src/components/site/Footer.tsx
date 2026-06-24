@@ -22,7 +22,7 @@ export function Footer() {
             Leonardo Gomes
           </span>
           <a
-            href="https://instagram.com/drleonardogomes_"
+            href="https://www.instagram.com/drleonardogomes_/"
             target="_blank"
             rel="noopener noreferrer"
             className="footer-ig group inline-flex items-center gap-2"
