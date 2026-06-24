@@ -2,6 +2,7 @@ import { Eyebrow } from "@/components/fx/Eyebrow";
 
 import { GoldBeams } from "@/components/fx/GoldBeams";
 import { SplitHeading } from "@/components/fx/SplitHeading";
+import equipamentoImg from "@/assets/dentista-equipamento.jpg.asset.json";
 
 /* --------------------------- ICONS (marfim) --------------------------- */
 
@@ -154,31 +155,42 @@ export function Experiencia() {
       </div>
 
       <div className="relative mx-auto w-full max-w-[1240px] px-6">
-        <div className="max-w-[760px]">
-          <Eyebrow>PRECISÃO</Eyebrow>
-          <h2
-            className="mt-8 font-display font-light"
-            style={{
-              fontSize: "clamp(36px, 4.5vw, 56px)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.015em",
-            }}
-          >
-            <SplitHeading as="span" text="Os melhores equipamentos para os melhores resultados." />
-          </h2>
-          <p
-            className="mt-7 font-sans"
-            style={{
-              fontSize: 17,
-              lineHeight: 1.65,
-              color: "var(--muted-text)",
-              maxWidth: 640,
-            }}
-          >
-            Na estética dental, o resultado final mora nos detalhes. Por isso o
-            Dr. Leonardo trabalha com microscópio odontológico e planejamento
-            individual em cada etapa.
-          </p>
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <Eyebrow>PRECISÃO</Eyebrow>
+            <h2
+              className="mt-8 font-display font-light"
+              style={{
+                fontSize: "clamp(36px, 4.5vw, 56px)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.015em",
+              }}
+            >
+              <SplitHeading as="span" text="Os melhores equipamentos para os melhores resultados." />
+            </h2>
+            <p
+              className="mt-7 font-sans"
+              style={{
+                fontSize: 17,
+                lineHeight: 1.65,
+                color: "var(--muted-text)",
+                maxWidth: 640,
+              }}
+            >
+              Na estética dental, o resultado final mora nos detalhes. Por isso o
+              Dr. Leonardo trabalha com microscópio odontológico e planejamento
+              individual em cada etapa.
+            </p>
+          </div>
+          <div className="lg:col-span-5">
+            <img
+              src={equipamentoImg.url}
+              alt="Dr. Leonardo Gomes utilizando microscópio odontológico"
+              className="w-full object-cover"
+              style={{ borderRadius: 0 }}
+              loading="lazy"
+            />
+          </div>
         </div>
 
         {/* Bento 7/5 · 5/7 */}
