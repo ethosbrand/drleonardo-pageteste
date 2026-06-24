@@ -140,8 +140,8 @@ export function Metodo() {
       <div className="mx-auto w-full max-w-[1240px] px-6">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-12">
           {/* LEFT */}
-          <div className="self-start lg:col-span-5">
-            <div className="lg:sticky lg:top-[120px]">
+          <div className="lg:col-span-5">
+            <div>
               <Eyebrow>O MÉTODO</Eyebrow>
               <div className="mt-8">
                 <h2
@@ -180,31 +180,36 @@ export function Metodo() {
 
 
               <div className="mt-14 hidden lg:block">
-                <div
-                  ref={letterContainerRef}
-                  className="flex flex-col items-start gap-2"
-                >
-                  {STEPS.map((s, i) => (
-                    <span
-                      key={s.num}
-                      className="font-display transition-all duration-500"
-                      style={{
-                        fontSize: 72,
-                        lineHeight: 1,
-                        fontWeight: 300,
-                        color:
-                          i === active
-                            ? "#D9B45B"
-                            : "rgba(var(--text-rgb), 0.35)",
-                      }}
-                    >
-                      {s.num}
-                    </span>
-                  ))}
+                <div className="lg:sticky lg:top-[140px]">
+                  <div
+                    ref={letterContainerRef}
+                    className="flex flex-col items-start gap-4"
+                  >
+                    {STEPS.map((s, i) => (
+                      <span
+                        key={s.num}
+                        className="font-display transition-all duration-500"
+                        style={{
+                          fontSize: 120,
+                          lineHeight: 0.95,
+                          fontWeight: 300,
+                          letterSpacing: "-0.02em",
+                          color:
+                            i === active
+                              ? "#D9B45B"
+                              : "rgba(var(--text-rgb), 0.28)",
+                          transform: i === active ? "translateX(6px)" : "none",
+                        }}
+                      >
+                        {s.num}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
 
           {/* MIDDLE progress line */}
           <div className="pointer-events-none absolute left-1/2 top-[160px] bottom-[160px] hidden w-px -translate-x-1/2 lg:block">
