@@ -479,10 +479,44 @@ export function Resultados() {
           <Comparator />
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4" style={{ marginTop: 48 }}>
+        {/* Desktop: grid interativo */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ marginTop: 48 }}>
           {CASES.map((c, i) => (
             <TiltCard key={c.id} c={c} index={i} />
           ))}
+        </div>
+
+        {/* Mobile: carrossel animado horizontal com loop */}
+        <div className="md:hidden case-carousel overflow-hidden" style={{ marginTop: 48 }}>
+          <div className="case-carousel-track">
+            {[...CASES, ...CASES].map((c, i) => (
+              <div key={`${c.id}-${i}`} className="case-carousel-item">
+                <img src={c.img} alt={c.description} draggable={false} />
+                <div className="case-carousel-meta">
+                  <div
+                    className="font-display"
+                    style={{
+                      fontSize: 13,
+                      letterSpacing: "0.16em",
+                      color: "rgba(var(--text-rgb), 0.92)",
+                      fontWeight: 400,
+                    }}
+                  >
+                    {c.meta}
+                  </div>
+                  <div
+                    className="mt-1.5 font-sans"
+                    style={{
+                      fontSize: 13,
+                      color: "var(--muted-text)",
+                    }}
+                  >
+                    {c.description}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
