@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/fx/MagneticButton";
 import { ThemeToggle } from "@/components/fx/ThemeToggle";
+import { openBookingModal } from "@/components/site/BookingModal";
 import leoLogo from "@/assets/leo-logo.png.asset.json";
+
 
 const LINKS = [
   { href: "#medo", label: "O Medo" },
@@ -149,12 +151,10 @@ export function NavBar() {
             <ThemeToggle className="hidden md:inline-flex" />
             <div className="hidden md:block" style={{ marginLeft: -8 }}>
               <MagneticButton
-                onClick={() => {
-                  const el = document.querySelector("#cta");
-                  el?.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={() => openBookingModal()}
                 className="!px-6 !py-3 !text-[11px]"
               >
+
                 Agendar avaliação
               </MagneticButton>
             </div>
@@ -223,9 +223,10 @@ export function NavBar() {
                 <MagneticButton
                   onClick={() => {
                     setOpen(false);
-                    document.querySelector("#cta")?.scrollIntoView({ behavior: "smooth" });
+                    openBookingModal();
                   }}
                 >
+
                   Agendar avaliação
                 </MagneticButton>
               </motion.div>

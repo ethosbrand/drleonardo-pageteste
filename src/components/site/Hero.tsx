@@ -3,6 +3,8 @@ import { createElement, useRef } from "react";
 import { GoldBeams } from "@/components/fx/GoldBeams";
 import { GoldText } from "@/components/fx/GoldText";
 import { MagneticButton } from "@/components/fx/MagneticButton";
+import { openBookingModal } from "@/components/site/BookingModal";
+
 import fundoLeo from "@/assets/fundo-leo.png.asset.json";
 
 
@@ -244,15 +246,11 @@ export function Hero() {
             className="hero-ctas mt-12 flex flex-wrap md:flex-nowrap items-center justify-start gap-6"
           >
 
-            <MagneticButton
-              onClick={() =>
-                document
-                  .querySelector("#cta")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-            >
+            <MagneticButton onClick={() => openBookingModal()}>
               Quero agendar minha avaliação
             </MagneticButton>
+
+
             <a
               href="#metodo"
               className="group relative inline-flex items-center gap-3 text-[13px] uppercase tracking-[0.18em]"
