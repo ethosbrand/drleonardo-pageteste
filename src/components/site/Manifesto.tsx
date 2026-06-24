@@ -69,8 +69,8 @@ export function Manifesto() {
     <section
       ref={sectionRef}
       id="medo"
-      className="relative w-full"
-      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
+      className="relative w-full py-24 md:py-40"
+      style={{ overflowX: "clip" }}
     >
       <div className="relative mx-auto w-full max-w-[1240px] px-6">
         <Eyebrow>O MAIOR MEDO</Eyebrow>

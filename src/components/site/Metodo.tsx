@@ -145,8 +145,8 @@ export function Metodo() {
     <section
       ref={sectionRef}
       id="metodo"
-      className="relative w-full"
-      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
+      className="relative w-full py-24 md:py-40"
+      style={{ overflowX: "clip" }}
     >
       <div className="mx-auto w-full max-w-[1240px] px-6">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-12">

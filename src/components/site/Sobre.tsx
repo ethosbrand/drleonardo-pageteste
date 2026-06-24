@@ -7,8 +7,8 @@ export function Sobre() {
   return (
     <section
       id="sobre"
-      className="relative w-full"
-      style={{ paddingTop: 160, paddingBottom: 160, overflowX: "clip" }}
+      className="relative w-full py-24 md:py-40"
+      style={{ overflowX: "clip" }}
     >
       <div className="mx-auto w-full max-w-[1240px] px-6">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
