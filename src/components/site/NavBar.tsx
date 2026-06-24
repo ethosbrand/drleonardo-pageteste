@@ -223,9 +223,10 @@ export function NavBar() {
                 <MagneticButton
                   onClick={() => {
                     setOpen(false);
-                    document.querySelector("#cta")?.scrollIntoView({ behavior: "smooth" });
+                    openBookingModal();
                   }}
                 >
+
                   Agendar avaliação
                 </MagneticButton>
               </motion.div>
