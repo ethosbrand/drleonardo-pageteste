@@ -196,7 +196,7 @@ export function Experiencia() {
           {/* coluna direita: imagem preenchendo toda a altura */}
           <div className="lg:col-span-5">
             <img
-              src={equipamentoImg.url}
+              src={equipamentoImg}
               alt="Dr. Leonardo Gomes utilizando microscópio odontológico"
               className="h-full w-full object-cover"
               style={{ borderRadius: 0 }}
