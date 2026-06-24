@@ -82,6 +82,7 @@ export function Metodo() {
   const cardRefs = useRef<Array<HTMLElement | null>>([]);
   const progressRef = useRef<HTMLSpanElement>(null);
   const [active, setActive] = useState(0);
+  const letterContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
