@@ -481,7 +481,7 @@ export function Resultados() {
           <Comparator />
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" style={{ marginTop: 48 }}>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4" style={{ marginTop: 48 }}>
           {CASES.map((c, i) => (
             <TiltCard key={c.id} c={c} index={i} />
           ))}
