@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/fx/MagneticButton";
 import { ThemeToggle } from "@/components/fx/ThemeToggle";
+import leoLogo from "@/assets/leo-logo.png.asset.json";
 
 const LINKS = [
   { href: "#medo", label: "O Medo" },
@@ -78,12 +79,11 @@ export function NavBar() {
       >
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-6 px-6 py-5 md:px-10">
           <a href="#top" className="flex items-baseline gap-3" aria-label="Leonardo Gomes">
-            <span
-              className="text-[20px] leading-none"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-            >
-              Leonardo Gomes
-            </span>
+            <img
+              src={leoLogo.url}
+              alt="Leonardo Gomes"
+              style={{ height: 36, width: "auto", display: "block" }}
+            />
             <span className="hidden items-baseline gap-3 sm:flex">
               <span
                 aria-hidden
