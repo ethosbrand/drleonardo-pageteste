@@ -3,6 +3,8 @@ import { createElement, useRef } from "react";
 import { GoldBeams } from "@/components/fx/GoldBeams";
 import { GoldText } from "@/components/fx/GoldText";
 import { MagneticButton } from "@/components/fx/MagneticButton";
+import { openBookingModal } from "@/components/site/BookingModal";
+
 import fundoLeo from "@/assets/fundo-leo.png.asset.json";
 
 
