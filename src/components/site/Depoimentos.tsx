@@ -16,14 +16,14 @@ const ITEMS: Item[] = [
     video: video1.url,
     quote:
       "Ficou exatamente como eu queria: natural. Ninguém percebeu o que mudou, só notaram que algo no meu sorriso ficou melhor.",
-    name: "Paciente · caso real",
+    name: "Rosemary · Caso real",
     description: "Facetas naturais",
   },
   {
     video: video2.url,
     quote:
-      "O cuidado em cada detalhe me deixou tranquila do começo ao fim. O resultado parece que sempre foi meu.",
-    name: "Paciente · caso real",
+      "O cuidado em cada detalhe me deixou tranquilo do começo ao fim. O resultado parece que sempre foi meu.",
+    name: "Alan · Caso real",
     description: "Facetas naturais",
   },
 ];
