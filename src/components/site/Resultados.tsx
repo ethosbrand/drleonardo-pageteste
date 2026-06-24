@@ -10,6 +10,7 @@ import depoisImg from "@/assets/chapoh-depois.png.asset.json";
 import caso1Img from "@/assets/caso-1.jpg.asset.json";
 import caso2Img from "@/assets/caso-2.jpg.asset.json";
 import caso3Img from "@/assets/caso-3.jpg.asset.json";
+import alexImg from "@/assets/alex-antes-depois.png.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
