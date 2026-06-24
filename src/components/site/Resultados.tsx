@@ -286,6 +286,13 @@ const CASES: Case[] = [
     gradient: "var(--ph-case-3)",
     img: caso3Img.url,
   },
+  {
+    id: "caso-alex",
+    meta: "Alex · Caso real",
+    description: "Facetas naturais",
+    gradient: "var(--ph-case-1)",
+    img: alexImg.url,
+  },
 ];
 
 function TiltCard({
@@ -469,40 +476,9 @@ export function Resultados() {
 
         </div>
 
-        {/* Comparador + novo caso lado a lado */}
-        <div
-          className="grid grid-cols-1 gap-6 lg:grid-cols-2"
-          style={{ marginTop: 64 }}
-        >
+        {/* Comparador antes/depois */}
+        <div style={{ marginTop: 64 }}>
           <Comparator />
-          <div className="flex flex-col">
-            <div
-              className="relative w-full overflow-hidden"
-              style={{
-                aspectRatio: "16 / 10",
-                borderRadius: 0,
-                border: "1px solid var(--border-strong)",
-              }}
-            >
-              <img
-                src={alexImg.url}
-                alt="Alex · antes e depois"
-                className="h-full w-full object-cover"
-                draggable={false}
-              />
-            </div>
-            <span
-              className="mt-3 inline-block"
-              style={{
-                fontSize: 11,
-                letterSpacing: "0.25em",
-                textTransform: "uppercase",
-                color: "rgba(var(--text-rgb), 0.55)",
-              }}
-            >
-              Alex · Caso real
-            </span>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" style={{ marginTop: 48 }}>
