@@ -195,7 +195,7 @@ export function Metodo() {
                         color:
                           i === active
                             ? "#D9B45B"
-                            : "rgba(var(--text-rgb), 0.15)",
+                            : "rgba(var(--text-rgb), 0.35)",
                       }}
                     >
                       {s.num}
