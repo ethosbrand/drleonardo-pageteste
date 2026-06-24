@@ -11,8 +11,8 @@ export function CtaFinal() {
   return (
     <section
       id="cta"
-      className="relative flex w-full items-center justify-center"
-      style={{ minHeight: "80vh", paddingTop: 120, paddingBottom: 120, overflowX: "clip" }}
+      className="relative flex w-full items-center justify-center py-20 md:py-32"
+      style={{ minHeight: "80vh", overflowX: "clip" }}
     >
       <GoldBeams intensity={1.4} />
 
