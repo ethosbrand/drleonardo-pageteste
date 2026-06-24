@@ -82,7 +82,7 @@ export function Localizacao() {
                     textTransform: "uppercase",
                     color: "var(--muted-text)",
                     fontWeight: 500,
-                    textDecorationColor: "var(--gold)",
+                    textDecorationColor: "#d9b45b",
                   }}
                 >
                   <span className="transition-colors duration-300 group-hover:text-[#D9B45B]">
