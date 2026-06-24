@@ -59,6 +59,7 @@ function HomePage() {
       <Experiencia />
       <Depoimentos />
       <Faq />
+      <Localizacao />
       <CtaFinal />
       <Footer />
     </main>
