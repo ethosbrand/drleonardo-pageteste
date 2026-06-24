@@ -163,32 +163,23 @@ export function Hero() {
                 "linear-gradient(90deg, rgb(var(--photo-mask-rgb)) 0%, rgba(var(--photo-mask-rgb),0.6) 12%, rgba(var(--photo-mask-rgb),0) 30%)",
             }}
           />
-          {/* Mobile: escurece a base para legibilidade do texto que cai por cima */}
+          {/* Mobile: escurece apenas a base onde o texto aparece (a partir de ~50vh) */}
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 lg:hidden"
             style={{
               background:
-                "linear-gradient(180deg, rgba(var(--photo-mask-rgb),0) 0%, rgba(var(--photo-mask-rgb),0.55) 45%, rgb(var(--photo-mask-rgb)) 75%)",
+                "linear-gradient(180deg, rgba(var(--photo-mask-rgb),0) 0%, rgba(var(--photo-mask-rgb),0) 50%, rgba(var(--photo-mask-rgb),0.6) 70%, rgb(var(--photo-mask-rgb)) 100%)",
             }}
           />
 
           <span
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0"
+            className="pointer-events-none absolute inset-x-0 bottom-0 lg:hidden"
             style={{
-              height: "25%",
+              height: "35%",
               background:
-                "linear-gradient(180deg, rgba(var(--photo-mask-rgb),0) 0%, rgb(var(--photo-mask-rgb)) 100%)",
-            }}
-          />
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-0"
-            style={{
-              height: "30%",
-              background:
-                "linear-gradient(180deg, rgba(var(--photo-mask-rgb),0.55) 0%, rgba(var(--photo-mask-rgb),0) 100%)",
+                "linear-gradient(180deg, rgba(var(--photo-mask-rgb),0) 0%, rgba(var(--photo-mask-rgb),0.55) 30%, rgb(var(--photo-mask-rgb)) 100%)",
             }}
           />
         </div>
