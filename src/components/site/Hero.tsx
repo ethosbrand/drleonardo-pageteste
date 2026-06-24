@@ -6,6 +6,7 @@ import { MagneticButton } from "@/components/fx/MagneticButton";
 import { openBookingModal } from "@/components/site/BookingModal";
 
 import fundoLeo from "@/assets/fundo-leo.png.asset.json";
+import heroMobile from "@/assets/hero-mobile.png.asset.json";
 
 
 const EASE = [0.22, 1, 0.36, 1] as const;
