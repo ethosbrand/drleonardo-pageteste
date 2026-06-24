@@ -14,6 +14,7 @@ import { Sobre } from "@/components/site/Sobre";
 import { Experiencia } from "@/components/site/Experiencia";
 import { Depoimentos } from "@/components/site/Depoimentos";
 import { Faq } from "@/components/site/Faq";
+import { Localizacao } from "@/components/site/Localizacao";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Footer } from "@/components/site/Footer";
 
@@ -58,6 +59,7 @@ function HomePage() {
       <Experiencia />
       <Depoimentos />
       <Faq />
+      <Localizacao />
       <CtaFinal />
       <Footer />
     </main>
