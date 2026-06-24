@@ -5,8 +5,7 @@ import { SplitHeading } from "@/components/fx/SplitHeading";
 const MAP_EMBED_URL =
   "https://maps.google.com/maps?q=Rua+Brasil+234,+Santa+Cruz,+Coronel+Fabriciano,+MG,+35170253&t=&z=16&ie=UTF8&iwloc=&output=embed";
 
-const MAP_LINK_URL =
-  "https://www.google.com/maps/search/?api=1&query=Rua+Brasil+234,+Santa+Cruz,+Coronel+Fabriciano,+MG,+35170253";
+const MAP_LINK_URL = "https://maps.app.goo.gl/jLtDFBeVwqzXzsxr8";
 
 export function Localizacao() {
   return (
