@@ -134,14 +134,24 @@ export function Hero() {
         }}
       >
         <div className="relative h-full w-full">
-          {/* PHOTO_EXPERT */}
+          {/* PHOTO_EXPERT — desktop */}
           <img
             src={PHOTO_EXPERT_SRC}
             alt=""
-            className="h-full w-full"
+            className="hidden h-full w-full lg:block"
             style={{
               objectFit: "cover",
               objectPosition: "right center",
+            }}
+          />
+          {/* PHOTO_EXPERT — mobile */}
+          <img
+            src={heroMobile.url}
+            alt=""
+            className="h-full w-full lg:hidden"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center top",
             }}
           />
           {/* Reforço sutil do fade-left no desktop para integrar ao fundo do tema */}
