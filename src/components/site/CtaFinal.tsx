@@ -52,11 +52,12 @@ export function CtaFinal() {
 
         <div className="mt-12">
           <MagneticButton
-            onClick={() => window.open(WHATSAPP_URL, "_blank", "noopener,noreferrer")}
+            onClick={() => openBookingModal()}
             style={{ padding: "22px 40px", fontSize: 14 }}
           >
             Agendar avaliação pelo WhatsApp
           </MagneticButton>
+
         </div>
 
         <span
