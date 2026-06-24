@@ -73,7 +73,7 @@ export function Footer() {
             color: "var(--muted-text)",
           }}
         >
-          <span>DR. LEONARDO GOMES · CRO-MG 00000 · RESPONSÁVEL TÉCNICO</span>
+          <span>DR. LEONARDO GOMES · CRO-MG 55311 · RESPONSÁVEL TÉCNICO</span>
           <span>CORONEL FABRICIANO, MG</span>
         </div>
 

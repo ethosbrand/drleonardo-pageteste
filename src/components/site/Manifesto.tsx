@@ -189,7 +189,7 @@ export function Manifesto() {
               color: "rgba(var(--text-rgb), 0.55)",
             }}
           >
-            Dr. Leonardo Gomes · CRO-MG 00000
+            Dr. Leonardo Gomes · CRO-MG 55311
           </span>
         </div>
       </div>
