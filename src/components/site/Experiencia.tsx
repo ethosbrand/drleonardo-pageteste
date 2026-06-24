@@ -155,60 +155,55 @@ export function Experiencia() {
       </div>
 
       <div className="relative mx-auto w-full max-w-[1240px] px-6">
-        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <Eyebrow>PRECISÃO</Eyebrow>
-            <h2
-              className="mt-8 font-display font-light"
-              style={{
-                fontSize: "clamp(36px, 4.5vw, 56px)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.015em",
-              }}
-            >
-              <SplitHeading as="span" text="Os melhores equipamentos para os melhores resultados." />
-            </h2>
-            <p
-              className="mt-7 font-sans"
-              style={{
-                fontSize: 17,
-                lineHeight: 1.65,
-                color: "var(--muted-text)",
-                maxWidth: 640,
-              }}
-            >
-              Na estética dental, o resultado final mora nos detalhes. Por isso o
-              Dr. Leonardo trabalha com microscópio odontológico e planejamento
-              individual em cada etapa.
-            </p>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch">
+          {/* coluna esquerda: texto + cards */}
+          <div className="flex flex-col gap-6 lg:col-span-7">
+            <div>
+              <Eyebrow>PRECISÃO</Eyebrow>
+              <h2
+                className="mt-8 font-display font-light"
+                style={{
+                  fontSize: "clamp(36px, 4.5vw, 56px)",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.015em",
+                }}
+              >
+                <SplitHeading as="span" text="Os melhores equipamentos para os melhores resultados." />
+              </h2>
+              <p
+                className="mt-7 font-sans"
+                style={{
+                  fontSize: 17,
+                  lineHeight: 1.65,
+                  color: "var(--muted-text)",
+                  maxWidth: 640,
+                }}
+              >
+                Na estética dental, o resultado final mora nos detalhes. Por isso o
+                Dr. Leonardo trabalha com microscópio odontológico e planejamento
+                individual em cada etapa.
+              </p>
+            </div>
+
+            {/* Cards aninhados na coluna esquerda */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {FEATURES.map((f, i) => (
+                <GlassCard key={i} f={f} />
+              ))}
+            </div>
           </div>
+
+          {/* coluna direita: imagem preenchendo toda a altura */}
           <div className="lg:col-span-5">
             <img
               src={equipamentoImg.url}
               alt="Dr. Leonardo Gomes utilizando microscópio odontológico"
-              className="w-full object-cover"
+              className="h-full w-full object-cover"
               style={{ borderRadius: 0 }}
               loading="lazy"
             />
           </div>
         </div>
-
-        {/* Bento 7/5 · 5/7 */}
-        <div className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-12">
-          <div className="md:col-span-7">
-            <GlassCard f={FEATURES[0]} />
-          </div>
-          <div className="md:col-span-5">
-            <GlassCard f={FEATURES[1]} />
-          </div>
-          <div className="md:col-span-5">
-            <GlassCard f={FEATURES[2]} />
-          </div>
-          <div className="md:col-span-7">
-            <GlassCard f={FEATURES[3]} />
-          </div>
-        </div>
-
       </div>
 
       <style>{`
