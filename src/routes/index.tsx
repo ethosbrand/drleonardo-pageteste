@@ -63,6 +63,7 @@ function HomePage() {
       <Localizacao />
       <CtaFinal />
       <Footer />
+      <BookingModal />
     </main>
   );
 }
