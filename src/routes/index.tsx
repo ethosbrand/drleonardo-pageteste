@@ -17,6 +17,7 @@ import { Faq } from "@/components/site/Faq";
 import { Localizacao } from "@/components/site/Localizacao";
 import { CtaFinal } from "@/components/site/CtaFinal";
 import { Footer } from "@/components/site/Footer";
+import { BookingModal } from "@/components/site/BookingModal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -62,6 +63,7 @@ function HomePage() {
       <Localizacao />
       <CtaFinal />
       <Footer />
+      <BookingModal />
     </main>
   );
 }
